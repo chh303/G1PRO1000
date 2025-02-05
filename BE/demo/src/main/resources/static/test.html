@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>Server Test</title>
+    </head>
+    <body>
+        <h1>Test interaksjon med server</h1>
+        <label for="nameInput">Skriv inn navnet ditt:</label>
+        <input type="text" id="nameInput" placeholder="Ditt navn">
+
+        <button onclick="checkServer()">Sjekker server</button>
+        <p id="response"></p>
+        
+        <script>
+            function checkServer() {
+                let name = document.getElementById("nameInput").value.trim();
+                if (name === "") name = "Verden";
+
+                fetch(`/api/hello?name=${encodeURIComponent(name)}`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("response").innerText = data;
+                })
+                .catch(error => console.error('Feil!!:', error));
+            }
+        </script>
+    </body>
+</html>
