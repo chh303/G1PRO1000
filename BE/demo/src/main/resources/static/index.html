@@ -83,6 +83,17 @@
         <p id="response"></p>
     </div>
     
+    <!-----------TEST--------->
+    <h2>Skriv inn navn</h2>
+    <input type="text" id="nameField" placeholder="Skriv navn">
+    <button onclick="saveName()">Lagre navn</button>
+    
+    <h2>Lagrede navn:</h2>
+    <pre id="nameList"></pre>
+    
+    <button onclick="loadNames()">Last inn navn</button>
+
+    
     <script>
         function checkServer() {
             let name = document.getElementById("nameInput").value.trim();
@@ -94,6 +105,22 @@
                 document.getElementById("response").innerText = data;
             })
             .catch(error => console.error('Feil!!:', error));
+        }
+
+
+
+        function saveName() {
+            const name = document.getElementById('nameField').value;
+            fetch('/names/save?name=' + encodeURIComponent(name), {
+                method: 'POST'
+            }).then(response => response.text())
+              .then(data => alert(data));
+        }
+
+        function loadNames() {
+            fetch('/names/get')
+                .then(response => response.json())
+                .then(data => document.getElementById('nameList').textContent = data.join("\n"));
         }
     </script>
 </body>
