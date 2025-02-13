@@ -1,10 +1,12 @@
 package com.example.demo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +22,8 @@ public class NameController {
 
     @PostMapping("/save")
     public String saveName(@RequestParam String name) {
-        try {
-            Files.write(Paths.get(FILE_PATH), (name + "\n").getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        try (FileWriter skriver = new FileWriter(FILE_PATH, true)) {
+            skriver.write(name + "\n");
             return "Navn lagret!";
         } catch (IOException e) {
             return "Feil ved lagring av navn: " + e.getMessage();
@@ -30,10 +32,16 @@ public class NameController {
 
     @GetMapping("/get")
     public List<String> getNames() {
-        try {
-            return Files.readAllLines(Paths.get(FILE_PATH));
-        } catch (IOException e) {
+        ArrayList<String> names = new ArrayList<>();
+        File file = new File(FILE_PATH);
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                names.add(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
             return List.of("Feil ved henting av navn: " + e.getMessage());
         }
+        return names;
     }
 }
