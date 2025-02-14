@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/names")
 public class NameController {
 
-    private static final String FILE_PATH = "src/main/resources/static/names.txt";
+    private static final String FILE_PATH = "BE\\demo\\src\\main\\resources\\static\\names.txt";
 
     @PostMapping("/save")
     public String saveName(@RequestParam String name) {
