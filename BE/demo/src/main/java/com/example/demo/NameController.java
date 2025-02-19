@@ -27,7 +27,7 @@ public class NameController {
             return "Navn lagret!";
         } catch (IOException e) {
             return "Feil ved lagring av navn: " + e.getMessage();
-        }
+        } 
     }
 
     @GetMapping("/get")
