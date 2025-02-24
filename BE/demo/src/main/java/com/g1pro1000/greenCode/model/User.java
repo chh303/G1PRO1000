@@ -17,11 +17,11 @@ public class User {
     @Column(nullable = false, unique = true) // Brukernavn kan ikke være null og må være unikt
     private String username;
 
-    @Column(nullable = false) // Passord kan ikke være null
-    private String password;
-
     @Column(nullable = false, unique = true) // E-post kan ikke være null og må være unik
     private String email;
+
+    @Column(nullable = false) // Passord kan ikke være null
+    private String password;
 
     @Column(nullable = false, unique = true) // Telefonnummer kan ikke være null og må være unikt
     private String phone;
@@ -41,8 +41,8 @@ public class User {
      */
     public User(String username, String password, String email, String phone) {
         this.username = username;
-        this.password = password;
         this.email = email;
+        this.password = password;
         this.phone = phone;
     }
 
