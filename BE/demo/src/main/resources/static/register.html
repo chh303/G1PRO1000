@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrering</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        .container { max-width: 400px; margin: auto; }
+        input, button { width: 100%; padding: 10px; margin: 5px 0; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Opprett en konto</h2>
+        <input type="text" id="username" placeholder="Brukernavn" required>
+        <input type="password" id="password" placeholder="Passord" required>
+        <input type="email" id="email" placeholder="E-post" required>
+        <input type="text" id="phone" placeholder="Telefonnummer" required>
+        <button onclick="registerUser()">Registrer</button>
+        <p id="message"></p>
+        <button onclick="window.location.href='login.html'">Har allerede en konto? Logg inn</button>
+    </div>
+
+    <script>
+        function registerUser() {
+            const userData = {
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value
+            };
+
+            fetch("/api/users/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("message").innerText = data;
+            })
+            .catch(error => console.error("Feil ved registrering:", error));
+        }
+    </script>
+
+<button onclick="window.location.href='index.html'">Gå til hjemmesiden</button>
+</body>
+</html>
