@@ -1,6 +1,11 @@
 package com.g1pro1000.greenCode.model; // Angir hvilken pakke denne klassen tilhører
 
-import jakarta.persistence.*; // Importerer nødvendige annotasjoner for databasekartlegging
+import jakarta.persistence.Column; // Importerer nødvendige annotasjoner for databasekartlegging
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  * Brukermodellen representerer en bruker i databasen.
@@ -9,6 +14,7 @@ import jakarta.persistence.*; // Importerer nødvendige annotasjoner for databas
 @Entity // Marker klassen som en database-entitet
 @Table(name = "users") // Angir at denne entiteten lagres i "users"-tabellen i databasen
 public class User {
+
 
     @Id // Marker dette feltet som primærnøkkel (unik identifikator)
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Primærnøkkelen genereres automatisk av databasen
@@ -25,6 +31,9 @@ public class User {
 
     @Column(nullable = false, unique = true) // Telefonnummer kan ikke være null og må være unikt
     private String phone;
+    
+
+    
 
     /**
      * Standard konstruktør kreves av JPA.

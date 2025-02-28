@@ -25,6 +25,50 @@
     <button onclick="window.location.href='register.html'">Registrer deg</button>
     <button onclick="window.location.href='index.html'">Gå til hjemmesiden</button>
 
+    <script>
+        function updateScore(userId) {
+            fetch(`/api/userdetails/update-score/${userId}`,{
+                method: "PUT",
+                headers: { "Content-Type": "application/json"}
+            })
+            .then(response => resposne.text())
+            .then(data =>{
+                console.log("Server response:", data); // Logg svaret fra serveren
+                if (data.includes("Score oppdatert")) {
+                    alert("Score oppdatert med +50!");
+                    fetchUserDetails(userId); // Hent ny score
+                } else {
+                    alert("Feil: " + data);
+                }
+            })
+            .catch(error => {
+                console.error("Feil ved oppdatering av score: ", error);
+                alert("Kunne ikke oppdatere score.");
+            });
+        }
+        function fetchUserDetails(userId) {
+    fetch(`/api/userdetails/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("currentScore").innerText = data.score;
+        })
+        .catch(error => console.error("Feil ved henting av brukerdata:", error));
+}
+
+// Hent brukerens data når siden lastes
+document.addEventListener("DOMContentLoaded", function() {
+    fetchUserDetails(1); // Endre til riktig bruker-ID
+});
+    </script>
+
+<hr> <!-- Skillelinje -->
+
+<div class="container">
+    <h2>Oppdater Score</h2>
+    <p>Bruker-ID: <span id="userId">1</span></p>
+    <p>Nåværende score: <span id ="currentScore">...</span></p>
+    <button onclick="updateScore(1)">Legg til 50 poeng</button>
+</div>
 
     <script>
         function loginUser() {
