@@ -90,5 +90,61 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     </script>
 
+
+
+
+
+
+<h2>Søk etter bruker</h2>
+    
+<input type="text" id="username" placeholder="Skriv inn brukernavn">
+<button onclick="fetchUserByUsername()">Hent Bruker</button>
+
+<div id="user-info"></div>
+
+    <script>
+async function fetchUserByUsername() {
+    const usernameInput = document.getElementById("username");
+    const username = usernameInput.value.trim();
+    const userInfo = document.getElementById("user-info");
+
+    if (!username) {
+        userInfo.innerHTML = "<p style='color: red;'>⚠️ Vennligst skriv inn et brukernavn.</p>";
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:9090/api/users/${username}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            throw new Error(errorMessage || "Ukjent feil ved henting av bruker");
+        }
+
+        const textResponse = await response.text();
+        if (!textResponse) {
+            throw new Error("Server returnerte ingen data");
+        }
+
+        const userData = JSON.parse(textResponse);
+        displayUserData(userData);
+    } catch (error) {
+        userInfo.innerHTML = `<p style='color: red;'>❌ ${error.message}</p>`;
+    }
+}
+
+function displayUserData(user) {
+    document.getElementById("user-info").innerHTML = `
+        <h3>Brukerinformasjon:</h3>
+        <p><strong>Brukernavn:</strong> ${user.username}</p>
+        <p><strong>E-post:</strong> ${user.email || "Ikke tilgjengelig"}</p>
+        <p><strong>Score:</strong> ${user.score || "Ikke registrert"}</p>
+    `;
+}
+    </script>
+
 </body>
 </html>
