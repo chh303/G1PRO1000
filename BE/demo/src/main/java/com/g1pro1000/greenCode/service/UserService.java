@@ -15,7 +15,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); // Oppretter en BCrypt-instans
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder; // Injiserer BCrypt fra SecurityConfig
 
     public String registerUser(User user) {
         Optional<User> existingUser = userRepository.findByUsername(user.getUsername());
@@ -33,7 +34,7 @@ public class UserService {
             return "Telefon nr er allerede registrert!";
         }
 
-        // 🔹 Hashe passordet før vi lagrer det i databasen
+        // Hashe passordet før lagring
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);
@@ -44,18 +45,13 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public String loginUser(String username, String password) {
+    public Optional<User> loginUser(String username, String password) {
         Optional<User> user = userRepository.findByUsername(username);
 
-        if (user.isPresent()) {
-            // 🔹 Bruker BCrypt for å sammenligne passordene
-            if (passwordEncoder.matches(password, user.get().getPassword())) {
-                return "Innlogging vellykket!";
-            } else {
-                return "Feil passord!";
-            }
+        if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
+            return user; // Returnerer brukeren hvis innlogging er vellykket
         } else {
-            return "Bruker ikke funnet!";
+            return Optional.empty(); // Returnerer tomt hvis feil passord eller bruker ikke finnes
         }
     }
 
