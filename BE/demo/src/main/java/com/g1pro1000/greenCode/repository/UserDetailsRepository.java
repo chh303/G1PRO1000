@@ -1,11 +1,11 @@
 package com.g1pro1000.greenCode.repository; 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository; // Importerer JpaRepository for å håndtere databaseoperasjoner
 
-import org.springframework.data.jpa.repository.JpaRepository; // Importerer JpaRepository for å håndtere databaseoperasjoner
-import org.springframework.stereotype.Repository; // Importerer UserDetails-modellen som representerer en rad i databasen
-
-import com.g1pro1000.greenCode.model.UserDetails; // Importerer Optional for å håndtere potensielt tomme databaseforespørsler
+import com.g1pro1000.greenCode.model.UserDetails; // Importerer UserDetails-modellen som representerer en rad i databasen
 
 @Repository
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> {
+ 
     UserDetails findByUser_Id(Long userId); // Merk: _ mellom User og Id
 }
