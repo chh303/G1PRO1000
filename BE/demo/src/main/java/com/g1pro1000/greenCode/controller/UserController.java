@@ -1,13 +1,18 @@
 package com.g1pro1000.greenCode.controller; // Angir hvilken pakke denne klassen tilhører
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
-import com.g1pro1000.greenCode.model.User; // Importerer User-modellen som representerer en bruker
-import com.g1pro1000.greenCode.service.UserService; // Importerer UserService for å håndtere forretningslogikk
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable; // Importerer User-modellen som representerer en bruker
+import org.springframework.web.bind.annotation.PostMapping; // Importerer UserService for å håndtere forretningslogikk
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.g1pro1000.greenCode.model.User;
+import com.g1pro1000.greenCode.service.UserService;
 
 /**
  * UserController håndterer HTTP-forespørsler relatert til brukere.
