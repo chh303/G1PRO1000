@@ -1,13 +1,12 @@
 package com.g1pro1000.greenCode.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import com.g1pro1000.greenCode.model.User;
 import com.g1pro1000.greenCode.repository.UserRepository;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -16,7 +15,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder; // Injiserer BCrypt fra SecurityConfig
+    private PasswordEncoder passwordEncoder; // 🔹 Bruker nå en riktig definert PasswordEncoder
 
     public String registerUser(User user) {
         Optional<User> existingUser = userRepository.findByUsername(user.getUsername());
@@ -34,7 +33,7 @@ public class UserService {
             return "Telefon nr er allerede registrert!";
         }
 
-        // Hashe passordet før lagring
+        // 🔹 Hashe passordet før vi lagrer det i databasen
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepository.save(user);
@@ -49,10 +48,9 @@ public class UserService {
         Optional<User> user = userRepository.findByUsername(username);
 
         if (user.isPresent() && passwordEncoder.matches(password, user.get().getPassword())) {
-            return user; // Returnerer brukeren hvis innlogging er vellykket
+            return user;
         } else {
-            return Optional.empty(); // Returnerer tomt hvis feil passord eller bruker ikke finnes
+            return Optional.empty();
         }
     }
-
 }

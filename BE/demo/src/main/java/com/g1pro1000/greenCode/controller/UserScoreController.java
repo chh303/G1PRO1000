@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import com.g1pro1000.greenCode.model.UserScore;
 import com.g1pro1000.greenCode.service.UserScoreService;
 
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,12 +18,18 @@ public class UserScoreController {
     @Autowired
     private UserScoreService userScoreService;
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<Object> getUserScore(@PathVariable Long userId) {
-        Optional<UserScore> userScore = userScoreService.getUserScore(userId);
-        return userScore.<ResponseEntity<Object>>map(ResponseEntity::ok)
-                        .orElseGet(() -> ResponseEntity.status(404).body("Brukers score ikke funnet"));
+@GetMapping("/{userId}")
+public ResponseEntity<Object> getUserScore(@PathVariable Long userId) {
+    Optional<UserScore> userScore = userScoreService.getUserScore(userId);
+
+    if (userScore.isPresent()) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("score", userScore.get().getScore());  // 🔹 Returnerer riktig score
+        return ResponseEntity.ok(response);
+    } else {
+        return ResponseEntity.status(404).body("Brukers score ikke funnet");
     }
+}
     
 
     @PostMapping("/update")

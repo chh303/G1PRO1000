@@ -4,82 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poengtest</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; text-align: center; }
+        .container { max-width: 400px; margin: auto; }
+        input, button { width: 100%; padding: 10px; margin: 5px 0; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Velkommen, <span id="usernameDisplay">[Brukernavn]</span>!</h2>
+        <p>Din poengsum: <span id="scoreDisplay">0</span></p>
+
+        <button onclick="increaseScore()">Øk poeng med 50</button>
+        <p id="message"></p>
+
+        <button onclick="logout()">Logg ut</button>
+    </div>
+
     <script>
-        let loggedInUserId = null;
+        let loggedInUserId = localStorage.getItem("userId");
+        let loggedInUsername = localStorage.getItem("username");
 
-        async function loginUser() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            const response = await fetch("http://localhost:9090/api/users/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                loggedInUserId = data.userId;
-                document.getElementById("loginForm").style.display = "none";
-                document.getElementById("scoreSection").style.display = "block";
-                getUserScore();
-            } else {
-                document.getElementById("errorMessage").innerText = data.error;
-                document.getElementById("errorMessage").style.display = "block";
-            }
+        // Hvis bruker er logget inn, vis brukernavn
+        if (loggedInUserId) {
+            document.getElementById("usernameDisplay").innerText = loggedInUsername;
+            getUserScore();
+        } else {
+            alert("Du må logge inn først!");
+            window.location.href = "login.html";
         }
 
         async function getUserScore() {
-            if (!loggedInUserId) return;
+    const response = await fetch(`http://localhost:9090/api/score/${loggedInUserId}`);
+    if (response.ok) {
+        const userScore = await response.json();
+        console.log("Hentet score:", userScore); // 🔹 Debugging: Sjekk hva som blir hentet
+        document.getElementById("scoreDisplay").innerText = userScore.score; // 🔹 Oppdaterer poengvisning
+    } else {
+        console.log("Kunne ikke hente score");
+        document.getElementById("scoreDisplay").innerText = "0"; // Hvis ingen score, vis 0
+    }
+}
 
-            const response = await fetch(`http://localhost:9090/api/score/${loggedInUserId}`);
+
+        async function increaseScore() {
+            const response = await fetch("http://localhost:9090/api/score/update", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    userId: loggedInUserId,
+                    score: 50,
+                    achievements: ["Bonus 50"]
+                })
+            });
+
             if (response.ok) {
-                const data = await response.json();
-                document.getElementById("scoreDisplay").innerText = `Din score: ${data.score}`;
+                getUserScore(); // Henter oppdatert score etter knappetrykk
             } else {
-                document.getElementById("scoreDisplay").innerText = "Ingen score funnet.";
+                const errorData = await response.text();
+                alert("Kunne ikke oppdatere score: " + errorData);
             }
         }
 
-        async function increaseScore() {
-    if (!loggedInUserId) {
-        alert("Du må være logget inn for å øke scoren.");
-        return;
-    }
-
-    const response = await fetch("http://localhost:9090/api/score/update", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            userId: loggedInUserId,
-            score: 50,
-            achievements: ["Bonus 50"]
-        })
-    });
-
-    if (response.ok) {
-        getUserScore(); // Henter ny score fra backend
-    } else {
-        const errorData = await response.text();
-        alert("Kunne ikke oppdatere score: " + errorData);
-    }
-}
+        function logout() {
+            localStorage.removeItem("userId");
+            localStorage.removeItem("username");
+            window.location.href = "login.html";
+        }
     </script>
-</head>
-<body>
-    <h1>Poengtest</h1>
 
-    <div id="loginForm">
-        <input type="text" id="username" placeholder="Brukernavn">
-        <input type="password" id="password" placeholder="Passord">
-        <button onclick="loginUser()">Logg inn</button>
-        <p id="errorMessage" style="color: red; display: none;"></p>
-    </div>
-
-    <div id="scoreSection" style="display: none;">
-        <h2 id="scoreDisplay">Din score: 0</h2>
-        <button onclick="increaseScore()">Øk score med 50</button>
-    </div>
 </body>
 </html>
