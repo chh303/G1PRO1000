@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #72BD72; /* Bakgrunnsfarge */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    color: white;
+    font-size: 1.8em;
+}
+
+header .main-nav {
+    display: flex;
+    gap: 8px; /* Mindre avstand mellom knappene */
+    justify-content: center; /* Sentrerer knappene horisontalt */
+    flex: 1;
+}
+
+header nav button {
+    background-color: #72BD72;
+    color: white;
+    border: 2px solid white;
+    padding: 6px 12px; /* Mindre størrelse på knappene */
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 15px; /* Rundere kanter */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+header nav button:hover {
+    background-color: white;
+    color: #72BD72;
+    border-color: #72BD72;
+    transform: scale(1.05); /* Liten animasjon ved hover */
+}
+
+header .auth-buttons {
+    display: flex;
+    gap: 8px; /* Mindre avstand mellom Registrer og Sign In */
+}
+
+header .auth-buttons button {
+    background-color: #72BD72;
+    color: white;
+    border: 2px solid white;
+    padding: 6px 12px; /* Mindre størrelse på autentiseringsknappene */
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+header .auth-buttons button:hover {
+    background-color: white;
+    color: #72BD72;
+    border-color: #72BD72;
+    transform: scale(1.05);
+}

@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrering</title>
-    <link rel="stylesheet" href="/css/registrer.css"> 
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/registrer.css"> 
 </head>
 <body>
     
     <!-- HEADER -->
     <header>
-        <div class="logo">Logo</div>
-        <nav>
-            <ul>
-                <button class="Home" onclick="window.location.href='index.html'">Home</button>
-                <li><a href="#">Forum</a></li>
-                <button class="Tutorial" onclick="window.location.href='tutorial.html'">Tutorial</button>
-                <li><a href="#">Contact</a></li>
-            </ul>
+        <div class="logo">
+            <h1>Min Side</h1>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-button" onclick="window.location.href='hjem.html'">Hjem</button>
+            <button class="nav-button" onclick="window.location.href='tjenester.html'">Tjenester</button>
+            <button class="nav-button" onclick="window.location.href='om-oss.html'">Om oss</button>
+            <button class="nav-button" onclick="window.location.href='kontakt.html'">Kontakt</button>
         </nav>
-        <div class="buttons">
-            <button class="log-in" onclick="window.location.href='login.html'">Sign in</button>
+        <div class="auth-buttons">
+            <button class="auth-button" onclick="window.location.href='registrer.html'">Registrer</button>
+            <button class="auth-button" onclick="window.location.href='sign-in.html'">Sign In</button>
         </div>
     </header>
 
-    <div class="container">
+    <div class="a">
         <h2>Opprett en konto</h2>
         <input type="text" id="username" placeholder="Brukernavn" required>
         <input type="password" id="password" placeholder="Passord" required>
