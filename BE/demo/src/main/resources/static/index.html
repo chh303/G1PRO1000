@@ -3,127 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Code</title>
-    <style>
-        @keyframes easeInn {
-            0% {
-                opacity: 0%;
-            }
-            100% {
-                opacity: 100%;
-            }
-        }
-        body { 
-            animation: easeInn 4s;
-            font-family: Sora; 
-            text-align: center; 
-            padding: 30px; 
-            background-color:white;
-        }
-        h1 { color: rgb(54, 216, 54); }
-        .text { text-align: left;
-             margin-left: 250px; 
-             margin-right: 250px; 
-             padding-left:50px;
-             padding-right:50px; 
-             border: solid;
-             border-radius: 10px;
-             border-color: rgb(54, 216, 54);
-            }
-        .line {
-            height: 3px;
-            background-color: rgb(54, 216, 54);
-        }
-        .navn {
-            padding:50px;
-        }
-        .button {
-            background-color: white;
-            border: none;
-            padding: 5px;
-            outline: 5px solid rgb(54, 216, 54);
-            border-radius: 5px;
-            margin-left: 10px;
-            transition: .2s linear;
-        }
-        .button:active {
-            background-color: white; /* Endre bakgrunnsfarge */
-            color: black;
-            transform: scale(0.95); /* Gir en klikkeffekt */
-            transition: background-color .02s ease, transform .02s ease;
-        }
-        input {
-            border: none;
-            outline: 5px solid rgb(54, 216, 54);
-            padding: 5px;
-            margin-left: 10px;
-            border-radius: 5px;
-        }
-        label {
-            color:black;
-            text-decoration: underline;
-            text-decoration-color:rgb(54, 216, 54) ;
-        }
+    <title>Green Code Tutorial</title>
+    <link rel="stylesheet" href="css/index.css"> 
 
-    </style>
 </head>
 <body>
-    <h1>Velkommen til min Spring Boot-side!!</h1>
-    <p>Dette er en enkel statisk HTML-side.</p>
-    <div class="text">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <div class="line"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-    <div class="navn">
-        <label for="nameInput">Skriv inn navnet ditt:</label>
-        <input type="text" id="nameInput" placeholder="Ditt navn">
 
-        <button class="button" onclick="checkServer()">Sjekker server</button>
-        <p id="response"></p>
-    </div>
-    
-    <!-----------TEST--------->
-    <h2>Skriv inn navn</h2>
-    <input type="text" id="nameField" placeholder="Skriv navn">
-    <button onclick="saveName()">Lagre navn</button>
-    
-    <h2>Lagrede navn:</h2>
-    <pre id="nameList"></pre>
-    
-    <button onclick="loadNames()">Last inn navn</button>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Logo</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Tutorial</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <button class="sign-in">Sign in</button>
+            <button class="register">Register</button>
+        </div>
+    </header>
 
-    <button onclick="window.location.href='register.html'">Registrer deg</button>
-    <button onclick="window.location.href='login.html'">Logg inn</button>
-    
-    <script>
-        function checkServer() {
-            let name = document.getElementById("nameInput").value.trim();
-            if (name === "") name = "Verden";
+    <h1>Green Coding</h1>
+    <div class="intro">Cock and ball torture (CBT) is a sexual activity involving application of pain or constriction to the male genitals. This may involve directly painful activities, such as genital piercing, wax play, genital spanking, squeezing, ball-busting, genital flogging, urethral play, tickle torture, erotic electrostimulation or even kicking. The recipient of such activities may receive direct physical pleasure via masochism, or knowledge that the play is pleasing to a sadistic dominant.</div>
 
-            fetch(`/api/hello?name=${encodeURIComponent(name)}`)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("response").innerText = data;
-            })
-            .catch(error => console.error('Feil!!:', error));
-        }
+    <!-- MAIN CONTENT -->
+    <main>
+        <div id="container">
 
-        /* TEST */
+            <div class="row">
+                <div class="title">Leaderboard</div>
+            </div>
 
-        function saveName() {
-            const name = document.getElementById('nameField').value;
-            fetch('/names/save?name=' + encodeURIComponent(name), {
-                method: 'POST'
-            }).then(response => response.text())
-              .then(data => alert(data));
-        }
+            <div class="row">
+                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
+                <div class="name">Player1</div><div class="score">640</div>
+                <img class="crown" src="images/crown.png" alt="crown" height="40px" width="40px">
+            </div>
+            
 
-        function loadNames() {
-            fetch('/names/get')
-                .then(response => response.json())
-                .then(data => document.getElementById('nameList').textContent = data.join("\n"));
-        }
-    </script>
+            <div class="row">
+                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
+                <div class="name">Player2</div><div class="score">580</div>
+            </div>
+            
+            <div class="row">
+                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
+                <div class="name">Player3</div><div class="score">495</div>
+            </div>
+            
+            <div class="row">
+                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
+                <div class="name">Player4</div><div class="score">300</div>
+            </div>
+            
+            <div class="row">
+                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
+                <div class="name">Player5</div><div class="score">10</div>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="post">
+                <h2>Effektiv Koding</h2>
+                <p>Skriv ren og effektiv kode for å redusere ressursbruk. Bruk kortere og optimaliserte algoritmer.</p>
+            </div>
+            <div class="post">
+                <h2>Bærekraftige Servere</h2>
+                <p>Velg hostingtjenester som bruker fornybar energi. Cloud-leverandører som AWS og Google Cloud har grønne alternativer.</p>
+            </div>
+            <div class="post">
+                <h2>Energieffektiv Backend</h2>
+                <p>Bruk caching og optimaliser databaseforespørsler for å minimere CPU-bruk og strømkonsum.</p>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="socials">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="footer-links">
+            <p>Home | Forum | Tutorial | Contact</p>
+            <p>Sign in | Register</p>
+            <p>Policy | Copyrights | Support</p>
+        </div>
+        <div class="logo-footer">Logo</div>
+        <p class="copyright">All rights reserved</p>
+    </footer>
+
 </body>
 </html>
