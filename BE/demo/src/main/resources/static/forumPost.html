@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Section</title>
+    <link rel="stylesheet" href="css/forumPost.css">
+</head>
+<body>
+    <div class="forum-container">
+        <h2>Write a Post!</h2>
+        <input type="text" id="username" placeholder="Your Name" required>
+        <textarea id="postContent" placeholder="Write your post..." required></textarea>
+        <button onclick="addPost()">Post</button>
+        <div id="forumPosts"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadPosts);
+        
+        function addPost() {
+            const username = document.getElementById("username").value;
+            const content = document.getElementById("postContent").value;
+            if (username.trim() === "" || content.trim() === "") return alert("Both fields are required!");
+            
+            const post = { username, content, timestamp: new Date().toLocaleString() };
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.unshift(post);
+            localStorage.setItem("posts", JSON.stringify(posts));
+            
+            document.getElementById("username").value = "";
+            document.getElementById("postContent").value = "";
+            loadPosts();
+        }
+        
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem("posts")) || [];
+            const forumPosts = document.getElementById("forumPosts");
+            forumPosts.innerHTML = "";
+            
+            posts.forEach(post => {
+                const postDiv = document.createElement("div");
+                postDiv.classList.add("post");
+                postDiv.innerHTML = `<h3>${post.username}</h3><p>${post.content}</p><small>${post.timestamp}</small>`;
+                forumPosts.appendChild(postDiv);
+            });
+        }
+    </script>
+</body>
+</html>
