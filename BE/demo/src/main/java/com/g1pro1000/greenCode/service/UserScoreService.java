@@ -50,4 +50,9 @@ public class UserScoreService {
     public Optional<UserScore> getUserScore(Long userId) {
         return userScoreRepository.findByUserId(userId);
     }
+     //Henter top 10 brukere basert på score
+        public List<UserScore> getLeaderboard() {
+            return userScoreRepository.findAllByOrderByScoreDesc();
+    }
+    
 }
