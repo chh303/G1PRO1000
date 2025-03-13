@@ -1,0 +1,221 @@
+/* LeaderBoard */
+#container {
+	width: 18%;
+    background-color: #72BD72;
+    left: 10%;
+    position: absolute;
+}
+
+.title {
+    font-size: 25px;
+    position: relative;
+    top: 40%;
+}
+
+.row {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 60px;
+}
+
+.name {
+	position: relative;
+	width: 75%;
+	line-height: 45px;
+    text-align: left;
+    padding-left: 60px;
+    color: darkblue;
+}
+
+.score {
+    text-align: left;
+    line-height: 0px;
+    padding-left: 60px;
+    font-size: 90%;
+}
+
+.profile {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+
+.crown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Generell styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 15px 10%;
+    color: white;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.buttons button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sign-in {
+    background: none;
+    color: white;
+}
+
+.register {
+    background: white;
+    color: #4CAF50;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* MAIN CONTENT */
+main {
+    flex: 1; /* Skyver footeren ned */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* GRID CONTAINER */
+.grid-container {
+    position: relative;
+    left: 10%;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.post {
+    background: lightgray;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+    
+}
+
+/* Styling for nummeret */
+.post h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Teksten i boksen */
+.post p {
+    text-align: left;
+    font-size: 16px;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    background: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.socials i {
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.footer-links p {
+    margin: 5px 0;
+}
+
+.logo-footer {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    color: gray;
+}
+
+/* RESPONSIVITET */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Endrer til én kolonne på små skjermer */
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons {
+        margin-top: 10px;
+    }
+}
+
+.container { max-width: 400px; margin: auto; }
+input, button { width: 100%; padding: 10px; margin: 5px 0; }
+button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+button:hover { background-color: #45a049; }
