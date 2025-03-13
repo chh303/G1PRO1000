@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+        .options button:hover {
+            background: #e0e0e0;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Quiz Time!</h2>
+        <p id="question"></p>
+        <div class="options" id="options"></div>
+        <p class="feedback" id="feedback"></p>
+        <button id="nextBtn" style="display:none; margin-top: 10px;" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Paris"
+            },
+            {
+                question: "What is 5 + 3?",
+                options: ["5", "8", "10", "15"],
+                correct: "8"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const questionEl = document.getElementById("question");
+            const optionsEl = document.getElementById("options");
+            const feedbackEl = document.getElementById("feedback");
+            const nextBtn = document.getElementById("nextBtn");
+            
+            feedbackEl.textContent = "";
+            nextBtn.style.display = "none";
+            
+            const questionData = quizData[currentQuestionIndex];
+            questionEl.textContent = questionData.question;
+            optionsEl.innerHTML = "";
+            
+            questionData.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.onclick = () => checkAnswer(button, questionData.correct);
+                optionsEl.appendChild(button);
+            });
+        }
+
+        function checkAnswer(button, correctAnswer) {
+            if (answered) return;
+            answered = true;
+            
+            const feedback = document.getElementById("feedback");
+            const nextBtn = document.getElementById("nextBtn");
+            const buttons = document.querySelectorAll(".options button");
+            
+            buttons.forEach(btn => btn.disabled = true);
+            
+            if (button.innerText === correctAnswer) {
+                feedback.textContent = "Correct! 🎉";
+                feedback.style.color = "green";
+                nextBtn.style.display = "block";
+            } else {
+                feedback.textContent = "Oops! Try again. ❌";
+                feedback.style.color = "red";
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                document.querySelector(".quiz-container").innerHTML = "<h2>Quiz Completed! 🎉</h2>";
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
