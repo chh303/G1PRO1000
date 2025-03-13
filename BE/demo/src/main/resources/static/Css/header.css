@@ -1,0 +1,67 @@
+/* header.css */
+
+/* Generelle stil for headeren */
+header {
+    background-color: #72BD72; /* Grønn bakgrunnsfarge */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Logo-stil */
+  header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  
+  /* Navigasjon-stil */
+  header nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+  }
+  
+  header nav ul li {
+    margin: 0 15px;
+  }
+  
+  header nav button {
+    background-color: #72BD72; /* Grønn bakgrunnsfarge */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  header nav button:hover {
+    background-color: #62a962; /* Litt mørkere grønn ved hover */
+  }
+  
+  /* Stil for knappene i "buttons"-diven */
+  header .buttons {
+    margin-right: 20px;
+  }
+  
+  header .buttons button {
+    background-color: #72BD72; /* Grønn bakgrunnsfarge */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  header .buttons button:hover {
+    background-color: #62a962; /* Litt mørkere grønn ved hover */
+  }
+    

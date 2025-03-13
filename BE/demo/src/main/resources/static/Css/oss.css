@@ -14,53 +14,7 @@ html, body {
     flex-direction: column;
 }
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #4CAF50;
-    padding: 15px 10%;
-    color: white;
-}
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.buttons button {
-    padding: 8px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.sign-in {
-    background: none;
-    color: white;
-}
-
-.register {
-    background: white;
-    color: #4CAF50;
-    border-radius: 5px;
-    font-weight: bold;
-}
 
 /* MAIN CONTENT */
 main {
@@ -173,10 +127,38 @@ h1 {
     margin-left: 40%;
 }
 
-.hassi{
+.image-container img {
+    margin-top: 7%;
+    padding: 10px; /* Mellomrom mellom bildene */
+    max-width: 200px; /* Juster størrelsen på bildene */
+  }
+  
+  .image-container {
     margin-top: 10%;
-    margin-left: 10%;
-}
+    display: flex; /* Plasserer bildene på linje */
+    gap: 10px; /* Mellomrom mellom bildene */
+    flex-wrap: wrap; /* Lar bildene bryte linjen */
+    justify-content: center; /* Sentrerer bildene */
+  }
+  
+  .image-container figure {
+    text-align: center; /* Sentrerer teksten under bildet */
+    margin: 0; /* Fjern standard margin */
+  }
+  
+  .image-container img {
+    max-width: 200px; /* Begrens bildestørrelsen */
+  }
+  
+  .image-container figcaption {
+    font-size: 14px; /* Juster tekststørrelse */
+    color: #555; /* Farge på teksten */
+    margin-top: 5px; /* Mellomrom mellom bilde og tekst */
+  }
   
 
+  h2{
+    margin-top: -17%;
+    margin-left: -2%;
+  }
 
