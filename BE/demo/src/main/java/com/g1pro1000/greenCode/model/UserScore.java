@@ -20,7 +20,7 @@ public class UserScore {
     private int score = 0; // Standardverdi 0 hvis brukeren ikke har deltatt
 
     @ElementCollection // Hibernate håndterer dette som en liste
-    @CollectionTable(name = "user_achievements", joinColumns = @JoinColumn(name = "user_id"))
+    @CollectionTable(name = "user_achievements", joinColumns = @JoinColumn(name = "user_score_id"))
     @Column(name = "achievement")
     private List<String> achievements = new ArrayList<>();
 

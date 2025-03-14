@@ -4,67 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Code Tutorial</title>
-    <link rel="stylesheet" href="css/index.css"> 
-
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
         <div class="logo">Logo</div>
-        <nav>
-            <ul>
-                <button class="#" onclick="window.location.href='index.html'">Home</button>
-                <li><a href="#">Forum</a></li>
-                <button class="#" onclick="window.location.href='tutorial.html'">Tutorial</button>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="buttons">
-            <button class="register" onclick="window.location.href='login.html'">Sign in</button>
-            <button class="register" onclick="window.location.href='register.html'">Registrer deg</button>
+        
+        <div class="header-right">
+            <div class="nav-buttons">
+                <button onclick="window.location.href='case.html'">Case</button>
+                <button onclick="window.location.href='tutorial.html'">Verktøy</button>
+                <button onclick="window.location.href='forum.html'">Forum</button>
+                <button onclick="window.location.href='quiz.html'">Quiz</button>
+                <button onclick="window.location.href='oss.html'">Oss</button>
+            </div>
+            <div class="auth-buttons">
+                <button onclick="window.location.href='login.html'">Sign in</button>
+                <button onclick="window.location.href='register.html'">Registrer deg</button>
+            </div>
         </div>
     </header>
+    
 
-    <h1>Green Coding</h1>
-    <div class="intro">Cock and ball torture (CBT) is a sexual activity involving application of pain or constriction to the male genitals. This may involve directly painful activities, such as genital piercing, wax play, genital spanking, squeezing, ball-busting, genital flogging, urethral play, tickle torture, erotic electrostimulation or even kicking. The recipient of such activities may receive direct physical pleasure via masochism, or knowledge that the play is pleasing to a sadistic dominant.</div>
+    <div class="intro-container">
+        <h1>Green Coding</h1>
+        <div class="intro">GreenCode Initiative jobber for å fremme bærekraftige og energieffektive utviklingspraksiser i programvarebransjen.<br> Vi ønsker å øke bevisstheten om grønn koding og inspirere utviklere til å skape løsninger som reduserer miljøavtrykket.</div>
+    </div>
+    
 
     <!-- MAIN CONTENT -->
-    <main>
-        <div id="container">
-
-            <div class="row">
-                <div class="title">Leaderboard</div>
-            </div>
-
-            <div class="row">
-                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
-                <div class="name">Player1</div><div class="score">640</div>
-                <img class="crown" src="images/crown.png" alt="crown" height="40px" width="40px">
-            </div>
-            
-
-            <div class="row">
-                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
-                <div class="name">Player2</div><div class="score">580</div>
-            </div>
-            
-            <div class="row">
-                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
-                <div class="name">Player3</div><div class="score">495</div>
-            </div>
-            
-            <div class="row">
-                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
-                <div class="name">Player4</div><div class="score">300</div>
-            </div>
-            
-            <div class="row">
-                <img class="profile" src="images/no-pro-pic.png" alt="prf-pic" height="40px" width="40px">
-                <div class="name">Player5</div><div class="score">10</div>
-            </div>
+    <main class="content-container">
+        <!-- Leaderboard -->
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Brukernavn</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Data fylles inn dynamisk -->
+                </tbody>
+            </table>
         </div>
-        <div class="grid-container">
+
+        <!-- Informasjonsseksjon -->
+        <div class="info-section">
             <div class="post">
                 <h2>Effektiv Koding</h2>
                 <p>Skriv ren og effektiv kode for å redusere ressursbruk. Bruk kortere og optimaliserte algoritmer.</p>
@@ -77,7 +67,6 @@
                 <h2>Energieffektiv Backend</h2>
                 <p>Bruk caching og optimaliser databaseforespørsler for å minimere CPU-bruk og strømkonsum.</p>
             </div>
-            
         </div>
     </main>
 
@@ -96,6 +85,33 @@
         <div class="logo-footer">Logo</div>
         <p class="copyright">All rights reserved</p>
     </footer>
+
+    <script>
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch("http://localhost:9090/api/score/leaderboard");
+                if (!response.ok) throw new Error("Kunne ikke hente leaderboard.");
+                
+                const data = await response.json();
+                const tableBody = document.getElementById("leaderboard-body");
+                
+                tableBody.innerHTML = ""; // Tømmer eksisterende data
+                
+                data.forEach((player) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${player.username}</td>
+                        <td>${player.score}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Feil ved henting av leaderboard:", error);
+            }
+        }
+
+        fetchLeaderboard();
+    </script>
 
 </body>
 </html>

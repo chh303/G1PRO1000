@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.g1pro1000.greenCode.model.User;
+import com.g1pro1000.greenCode.model.UserScore;
 import com.g1pro1000.greenCode.repository.UserRepository;
+import com.g1pro1000.greenCode.repository.UserScoreRepository;
 
 import java.util.Optional;
 
@@ -15,7 +17,10 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder; // 🔹 Bruker nå en riktig definert PasswordEncoder
+    private UserScoreRepository userScoreRepository; // 🔹 FIKSET: Nå blir UserScoreRepository injisert riktig
+
+    @Autowired
+    private PasswordEncoder passwordEncoder; // 🔹 Bruker riktig definert PasswordEncoder
 
     public String registerUser(User user) {
         Optional<User> existingUser = userRepository.findByUsername(user.getUsername());
@@ -36,7 +41,14 @@ public class UserService {
         // 🔹 Hashe passordet før vi lagrer det i databasen
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        userRepository.save(user);
+        // 🔹 Lagre brukeren i databasen
+        User savedUser = userRepository.save(user);
+
+        // 🔹 Opprett en ny score-rad i user_scores-tabellen
+        UserScore userScore = new UserScore(savedUser);
+        userScore.setScore(0); // Starter med 0 poeng
+        userScoreRepository.save(userScore); // 🔹 Nå vil dette ikke lenger være rød
+
         return "Bruker registrert!";
     }
 
