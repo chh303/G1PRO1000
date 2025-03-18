@@ -1,113 +1,39 @@
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #333;
-}
-
-/* Styling for the Registration Form */
+/* 🔹 Sentraliserer registreringsboksen */
 .a {
     max-width: 400px;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.a input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: #333;
-}
-
-.a button {
-    width: 100%;
-    padding: 12px;
-    background-color: #5cb85c;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.a button:hover {
-    background-color: #4cae4c;
-}
-
-/* Styling for the message */
-#message {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-/* Footer Styles */
-footer {
-    margin-top: 30%;
-    background-color: #333;
-    color: white;
-    padding: 40px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-footer .socials {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+/* 🔹 Tekstfelter og knapper */
+.a input, .a button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-footer .socials i {
-    margin: 0 10px;
+/* 🔹 Knapper */
+.a button {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+    border: none;
 }
 
-footer .socials i:hover {
-    color: #1da1f2; /* Blue for Twitter */
+.a button:hover {
+    background-color: #218838;
 }
 
-footer .footer-links {
-    font-size: 1rem;
-    margin: 20px 0;
-}
-
-footer .footer-links p {
-    margin: 5px 0;
-}
-
-footer .logo-footer {
-    font-size: 2rem;
-    margin: 20px 0;
-}
-
-footer .copyright {
-    font-size: 0.9rem;
-    margin-top: 20px;
-    color: #ccc;
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 600px) {
-    .a {
-        width: 90%;
-        padding: 15px;
-    }
-
-    footer .socials {
-        font-size: 1.2rem;
-    }
-
-    footer .footer-links {
-        font-size: 0.9rem;
-    }
+/* 🔹 Feilmelding-stil */
+#message {
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
 }
