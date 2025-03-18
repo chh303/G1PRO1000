@@ -1,75 +1,31 @@
-/* Fjerner margin og padding fra alle elementer */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-/* HEADER */
-header {
-    background-color: #28a745; /* Grønn bakgrunn */
-    padding: 15px 30px;
+/* Header spesifikk for denne siden - gjør headeren isolert */
+html body #header {
+    all: unset;  /* Nullstiller arvet styling */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Skygge for dybde */
-    border-bottom: 3px solid #1e7c3b; /* Mørkere grønn kant */
+    z-index: 1000;  /* Sørger for at headeren alltid er øverst */
 }
 
-/* Logo-stil */
-header .logo {
-    font-size: 1.6em; /* Liten justering */
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-}
-
-/* Plassering av knapper til høyre */
-.header-right {
-    display: flex;
-    gap: 10px; /* Mindre avstand mellom knapper */
-    align-items: center;
-}
-
-/* Knapper for case, verktøy, forum, quiz, oss */
-.header-right .nav-buttons button {
+/* Nullstiller knappestiler fra andre CSS-filer */
+html body #header button {
+    all: unset;
+    padding: 10px 15px;
+    border: 2px solid white;
     background-color: transparent;
     color: white;
-    border: 2px solid white;
-    padding: 6px 12px; /* Mindre padding */
-    font-size: 0.85em; /* Gjør teksten litt mindre */
-    font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: 0.3s;
 }
 
-/* Hover-effekt */
-.header-right .nav-buttons button:hover {
+html body #header button:hover {
     background-color: white;
-    color: #28a745;
-    transform: translateY(-2px);
-}
-
-/* Autentiseringsknapper (Sign in, Registrer deg) */
-.header-right .auth-buttons button {
-    background-color: white;
-    color: #28a745;
-    border: 2px solid #28a745;
-    padding: 6px 12px; /* Mindre padding */
-    font-size: 0.85em; /* Samme størrelse som de andre knappene */
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Hover-effekt for autentiseringsknapper */
-.header-right .auth-buttons button:hover {
-    background-color: #28a745;
-    color: white;
-    transform: translateY(-2px);
+    color: #222;
 }
