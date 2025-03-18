@@ -1,31 +1,71 @@
-/* Header spesifikk for denne siden - gjør headeren isolert */
-html body #header {
-    all: unset;  /* Nullstiller arvet styling */
+/* 🔹 Sikrer at headeren er fast øverst på siden */
+#global-header {
+    display: flex;
+    justify-content: space-between; /* 🔹 Sørger for avstand mellom elementene */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #28a745;
+    color: white;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #28a745;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;  /* Sørger for at headeren alltid er øverst */
+    z-index: 1000;
+    box-sizing: border-box; /* 🔹 Hindrer at padding skyver elementene ut */
 }
 
-/* Nullstiller knappestiler fra andre CSS-filer */
-html body #header button {
-    all: unset;
-    padding: 10px 15px;
-    border: 2px solid white;
+/* 🔹 Justerer knappene i navigasjonen */
+#global-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+/* 🔹 Fikser knappestørrelse og plassering */
+#global-header button {
     background-color: transparent;
+    border: 2px solid white;
     color: white;
+    padding: 10px 15px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-html body #header button:hover {
+/* 🔹 Justerer knappene slik at de ikke skjules */
+#global-header .buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px; /* 🔹 Sørger for at knappene ikke ligger helt til kanten */
+}
+
+/* 🔹 Sikrer at knappene ikke ligger helt inntil kanten */
+#global-header .buttons button {
+    min-width: 120px; /* 🔹 Sikrer at knappene har nok bredde */
+    text-align: center;
+}
+
+/* 🔹 Hover-effekt for alle knapper */
+#global-header button:hover {
     background-color: white;
     color: #222;
+}
+
+/* 🔹 Mediequery for mindre skjermer */
+@media (max-width: 768px) {
+    #global-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #global-header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #global-header .buttons {
+        margin-top: 10px;
+        justify-content: center;
+    }
 }

@@ -1,0 +1,69 @@
+/* 🔹 Container for å sikre at footeren forblir nederst */
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+}
+
+/* 🔹 Hovedinnholdet skal skyve footeren ned */
+.footer-content-area {
+    flex: 1%;
+}
+
+/* 🔹 Stil for selve footeren */
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #28a745;
+}
+
+/* 🔹 Footerens sosiale medier-ikoner */
+.footer-socials a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    color: #28a745;
+}
+
+/* 🔹 Footer-logo */
+.footer-logo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* 🔹 Bunn-delen av footeren */
+.footer-bottom {
+    background-color: #181818;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #aaa;
+}
