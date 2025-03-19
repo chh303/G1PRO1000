@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="css/forum.css">
+    <script src="/script/header.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Forum</h1>
+        <div><button class="buttonPost" onclick="document.location='forumPost.html'">Make a post!</button></div>
+        <input class="search" type="text" placeholder="Search..">
+        <button type="submit">submit</button>
+        <div id="posts-container"></div>
+        <div id="pagination"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const posts = [
+                { id: 1, title: "Første innlegg", author: "Ola Nordmann", content: "Dette er det første innlegget.", date: "2025-03-19" },
+                { id: 2, title: "Andre innlegg", author: "Kari Nordmann", content: "Her er enda et innlegg!", date: "2025-03-18" },
+                { id: 3, title: "Tredje innlegg", author: "Per Hansen", content: "Noe interessant å diskutere her.", date: "2025-03-17" },
+                { id: 4, title: "Fjerde innlegg", author: "Lise Berg", content: "Spennende tanker om teknologi.", date: "2025-03-16" },
+                { id: 5, title: "Femte innlegg", author: "Jonas Lie", content: "Hva synes dere om dette temaet?", date: "2025-03-15" },
+                { id: 6, title: "Sjette innlegg", author: "Anna Olsen", content: "Lærerikt forum!", date: "2025-03-14" },
+                { id: 7, title: "Syvende innlegg", author: "Eirik Nilsen", content: "Håper på gode diskusjoner.", date: "2025-03-13" }
+            ];
+
+            const postsPerPage = 3;
+            let currentPage = 1;
+
+            function displayPosts(page) {
+                const start = (page - 1) * postsPerPage;
+                const end = start + postsPerPage;
+                const paginatedPosts = posts.slice(start, end);
+                const container = document.getElementById("posts-container");
+                container.innerHTML = "";
+
+                paginatedPosts.forEach(post => {
+                    const postElement = document.createElement("div");
+                    postElement.className = "post";
+                    postElement.innerHTML = `
+                        <div class="post-title">${post.title}</div>
+                        <div class="post-meta">Av: ${post.author} - ${post.date}</div>
+                        <div class="post-content">${post.content}</div>
+                    `;
+                    container.appendChild(postElement);
+                });
+            }
+
+            function setupPagination() {
+                const paginationContainer = document.getElementById("pagination");
+                paginationContainer.innerHTML = "";
+                const totalPages = Math.ceil(posts.length / postsPerPage);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement("button");
+                    button.textContent = i;
+                    button.addEventListener("click", function() {
+                        currentPage = i;
+                        displayPosts(currentPage);
+                    });
+                    paginationContainer.appendChild(button);
+                }
+            }
+
+            displayPosts(currentPage);
+            setupPagination();
+        });
+    </script>
+</body>
+</html>
