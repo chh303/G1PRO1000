@@ -2,12 +2,12 @@
 .footer-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
+    min-height: 100vh;
 }
 
 /* 🔹 Hovedinnholdet skal skyve footeren ned */
 .footer-content-area {
-    flex: 1%;
+    flex: 1;
 }
 
 /* 🔹 Stil for selve footeren */

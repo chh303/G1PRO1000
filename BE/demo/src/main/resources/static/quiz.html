@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Section</title>
+    
+    <!-- 🔹 Side-spesifikk CSS -->
     <link rel="stylesheet" href="css/quiz.css"> 
+
+    <!-- 🔹 Global Header & Footer CSS -->
     <link rel="stylesheet" href="css/header.css"> 
     <link rel="stylesheet" href="css/footer.css"> 
+
+    <!-- 🔹 Last inn Header & Footer dynamisk -->
     <script src="/script/header.js" defer></script>
     <script src="/script/footer.js" defer></script>
 </head>
-</head>
-<body>  
-    <div class="quiz-container">
-        <h2>Quiz Time!</h2>
-        <p id="question"></p>
-        <div class="options" id="options"></div>
-        <p class="feedback" id="feedback"></p>
-        <button id="nextBtn" style="display:none; margin-top: 10px;" onclick="nextQuestion()">Next</button>
+<body id="quiz-page">  
+
+    <!-- 🔹 Quiz-innhold -->
+    <div id="quiz-container">
+        <h2 id="quiz-title">Quiz Time!</h2>
+        <p id="quiz-question"></p>
+        <div id="quiz-options"></div>
+        <p id="quiz-feedback"></p>
+        <button id="quiz-nextBtn" style="display:none;" onclick="nextQuestion()">Next</button>
     </div>
 
     <script>
         const quizData = [
             {
-                question: "What is the capital of France?",
-                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                question: "Hva er hovedstaden i Frankrike?",
+                options: ["Berlin", "Madrid", "Paris", "Roma"],
                 correct: "Paris"
             },
             {
-                question: "What is 5 + 3?",
+                question: "Hva er 5 + 3?",
                 options: ["5", "8", "10", "15"],
                 correct: "8"
             }
@@ -39,10 +46,10 @@
 
         function loadQuestion() {
             answered = false;
-            const questionEl = document.getElementById("question");
-            const optionsEl = document.getElementById("options");
-            const feedbackEl = document.getElementById("feedback");
-            const nextBtn = document.getElementById("nextBtn");
+            const questionEl = document.getElementById("quiz-question");
+            const optionsEl = document.getElementById("quiz-options");
+            const feedbackEl = document.getElementById("quiz-feedback");
+            const nextBtn = document.getElementById("quiz-nextBtn");
             
             feedbackEl.textContent = "";
             nextBtn.style.display = "none";
@@ -54,6 +61,7 @@
             questionData.options.forEach(option => {
                 const button = document.createElement("button");
                 button.textContent = option;
+                button.classList.add("quiz-option-btn");
                 button.onclick = () => checkAnswer(button, questionData.correct);
                 optionsEl.appendChild(button);
             });
@@ -63,18 +71,18 @@
             if (answered) return;
             answered = true;
             
-            const feedback = document.getElementById("feedback");
-            const nextBtn = document.getElementById("nextBtn");
-            const buttons = document.querySelectorAll(".options button");
+            const feedback = document.getElementById("quiz-feedback");
+            const nextBtn = document.getElementById("quiz-nextBtn");
+            const buttons = document.querySelectorAll("#quiz-options button");
             
             buttons.forEach(btn => btn.disabled = true);
             
             if (button.innerText === correctAnswer) {
-                feedback.textContent = "Correct! 🎉";
+                feedback.textContent = "Riktig! 🎉";
                 feedback.style.color = "green";
                 nextBtn.style.display = "block";
             } else {
-                feedback.textContent = "Oops! Try again. ❌";
+                feedback.textContent = "Feil! ❌";
                 feedback.style.color = "red";
             }
         }
@@ -84,11 +92,12 @@
             if (currentQuestionIndex < quizData.length) {
                 loadQuestion();
             } else {
-                document.querySelector(".quiz-container").innerHTML = "<h2>Quiz Completed! 🎉</h2>";
+                document.getElementById("quiz-container").innerHTML = "<h2>Gratulerer, du har fullført quizen! 🎉</h2>";
             }
         }
 
         loadQuestion();
     </script>
+
 </body>
 </html>
