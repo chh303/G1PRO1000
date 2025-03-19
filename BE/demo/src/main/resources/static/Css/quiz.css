@@ -1,34 +1,84 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-.quiz-container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-}
-.options button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* 🔹 Stil for quiz-alternativer */
+.quiz-option-btn {
+    padding: 12px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
-    background: #f9f9f9;
+    transition: background 0.3s;
+    border-radius: 5px;
+    width: 100%; /* 🔹 Sørger for at knappene fyller containeren */
+    max-width: 400px; /* 🔹 Begrenset bredde for bedre layout */
+    margin: 5px auto; /* 🔹 Legger til litt avstand mellom knappene */
+    display: block; /* 🔹 Sørger for at knappene plasseres pent under hverandre */
 }
-.options button:hover {
-    background: #e0e0e0;
+
+/* 🔹 Hover-effekt for quiz-knappene */
+.quiz-option-btn:hover {
+    background-color: #218838;
 }
-.feedback {
-    margin-top: 10px;
+
+/* 🔹 Når et alternativ er valgt, blir de andre deaktivert */
+.quiz-option-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 🔹 Tilbakemelding på riktig eller feil svar */
+#quiz-feedback {
+    font-size: 18px;
     font-weight: bold;
+    margin-top: 10px;
 }
+
+/* 🔹 Stil for "Next"-knappen */
+#quiz-nextBtn {
+    padding: 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#quiz-nextBtn:hover {
+    background-color: #0056b3;
+}
+/* 🔹 Sikrer at quiz-innholdet er sentrert og i riktig boks */
+#quiz-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    margin: 100px auto 20px auto; /* Justerer margin for å unngå overlapping */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 Stil for quiz-spørsmålet */
+#quiz-question {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%; /* Sørger for at spørsmålet justerer seg riktig */
+}
+
+/* 🔹 Stil for quiz-alternativer */
+#quiz-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
