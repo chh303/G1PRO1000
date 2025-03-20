@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chatbot</title>
+    <title>Chatbot</title>
     <link rel="stylesheet" href="css/chatbot.css">
 </head>
 <body>
 
-    <div class="chat-container">
-        <div class="chat-box">
-            <div id="chat-messages" class="chat-messages"></div>
-            <input type="text" id="user-input" class="user-input" placeholder="Skriv en melding...">
+    <!-- Chatbot container -->
+    <div id="chatbot-container" onclick="openChat()">
+        <img src="images/garry.jpg" alt="Chatbot" id="chatbot-icon">
+    </div>
+
+    <!-- Chat window -->
+    <div id="chat-window">
+        <div id="chat-header">
+            <h3>Chatbot</h3>
+            <button onclick="closeChat()">X</button>
+        </div>
+        <div id="chat-body">
+            <div id="messages"></div>
+        </div>
+        <div id="chat-footer">
+            <input type="text" id="user-message" placeholder="Skriv en melding...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
