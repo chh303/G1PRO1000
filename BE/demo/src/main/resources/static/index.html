@@ -52,6 +52,32 @@
             </div>
         </div>
     </main>
+    <script>
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch("http://localhost:9090/api/score/leaderboard");
+                if (!response.ok) throw new Error("Kunne ikke hente leaderboard.");
+                
+                const data = await response.json();
+                const tableBody = document.getElementById("leaderboard-body");
+                
+                tableBody.innerHTML = ""; // Tømmer eksisterende data
+                
+                data.forEach((player) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${player.username}</td>
+                        <td>${player.score}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Feil ved henting av leaderboard:", error);
+            }
+        }
+
+        fetchLeaderboard();
+    </script>
 
     <!-- Chatbot HTML starts here -->
     <div id="chatbot-container" onclick="openChat()">
