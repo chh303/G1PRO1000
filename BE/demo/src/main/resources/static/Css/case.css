@@ -1,9 +1,15 @@
+
 h1{
  color: #28a745;
  padding-top: 8%;
  text-align: center;
 }
 
-#art2 {
-    align-content: center;
-}
+
+.case {
+    margin-top: 10%;
+    display: flex; /* Plasserer bildene på linje */
+    gap: 10px; /* Mellomrom mellom bildene */
+    flex-wrap: wrap; /* Lar bildene bryte linjen */
+    justify-content: center; /* Sentrerer bildene */
+  }

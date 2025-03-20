@@ -1,25 +1,25 @@
-// script.js
+// Open chat window
+function openChat() {
+    document.getElementById('chat-window').style.display = 'flex';
+}
+
+// Close chat window
+function closeChat() {
+    document.getElementById('chat-window').style.display = 'none';
+}
+
+// Send message function
 function sendMessage() {
-    const userInput = document.getElementById('user-input').value;
-    if (userInput.trim() !== "") {
-        const chatMessages = document.getElementById('chat-messages');
+    var messageInput = document.getElementById('user-message');
+    var messageText = messageInput.value;
+    
+    if (messageText.trim() !== "") {
+        var messagesContainer = document.getElementById('messages');
+        var messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.textContent = messageText;
+        messagesContainer.appendChild(messageElement);
         
-        // Legg til brukerens melding
-        const userMessage = document.createElement('div');
-        userMessage.classList.add('user-message');
-        userMessage.textContent = `Du: ${userInput}`;
-        chatMessages.appendChild(userMessage);
-
-        // Simuler chatbotens svar
-        setTimeout(() => {
-            const botMessage = document.createElement('div');
-            botMessage.classList.add('bot-message');
-            botMessage.textContent = `Chatbot: Jeg har mottatt meldingen din!`;
-            chatMessages.appendChild(botMessage);
-            chatMessages.scrollTop = chatMessages.scrollHeight; // Rull ned til siste melding
-        }, 1000);
-
-        // Tøm input-feltet
-        document.getElementById('user-input').value = "";
+        messageInput.value = ""; // Clear the input after sending the message
     }
 }
