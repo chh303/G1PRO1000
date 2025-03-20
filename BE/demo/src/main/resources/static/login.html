@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="no">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registrering</title>
-        <link rel="stylesheet" href="css/login.css"> 
-        <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/footer.css"> 
-        <script src="/script/header.js" defer></script>
-        <script src="/script/footer.js" defer></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logg inn</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css"> 
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css"> 
+
+    <!-- JavaScript -->
+    <script src="/script/header.js" defer></script>
+    <script src="/script/footer.js" defer></script>
+    <script src="/script/login.js" defer></script>
+    
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+</head>
 <body>
-   
 
     <div class="container">
         <h2>Logg inn</h2>
@@ -22,29 +29,5 @@
         <button onclick="window.location.href='register.html'">Opprett en konto</button>
     </div>
 
-    <script>
-        async function loginUser() {
-            const userData = {
-                username: document.getElementById("username").value,
-                password: document.getElementById("password").value
-            };
-
-            const response = await fetch("http://localhost:9090/api/users/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(userData)
-            });
-
-            const responseData = await response.json();
-
-            if (response.ok) {
-                localStorage.setItem("userId", responseData.userId);  // 🔹 Lagre bruker-ID
-                localStorage.setItem("username", userData.username);  // 🔹 Lagre brukernavn
-                window.location.href = "poengtest.html";  // 🔹 Send til poengsiden
-            } else {
-                document.getElementById("message").innerText = responseData.error;
-            }
-        }
-    </script>
 </body>
 </html>
