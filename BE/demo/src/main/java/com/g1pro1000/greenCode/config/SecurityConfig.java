@@ -5,11 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-<<<<<<< HEAD
 import org.springframework.security.web.SecurityFilterChain;
-=======
 import org.springframework.security.web.session.HttpSessionEventPublisher;
->>>>>>> 6f3a3cf064ce828be66333e508cc4455d5d5d73d
 
 @Configuration
 public class SecurityConfig {
@@ -26,15 +23,9 @@ public class SecurityConfig {
             .headers(headers -> headers.frameOptions(frame -> frame.disable())) // Tillat H2 Console
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/index.html", "/poengtest.html", "/static/**", "/css/**", "/script/**", "/**.html").permitAll() // Tillat HTML-filer
-<<<<<<< HEAD
-                .requestMatchers("/api/users", "/api/users/register", "/api/users/login", "/h2-console/**").permitAll() // Tillat registrering og login
-                .requestMatchers("/api/score/update", "/api/score/**").permitAll() // Tillat score-oppdatering og henting av score
-                .requestMatchers("/js/**", "/images/**").permitAll() // 🔹 Sørg for at CSS, JS og bilder er tilgjengelige
-=======
                 .requestMatchers("/api/users/register", "/api/users/login", "/api/users/logout", "/api/users/session", "/h2-console/**").permitAll() // Tillat registrering og login API-er
                 .requestMatchers("/api/score/update", "/api/score/**").permitAll() // Tillat score API-er
                 .requestMatchers("/js/**", "/images/**").permitAll() // Tillat CSS, JS og bilder
->>>>>>> 6f3a3cf064ce828be66333e508cc4455d5d5d73d
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session

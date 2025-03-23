@@ -1,14 +1,10 @@
 package com.g1pro1000.greenCode.controller;
 
-<<<<<<< HEAD
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-=======
 import jakarta.servlet.http.HttpSession;
->>>>>>> 6f3a3cf064ce828be66333e508cc4455d5d5d73d
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +22,7 @@ public class UserController {
 
 
     @Autowired
-    private final UserService userService;
+    private UserService userService;
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, String>> registerUser(@RequestBody User user) {
@@ -63,15 +59,6 @@ public class UserController {
             return ResponseEntity.status(401).body(response);
         }
     }
-<<<<<<< HEAD
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-=======
 
     @PostMapping("/logout")
     public ResponseEntity<String> logoutUser(HttpSession session) {
@@ -95,6 +82,5 @@ public class UserController {
         response.put("username", user.getUsername());
         response.put("loggedIn", true);
         return ResponseEntity.ok(response);
->>>>>>> 6f3a3cf064ce828be66333e508cc4455d5d5d73d
     }
 }
