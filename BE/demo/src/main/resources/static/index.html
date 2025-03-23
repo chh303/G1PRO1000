@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/chatbot.css"> <!-- Legg til chatbot-stilen -->
     <script src="/script/header.js" defer></script>
     <script src="/script/footer.js" defer></script>
+    <script src="/script/chatbot.js" defer></script> <!-- Legg til chatbot-script -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="intro-container">
         <h1>Green Coding</h1>
         <div class="intro">GreenCode Initiative jobber for å fremme bærekraftige og energieffektive utviklingspraksiser i programvarebransjen.<br> Vi ønsker å øke bevisstheten om grønn koding og inspirere utviklere til å skape løsninger som reduserer miljøavtrykket.</div>
     </div>
-    
 
     <!-- MAIN CONTENT -->
     <main class="content-container">
@@ -77,5 +79,25 @@
 
         fetchLeaderboard();
     </script>
+
+    <!-- Chatbot HTML starts here -->
+    <div id="chatbot-container" onclick="openChat()">
+        <img src="images/garry.jpg" alt="Chatbot" id="chatbot-icon"> <!-- Endre til riktig bilde -->
+    </div>
+
+    <div id="chat-window">
+        <div id="chat-header">
+            <h3>Chatbot</h3>
+            <button onclick="closeChat()">X</button>
+        </div>
+        <div id="chat-body">
+            <div id="messages"></div>
+        </div>
+        <div id="chat-footer">
+            <input type="text" id="user-message" placeholder="Skriv en melding...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
 </body>
 </html>

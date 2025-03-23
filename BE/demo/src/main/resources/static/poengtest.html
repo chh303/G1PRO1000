@@ -25,35 +25,58 @@
     </div>
 
     <script>
-        let loggedInUserId = localStorage.getItem("userId");
-        let loggedInUsername = localStorage.getItem("username");
+        let loggedInUserId;
+        let loggedInUsername;
 
-        // Hvis bruker er logget inn, vis brukernavn
-        if (loggedInUserId) {
-            document.getElementById("usernameDisplay").innerText = loggedInUsername;
-            getUserScore();
-        } else {
-            alert("Du må logge inn først!");
-            window.location.href = "login.html";
+        // 🚀 Sjekker om brukeren er innlogget via session
+        async function checkSession() {
+            try {
+                const response = await fetch("/api/users/session", {
+                    method: "GET",
+                    credentials: "include" // 🔹 Sørger for at session-cookie sendes med
+                });
+
+                if (!response.ok) {
+                    throw new Error("Ikke innlogget");
+                }
+
+                const userData = await response.json();
+                if (!userData.loggedIn) {
+                    throw new Error("Ikke innlogget");
+                }
+
+                loggedInUserId = userData.userId;
+                loggedInUsername = userData.username;
+
+                document.getElementById("usernameDisplay").innerText = loggedInUsername;
+                getUserScore();
+
+            } catch (error) {
+                console.log("❌ Bruker ikke innlogget. Sender til login.");
+                window.location.href = "login.html"; // 🚀 Sender brukeren til login hvis ikke innlogget
+            }
         }
 
+        // 🚀 Henter poengsum
         async function getUserScore() {
-    const response = await fetch(`http://localhost:9090/api/score/${loggedInUserId}`);
-    if (response.ok) {
-        const userScore = await response.json();
-        console.log("Hentet score:", userScore); // 🔹 Debugging: Sjekk hva som blir hentet
-        document.getElementById("scoreDisplay").innerText = userScore.score; // 🔹 Oppdaterer poengvisning
-    } else {
-        console.log("Kunne ikke hente score");
-        document.getElementById("scoreDisplay").innerText = "0"; // Hvis ingen score, vis 0
-    }
-}
+            const response = await fetch(`/api/score/${loggedInUserId}`, { credentials: "include" });
 
+            if (response.ok) {
+                const userScore = await response.json();
+                console.log("Hentet score:", userScore);
+                document.getElementById("scoreDisplay").innerText = userScore.score;
+            } else {
+                console.log("Kunne ikke hente score");
+                document.getElementById("scoreDisplay").innerText = "0";
+            }
+        }
 
+        // 🚀 Øker poeng
         async function increaseScore() {
-            const response = await fetch("http://localhost:9090/api/score/update", {
+            const response = await fetch("/api/score/update", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                credentials: "include", // 🔹 Sikrer at session-cookie sendes med
                 body: JSON.stringify({
                     userId: loggedInUserId,
                     score: 50,
@@ -62,19 +85,21 @@
             });
 
             if (response.ok) {
-                getUserScore(); // Henter oppdatert score etter knappetrykk
+                getUserScore();
             } else {
                 const errorData = await response.text();
                 alert("Kunne ikke oppdatere score: " + errorData);
             }
         }
 
-        function logout() {
-            localStorage.removeItem("userId");
-            localStorage.removeItem("username");
+        // 🚀 Logg ut
+        async function logout() {
+            await fetch("/api/users/logout", { method: "POST", credentials: "include" });
             window.location.href = "login.html";
         }
-    </script>
 
+        // 🚀 Start ved å sjekke om brukeren er logget inn
+        checkSession();
+    </script>
 </body>
 </html>

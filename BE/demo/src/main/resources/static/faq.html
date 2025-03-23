@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>faq</title>
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/header.css"> 
+    <link rel="stylesheet" href="css/footer.css"> 
+    <link rel="stylesheet" href="css/chatbot.css"> 
+    <script src="/script/header.js" defer></script>
+    <script src="/script/footer.js" defer></script>
+    <script src="/script/chatbot.js" defer></script>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="faq-container">
+        <h1>Ofte stilte spørsmål om Grønn Kode</h1>
+        <div class="faq-item">
+            <h2>Hva er grønn kode?</h2>
+            <p>Grønn kode refererer til programmering og systemutvikling som er optimalisert for å redusere energiforbruk og karbonavtrykk.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Hvorfor er grønn kode viktig?</h2>
+            <p>Ved å skrive mer effektiv kode kan vi redusere strømforbruket til servere og enheter, noe som bidrar til en mer bærekraftig IT-industri.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Hvordan kan jeg skrive mer energieffektiv kode?</h2>
+            <p>Bruk effektive algoritmer, unngå unødvendige prosesser, og optimaliser databaseforespørsler for å redusere energibruk.</p>
+        </div>
+    </div>
+    <!-- Chatbot HTML starts here -->
+    <div id="chatbot-container" onclick="openChat()">
+        <img src="images/garry.jpg" alt="Chatbot" id="chatbot-icon"> <!-- Endre til riktig bilde -->
+    </div>
+
+    <div id="chat-window">
+        <div id="chat-header">
+            <h3>Chatbot</h3>
+            <button onclick="closeChat()">X</button>
+        </div>
+        <div id="chat-body">
+            <div id="messages"></div>
+        </div>
+        <div id="chat-footer">
+            <input type="text" id="user-message" placeholder="Skriv en melding...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</body>
+</html>
+
+</html>
