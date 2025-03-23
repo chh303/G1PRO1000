@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="css/oss.css"> 
     <link rel="stylesheet" href="css/header.css"> 
     <link rel="stylesheet" href="css/footer.css"> 
-    <link rel="stylesheet" href="css/chatbot.css"> 
     <script src="/script/header.js" defer></script>
     <script src="/script/footer.js" defer></script>
-    <script src="/script/chatbot.js" defer></script>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <h1>Vårt team</h1>
@@ -19,7 +16,7 @@
 
     <div class="image-container">
         <figure>
-        <img src="images/garry.jpg" alt="Image 1">
+        <img src="images/empty.jpg" alt="Image 1">
         <figcaption>Bildetekst 1</figcaption>
         </figure>
         <figure>
@@ -45,23 +42,5 @@
       </div>
 
       <h2> Møt teamet vårt! </h2>
-      <!-- Chatbot HTML starts here -->
-      <div id="chatbot-container" onclick="openChat()">
-        <img src="images/garry.jpg" alt="Chatbot" id="chatbot-icon"> <!-- Endre til riktig bilde -->
-    </div>
-
-    <div id="chat-window">
-        <div id="chat-header">
-            <h3>Chatbot</h3>
-            <button onclick="closeChat()">X</button>
-        </div>
-        <div id="chat-body">
-            <div id="messages"></div>
-        </div>
-        <div id="chat-footer">
-            <input type="text" id="user-message" placeholder="Skriv en melding...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
 </body>
 </html>
