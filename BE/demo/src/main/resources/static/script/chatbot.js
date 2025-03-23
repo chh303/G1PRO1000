@@ -9,7 +9,7 @@ function closeChat() {
 }
 
 // Send message function
-function sendMessage() {
+function sendMessage() 
     var messageInput = document.getElementById('user-message');
     var messageText = messageInput.value;
     
