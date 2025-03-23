@@ -3,6 +3,7 @@ package com.g1pro1000.greenCode.repository; // Angir hvilken pakke denne filen t
 import java.util.Optional; // Importerer JpaRepository for å håndtere databaseoperasjoner
 
 import org.springframework.data.jpa.repository.JpaRepository; // Importerer User-modellen som representerer en rad i databasen
+import org.springframework.stereotype.Repository;
 
 import com.g1pro1000.greenCode.model.User; // Importerer Optional for å håndtere potensielt tomme databaseforespørsler
 
@@ -11,7 +12,7 @@ import com.g1pro1000.greenCode.model.User; // Importerer Optional for å håndte
  * Denne grensesnittet utvider JpaRepository, noe som gir tilgang til CRUD-operasjoner 
  * (Create, Read, Update, Delete) uten behov for å skrive SQL selv.
  */
-
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> { // JpaRepository håndterer databaseoperasjoner for User-tabellen
 
     /**

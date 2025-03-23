@@ -1,20 +1,22 @@
 package com.g1pro1000.greenCode.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import com.g1pro1000.greenCode.model.User;
 import com.g1pro1000.greenCode.model.UserScore;
 import com.g1pro1000.greenCode.repository.UserRepository;
 import com.g1pro1000.greenCode.repository.UserScoreRepository;
 
-import java.util.Optional;
-
 @Service
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     private UserScoreRepository userScoreRepository; // 🔹 FIKSET: Nå blir UserScoreRepository injisert riktig
@@ -64,5 +66,15 @@ public class UserService {
         } else {
             return Optional.empty();
         }
+    }
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public List<User> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        System.out.println("Users found: " + users.size());
+        return users;
     }
 }
