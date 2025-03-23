@@ -5,7 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+<<<<<<< HEAD
 import org.springframework.security.web.SecurityFilterChain;
+=======
+import org.springframework.security.web.session.HttpSessionEventPublisher;
+>>>>>>> 6f3a3cf064ce828be66333e508cc4455d5d5d73d
 
 @Configuration
 public class SecurityConfig {
@@ -18,18 +22,33 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Deaktiver CSRF for testing
+            .csrf(csrf -> csrf.disable()) // Deaktiver CSRF for testing (IKKE I PRODUKSJON)
             .headers(headers -> headers.frameOptions(frame -> frame.disable())) // Tillat H2 Console
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/index.html", "/poengtest.html", "/static/**", "/css/**", "/script/**", "/**.html").permitAll() // Tillat HTML-filer
+<<<<<<< HEAD
                 .requestMatchers("/api/users", "/api/users/register", "/api/users/login", "/h2-console/**").permitAll() // Tillat registrering og login
                 .requestMatchers("/api/score/update", "/api/score/**").permitAll() // Tillat score-oppdatering og henting av score
                 .requestMatchers("/js/**", "/images/**").permitAll() // 🔹 Sørg for at CSS, JS og bilder er tilgjengelige
+=======
+                .requestMatchers("/api/users/register", "/api/users/login", "/api/users/logout", "/api/users/session", "/h2-console/**").permitAll() // Tillat registrering og login API-er
+                .requestMatchers("/api/score/update", "/api/score/**").permitAll() // Tillat score API-er
+                .requestMatchers("/js/**", "/images/**").permitAll() // Tillat CSS, JS og bilder
+>>>>>>> 6f3a3cf064ce828be66333e508cc4455d5d5d73d
                 .anyRequest().authenticated()
             )
-            .formLogin(login -> login.disable()) // Deaktiver standard login-side
-            .httpBasic(basic -> basic.disable()); // Deaktiver Basic Authentication
+            .sessionManagement(session -> session
+                .maximumSessions(1) // Kun én aktiv session per bruker
+                .expiredUrl("/login.html") // Send bruker til login hvis session utløper
+            )
+            .formLogin(login -> login.disable()) // 🚀 Deaktiverer Spring Security sin standard login-side
+            .httpBasic(basic -> basic.disable()); // 🚀 Deaktiverer Basic Authentication
 
         return http.build();
+    }
+
+    @Bean
+    public HttpSessionEventPublisher httpSessionEventPublisher() {
+        return new HttpSessionEventPublisher();
     }
 }
