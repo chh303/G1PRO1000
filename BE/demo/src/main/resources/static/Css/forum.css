@@ -1,43 +1,55 @@
-body {
-    background-color: #f3f3f3;
-    font-family: Arial, sans-serif;
-    margin: 0;
+/* 🔹 Forum container med plass til innleggene */
+.forum-posts-container {
+    margin-top: 100px; /* Tar høyde for fixed header */
     padding: 20px;
 }
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    top: 40px;
-}
-.post {
-    padding: 15px;
+
+/* 🔹 Forum-post visning */
+.forum-post {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #fff;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
-.post-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: green;
+
+.forum-post:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    cursor: pointer;
 }
-.post-meta {
-    font-size: 14px;
-    color: gray;
-}
-.post-content {
+
+.forum-post h3 {
     margin-top: 10px;
+    color: #222;
 }
-.search {
-    margin-bottom: 5px;
-  }
-.buttonPost {
-    background-color: lightgreen;
-    margin-bottom: 10px;
-    font-size: 20px;
+
+.forum-post p,
+.forum-post small {
+    color: #555;
+    margin: 5px 0;
+}
+
+/* 🔹 Knapp for nytt innlegg */
+.post-button-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#newPostBtn {
+    padding: 12px 25px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+#newPostBtn:hover {
+    background-color: #218838;
 }

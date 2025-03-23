@@ -1,0 +1,103 @@
+/* 🔹 Unngå at innhold skjules bak headeren */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 80px; /* Justeres etter høyden på header */
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* 🔹 Container for innlegg og kommentarer */
+.forum-detail-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 🔹 Tittel og forfatter */
+#detail-title {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+#detail-author {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+#detail-timestamp {
+    font-size: 0.85em;
+    color: #999;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* 🔹 Selve innholdet i innlegget */
+#detail-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* 🔹 Kommentarer */
+h3 {
+    margin-top: 40px;
+    color: #28a745;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #28a745;
+    border-radius: 4px;
+}
+
+.comment p {
+    margin: 5px 0;
+}
+
+.comment small {
+    color: #888;
+}
+
+/* 🔹 Kommentar-skjema */
+textarea {
+    width: 100%;
+    padding: 10px;
+    resize: vertical;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* 🔹 Responsiv */
+@media (max-width: 600px) {
+    .forum-detail-container {
+        padding: 20px;
+    }
+
+    #detail-title {
+        font-size: 22px;
+    }
+}

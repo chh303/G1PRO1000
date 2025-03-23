@@ -1,56 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum Section</title>
+    <title>Opprett foruminnlegg</title>
     <link rel="stylesheet" href="css/forumPost.css"> 
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">     
+    <link rel="stylesheet" href="css/chatbot.css">
     <script src="/script/header.js" defer></script>
     <script src="/script/footer.js" defer></script>
+    <script src="/script/chatbot.js" defer></script>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
-</head>
 <body>
-    <div class="forum-container">
-        <h2>Write a Post!</h2>
-        <input type="text" id="username" placeholder="Your Name" required>
-        <textarea id="postContent" placeholder="Write your post..." required></textarea>
-        <button onclick="addPost()">Post</button>
-        <div id="forumPosts"></div>
+    <h2>Opprett nytt foruminnlegg</h2>
+
+    <div class="forum-form-container">
+        <label for="title">Tittel:</label>
+        <input type="text" id="title" placeholder="Skriv tittel her" required>
+
+        <label for="content">Innhold:</label>
+        <textarea id="content" placeholder="Skriv innlegget ditt her..." rows="6" required></textarea>
+
+        <button onclick="publishPost()">Publiser</button>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", loadPosts);
-        
-        function addPost() {
-            const username = document.getElementById("username").value;
-            const content = document.getElementById("postContent").value;
-            if (username.trim() === "" || content.trim() === "") return alert("Both fields are required!");
-            
-            const post = { username, content, timestamp: new Date().toLocaleString() };
-            let posts = JSON.parse(localStorage.getItem("posts")) || [];
-            posts.unshift(post);
-            localStorage.setItem("posts", JSON.stringify(posts));
-            
-            document.getElementById("username").value = "";
-            document.getElementById("postContent").value = "";
-            loadPosts();
+        async function checkLogin() {
+            try {
+                const res = await fetch("/api/users/session", {
+                    credentials: "include"
+                });
+
+                if (!res.ok) {
+                    throw new Error("Ikke logget inn");
+                }
+
+                const user = await res.json();
+                console.log("✅ Innlogget som:", user.username);
+            } catch (err) {
+                alert("Du må være logget inn for å lage innlegg.");
+                window.location.href = "login.html";
+            }
         }
-        
-        function loadPosts() {
-            const posts = JSON.parse(localStorage.getItem("posts")) || [];
-            const forumPosts = document.getElementById("forumPosts");
-            forumPosts.innerHTML = "";
-            
-            posts.forEach(post => {
-                const postDiv = document.createElement("div");
-                postDiv.classList.add("post");
-                postDiv.innerHTML = `<h3>${post.username}</h3><p>${post.content}</p><small>${post.timestamp}</small>`;
-                forumPosts.appendChild(postDiv);
+
+        async function publishPost() {
+            const title = document.getElementById("title").value.trim();
+            const content = document.getElementById("content").value.trim();
+
+            if (!title || !content) {
+                alert("Både tittel og innhold må fylles ut.");
+                return;
+            }
+
+            const response = await fetch("/api/forum/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "include", // Viktig for å sende med JSESSIONID
+                body: JSON.stringify({ title, content })
             });
+
+            if (response.ok) {
+                alert("Innlegg publisert!");
+                window.location.href = "forum.html";
+            } else {
+                alert("Du må være logget inn for å publisere innlegg.");
+                window.location.href = "login.html";
+            }
         }
+
+        // Sjekk login status med én gang
+        checkLogin();
     </script>
+
+    <div id="chatbot-placeholder"></div>
 </body>
 </html>

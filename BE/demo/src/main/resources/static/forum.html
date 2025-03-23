@@ -4,93 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/forum.css">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/chatbot.css">
+
+    <!-- JS -->
     <script src="/script/header.js" defer></script>
     <script src="/script/chatbot.js" defer></script>
+    <script src="/script/footer.js" defer></script>
+
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <h1>Forum</h1>
-        <div><button class="buttonPost" onclick="document.location='forumPost.html'">Make a post!</button></div>
-        <input class="search" type="text" placeholder="Search..">
-        <button type="submit">submit</button>
-        <div id="posts-container"></div>
-        <div id="pagination"></div>
+    <div class="forum-posts-container" id="forumPosts"></div>
+
+    <!-- 🔹 Publiser innlegg-knapp -->
+    <div class="post-button-container">
+        <button id="newPostBtn" onclick="window.location.href='forumPost.html'">+ Nytt innlegg</button>
     </div>
+
+    <div id="chatbot-placeholder"></div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const posts = [
-                { id: 1, title: "Første innlegg", author: "Ola Nordmann", content: "Dette er det første innlegget.", date: "2025-03-19" },
-                { id: 2, title: "Andre innlegg", author: "Kari Nordmann", content: "Her er enda et innlegg!", date: "2025-03-18" },
-                { id: 3, title: "Tredje innlegg", author: "Per Hansen", content: "Noe interessant å diskutere her.", date: "2025-03-17" },
-                { id: 4, title: "Fjerde innlegg", author: "Lise Berg", content: "Spennende tanker om teknologi.", date: "2025-03-16" },
-                { id: 5, title: "Femte innlegg", author: "Jonas Lie", content: "Hva synes dere om dette temaet?", date: "2025-03-15" },
-                { id: 6, title: "Sjette innlegg", author: "Anna Olsen", content: "Lærerikt forum!", date: "2025-03-14" },
-                { id: 7, title: "Syvende innlegg", author: "Eirik Nilsen", content: "Håper på gode diskusjoner.", date: "2025-03-13" }
-            ];
+        async function loadPosts() {
+            const res = await fetch("/api/forum/all");
+            const posts = await res.json();
+            const container = document.getElementById("forumPosts");
 
-            const postsPerPage = 3;
-            let currentPage = 1;
-
-            function displayPosts(page) {
-                const start = (page - 1) * postsPerPage;
-                const end = start + postsPerPage;
-                const paginatedPosts = posts.slice(start, end);
-                const container = document.getElementById("posts-container");
-                container.innerHTML = "";
-
-                paginatedPosts.forEach(post => {
-                    const postElement = document.createElement("div");
-                    postElement.className = "post";
-                    postElement.innerHTML = `
-                        <div class="post-title">${post.title}</div>
-                        <div class="post-meta">Av: ${post.author} - ${post.date}</div>
-                        <div class="post-content">${post.content}</div>
-                    `;
-                    container.appendChild(postElement);
+            posts.forEach(post => {
+                const div = document.createElement("div");
+                div.classList.add("forum-post");
+                div.innerHTML = `
+                    <p><strong>Forfatter:</strong> ${post.author}</p>
+                    <h3>${post.title}</h3>
+                    <p>${post.content.length > 150 ? post.content.slice(0, 150) + "..." : post.content}</p>
+                    <small><em>${new Date(post.timestamp).toLocaleString()}</em></small>
+                `;
+                div.addEventListener("click", () => {
+                    window.location.href = `forumPostDetails.html?id=${post.id}`;
                 });
-            }
+                container.appendChild(div);
+            });
+        }
 
-            function setupPagination() {
-                const paginationContainer = document.getElementById("pagination");
-                paginationContainer.innerHTML = "";
-                const totalPages = Math.ceil(posts.length / postsPerPage);
-
-                for (let i = 1; i <= totalPages; i++) {
-                    const button = document.createElement("button");
-                    button.textContent = i;
-                    button.addEventListener("click", function() {
-                        currentPage = i;
-                        displayPosts(currentPage);
-                    });
-                    paginationContainer.appendChild(button);
-                }
-            }
-
-            displayPosts(currentPage);
-            setupPagination();
-        });
+        loadPosts();
     </script>
-    <!-- Chatbot HTML starts here -->
-    <div id="chatbot-container" onclick="openChat()">
-        <img src="images/garry.jpg" alt="Chatbot" id="chatbot-icon"> <!-- Endre til riktig bilde -->
-    </div>
-
-    <div id="chat-window">
-        <div id="chat-header">
-            <h3>Chatbot</h3>
-            <button onclick="closeChat()">X</button>
-        </div>
-        <div id="chat-body">
-            <div id="messages"></div>
-        </div>
-        <div id="chat-footer">
-            <input type="text" id="user-message" placeholder="Skriv en melding...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
 </body>
 </html>
