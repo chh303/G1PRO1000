@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Section</title>
     
-    <!-- 🔹 Side-spesifikk CSS -->
     <link rel="stylesheet" href="css/quiz.css"> 
-
-    <!-- 🔹 Global Header & Footer CSS -->
     <link rel="stylesheet" href="css/header.css"> 
     <link rel="stylesheet" href="css/footer.css"> 
     <link rel="stylesheet" href="css/chatbot.css"> 
-
-    <!-- 🔹 Last inn Header & Footer dynamisk -->
     <script src="/script/header.js" defer></script>
     <script src="/script/footer.js" defer></script>
     <script src="/script/chatbot.js" defer></script>
@@ -21,14 +16,17 @@
 </head>
 <body id="quiz-page">  
 
-    <!-- 🔹 Quiz-innhold -->
     <div id="quiz-container">
+    <div id="score-popup" class="score-popup">+50</div>
+
         <h2 id="quiz-title">Quiz Time!</h2>
         <p id="quiz-question"></p>
         <div id="quiz-options"></div>
         <p id="quiz-feedback"></p>
         <button id="quiz-nextBtn" style="display:none;" onclick="nextQuestion()">Next</button>
     </div>
+
+    <div id="chatbot-placeholder"></div>
 
     <script>
         const quizData = [
@@ -46,21 +44,40 @@
 
         let currentQuestionIndex = 0;
         let answered = false;
+        let loggedInUserId = null;
 
-        function loadQuestion() {
+        // 🔹 Sjekk session først
+        async function checkSession() {
+            try {
+                const response = await fetch("/api/users/session", {
+                    method: "GET",
+                    credentials: "include"
+                });
+
+                if (!response.ok) throw new Error("Ikke innlogget");
+
+                const data = await response.json();
+                loggedInUserId = data.userId;
+            } catch (err) {
+                alert("Du må være logget inn for å ta quizen.");
+                window.location.href = "login.html";
+            }
+        }
+
+        async function loadQuestion() {
             answered = false;
             const questionEl = document.getElementById("quiz-question");
             const optionsEl = document.getElementById("quiz-options");
             const feedbackEl = document.getElementById("quiz-feedback");
             const nextBtn = document.getElementById("quiz-nextBtn");
-            
+
             feedbackEl.textContent = "";
             nextBtn.style.display = "none";
-            
+
             const questionData = quizData[currentQuestionIndex];
             questionEl.textContent = questionData.question;
             optionsEl.innerHTML = "";
-            
+
             questionData.options.forEach(option => {
                 const button = document.createElement("button");
                 button.textContent = option;
@@ -70,23 +87,50 @@
             });
         }
 
-        function checkAnswer(button, correctAnswer) {
+        async function checkAnswer(button, correctAnswer) {
             if (answered) return;
             answered = true;
-            
+
             const feedback = document.getElementById("quiz-feedback");
             const nextBtn = document.getElementById("quiz-nextBtn");
             const buttons = document.querySelectorAll("#quiz-options button");
-            
+
             buttons.forEach(btn => btn.disabled = true);
-            
+
             if (button.innerText === correctAnswer) {
                 feedback.textContent = "Riktig! 🎉";
                 feedback.style.color = "green";
                 nextBtn.style.display = "block";
-            } else {
+
+                // 🔹 Vis +50 popup
+                showScorePopup();
+
+                // 🔹 Oppdater poeng
+                await increaseScore();
+            }else {
                 feedback.textContent = "Feil! ❌";
                 feedback.style.color = "red";
+            }
+        }
+
+        async function increaseScore() {
+            try {
+                const response = await fetch("/api/score/update", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        userId: loggedInUserId,
+                        score: 50,
+                        achievements: ["Quiz Bonus"]
+                    })
+                });
+
+                if (!response.ok) {
+                    console.error("❌ Kunne ikke oppdatere score");
+                }
+            } catch (err) {
+                console.error("⚠️ Feil under poengoppdatering:", err);
             }
         }
 
@@ -99,9 +143,17 @@
             }
         }
 
-        loadQuestion();
-    </script>
+        // 🚀 Starter når siden lastes
+        checkSession().then(loadQuestion);
 
-    <div id="chatbot-placeholder"></div>
+        function showScorePopup() {
+            const popup = document.getElementById("score-popup");
+            popup.classList.add("show");
+            
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 2000); // Skjul etter 2 sekunder
+        }
+    </script>
 </body>
 </html>

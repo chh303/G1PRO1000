@@ -21,7 +21,7 @@ async function loginUser() {
         updateHeaderForUser();
 
         // 🔹 Omdiriger til poengsiden
-        window.location.href = "poengtest.html";
+        window.location.href = "index.html";
     } else {
         document.getElementById("message").innerText = responseData.error;
     }

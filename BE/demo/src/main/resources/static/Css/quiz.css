@@ -81,4 +81,24 @@
     gap: 10px;
     align-items: center;
 }
+.score-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-weight: bold;
+    color: #4CAF50;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.score-popup.show {
+    opacity: 1;
+}
+
+
+
 
