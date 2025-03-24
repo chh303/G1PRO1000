@@ -31,15 +31,55 @@
     <script>
         const quizData = [
             {
-                question: "Hva er hovedstaden i Frankrike?",
-                options: ["Berlin", "Madrid", "Paris", "Roma"],
-                correct: "Paris"
-            },
-            {
-                question: "Hva er 5 + 3?",
-                options: ["5", "8", "10", "15"],
-                correct: "8"
-            }
+            question: "Hva handler grønn kode hovedsakelig om?",
+            options: [
+                "Å bruke mange farger i design",
+                "Å skrive kode med mindre strømforbruk",
+                "Å bruke nyeste teknologi",
+                "Å kode kun for grønne bedrifter"
+            ],
+            correct: "Å skrive kode med mindre strømforbruk"
+        },
+        {
+            question: "Hvilket tiltak bidrar mest til energieffektiv frontend?",
+            options: [
+                "Bruk av store bakgrunnsbilder",
+                "Animasjoner i høy oppløsning",
+                "Lazy loading av bilder og innhold",
+                "Autoplay av videoer"
+            ],
+            correct: "Lazy loading av bilder og innhold"
+        },
+        {
+            question: "Hva kan du gjøre i backend for å redusere miljøavtrykket?",
+            options: [
+                "Øke antall serverkall",
+                "Bruke polling i stedet for events",
+                "Cache ofte brukte data",
+                "Bruke større databaser"
+            ],
+            correct: "Cache ofte brukte data"
+        },
+        {
+            question: "Hvilken teknologi er kjent for å bruke fornybar energi i sine datasentre?",
+            options: [
+                "AWS",
+                "Google Cloud",
+                "DigitalOcean",
+                "GitHub"
+            ],
+            correct: "Google Cloud"
+        },
+        {
+            question: "Hvilket av disse prinsippene er IKKE en del av grønn koding?",
+            options: [
+                "Redusere dataoverføring",
+                "Optimalisere algoritmer",
+                "Bruke så mye RAM som mulig",
+                "Minimere lastetid"
+            ],
+            correct: "Bruke så mye RAM som mulig"
+        }
         ];
 
         let currentQuestionIndex = 0;
@@ -88,31 +128,30 @@
         }
 
         async function checkAnswer(button, correctAnswer) {
-            if (answered) return;
-            answered = true;
+        if (answered) return;
+        answered = true;
 
-            const feedback = document.getElementById("quiz-feedback");
-            const nextBtn = document.getElementById("quiz-nextBtn");
-            const buttons = document.querySelectorAll("#quiz-options button");
+        const feedback = document.getElementById("quiz-feedback");
+        const nextBtn = document.getElementById("quiz-nextBtn");
+        const buttons = document.querySelectorAll("#quiz-options button");
 
-            buttons.forEach(btn => btn.disabled = true);
+        buttons.forEach(btn => btn.disabled = true);
 
-            if (button.innerText === correctAnswer) {
-                feedback.textContent = "Riktig! 🎉";
-                feedback.style.color = "green";
-                nextBtn.style.display = "block";
+        if (button.innerText === correctAnswer) {
+            feedback.textContent = "Riktig! 🎉";
+            feedback.style.color = "green";
 
-                // 🔹 Vis +50 popup
-                showScorePopup();
-
-                // 🔹 Oppdater poeng
-                await increaseScore();
-            }else {
-                feedback.textContent = "Feil! ❌";
-                feedback.style.color = "red";
-            }
+            // 🔹 Vis poeng-popup og oppdater score
+            showScorePopup();
+            await increaseScore();
+        } else {
+            feedback.textContent = "Feil! ❌";
+            feedback.style.color = "red";
         }
 
+        // 🔹 Uansett om riktig eller feil – vis neste-knapp
+        nextBtn.style.display = "block";
+    }
         async function increaseScore() {
             try {
                 const response = await fetch("/api/score/update", {
@@ -152,7 +191,7 @@
             
             setTimeout(() => {
                 popup.classList.remove("show");
-            }, 2000); // Skjul etter 2 sekunder
+            }, 500); // Skjul etter 0.5 sekund
         }
     </script>
 </body>
