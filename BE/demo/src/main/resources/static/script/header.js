@@ -7,12 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const headerContainer = document.createElement("div");
         headerContainer.innerHTML = headerHTML;
         document.body.insertAdjacentElement("afterbegin", headerContainer);
-
-        const headerStyles = document.createElement("link");
-        headerStyles.rel = "stylesheet";
-        headerStyles.href = "/css/header.css";
-        document.head.appendChild(headerStyles);
-
+        
         await updateHeaderForUser();
     } catch (error) {
         console.error("❌ Feil ved innlasting av header:", error);
@@ -39,9 +34,10 @@ async function updateHeaderForUser() {
         }
 
         buttonsContainer.innerHTML = `
-            <button class="user-btn">${userData.username}</button>
-            <button class="logout-btn">Logg ut</button>
-        `;
+        <button class="nav-btn user-btn">${userData.username}</button>
+        <button class="nav-btn logout-btn">Logg ut</button>
+    `;
+    
 
         document.querySelector(".logout-btn").addEventListener("click", async () => {
             await fetch("/api/users/logout", { method: "POST", credentials: "include" });

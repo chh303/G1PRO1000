@@ -1,22 +1,38 @@
-/* Generelle stiler */
+/* 🌿 Grunnstil for index.html */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 80px 0 0 0; /* 🔹 Gir plass til headeren øverst */
     background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-/* Hovedinnhold - flexbox for layout */
-.content-container {
+/* 🌿 Hovedinnhold */
+#index-main {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     max-width: 1200px;
-    margin: auto;
+    margin: 80px auto 0 auto; /* gir plass til headeren */
 }
 
-/* Leaderboard */
-.leaderboard {
+/* 🌿 Intro */
+.index-intro-container {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+}
+
+.index-title {
+    margin-bottom: 10px;
+    color: #28a745;
+}
+
+.index-intro-text {
+    font-size: 1.1em;
+}
+
+/* 🌿 Leaderboard */
+.index-leaderboard {
     width: 35%;
     background: white;
     padding: 20px;
@@ -25,70 +41,48 @@ body {
     margin-left: -5%;
 }
 
-.leaderboard h2 {
+.index-leaderboard h2 {
     text-align: center;
 }
 
-table {
+/* 🌿 Tabell kun for index */
+.index-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-table th, table td {
+.index-table th,
+.index-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-table th {
+.index-table th {
     background: #28a745;
     color: white;
 }
 
-table tr:hover {
+.index-table tr:hover {
     background: #f1f1f1;
 }
 
-/* Informasjonsposter */
-.info-section {
+/* 🌿 Informasjonsposter */
+.index-info-section {
     width: 65%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.post {
+.index-post {
     background: white;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.post h2 {
+.index-post h2 {
     margin: 0;
     color: #28a745;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: white;
-    margin-top: 30%;
-}
-
-.socials i {
-    font-size: 20px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-.footer-links p {
-    margin: 5px 0;
-}
-
-.intro-container {
-    margin-left: 5%; /* Juster verdien for ønsket avstand */
-    margin-top: 1%;
 }

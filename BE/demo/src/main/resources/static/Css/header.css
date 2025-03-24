@@ -1,7 +1,7 @@
-/* 🔹 Sikrer at headeren er fast øverst på siden */
+/* 🔹 Hovedoppsett for headeren */
 #global-header {
     display: flex;
-    justify-content: space-between; /* 🔹 Sørger for avstand mellom elementene */
+    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     background-color: #28a745;
@@ -11,10 +11,10 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-sizing: border-box; /* 🔹 Hindrer at padding skyver elementene ut */
+    box-sizing: border-box;
 }
 
-/* 🔹 Justerer knappene i navigasjonen */
+/* 🔹 Navigasjonsmeny */
 #global-header nav ul {
     list-style: none;
     display: flex;
@@ -23,35 +23,39 @@
     margin: 0;
 }
 
-/* 🔹 Fikser knappestørrelse og plassering */
-#global-header button {
+/* 🔹 Knapper i navigasjonen og høyre side */
+#global-header .nav-btn {
     background-color: transparent;
     border: 2px solid white;
     color: white;
     padding: 10px 15px;
+    border-radius: 8px; /* 🔹 Avrundede hjørner */
+    font-size: 1em;
     cursor: pointer;
     transition: 0.3s;
+    font-family: inherit;
 }
 
-/* 🔹 Justerer knappene slik at de ikke skjules */
-#global-header .buttons {
-    display: flex;
-    gap: 10px;
-    margin-right: 20px; /* 🔹 Sørger for at knappene ikke ligger helt til kanten */
-}
-
-/* 🔹 Sikrer at knappene ikke ligger helt inntil kanten */
-#global-header .buttons button {
-    min-width: 120px; /* 🔹 Sikrer at knappene har nok bredde */
-    text-align: center;
-}
-
-/* 🔹 Hover-effekt for alle knapper */
-#global-header button:hover {
+/* 🔹 Hover-effekt */
+#global-header .nav-btn:hover {
     background-color: white;
     color: #222;
 }
-/* 🔹 Logo-knappen (bildeknappen) */
+
+/* 🔹 Knappecontainer */
+#global-header .buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+/* 🔹 Bredden på knapper til høyre */
+#global-header .buttons .nav-btn {
+    min-width: 120px;
+    text-align: center;
+}
+
+/* 🔹 Logo-knapp */
 #global-header .logo {
     background: none;
     border: none;
@@ -60,20 +64,19 @@
     cursor: pointer;
 }
 
-/* 🔹 Fjerner hover-effekt for logo-knappen */
 #global-header .logo:hover {
     background: none;
     color: inherit;
 }
 
-/* 🔹 Justerer bildet i logo-knappen om ønskelig */
+/* 🔹 Logo-bilde */
 #global-header .logo img {
     width: 50px;
     height: auto;
     display: block;
 }
 
-/* 🔹 Mediequery for mindre skjermer */
+/* 🔹 Mobiltilpasning */
 @media (max-width: 768px) {
     #global-header {
         flex-direction: column;

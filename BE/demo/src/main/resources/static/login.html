@@ -11,21 +11,37 @@
     <link rel="stylesheet" href="css/footer.css"> 
 
     <!-- JavaScript -->
-    <script src="/script/header.js" defer></script>
     <script src="/script/footer.js" defer></script>
     <script src="/script/login.js" defer></script>
+    <script src="/script/header.js" defer></script>
     
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
 </head>
 <body>
 
     <div class="container">
         <h2>Logg inn</h2>
-        <input type="text" id="username" placeholder="Brukernavn" required>
-        <input type="password" id="password" placeholder="Passord" required>
-        <button onclick="loginUser()">Logg inn</button>
-        <p id="message"></p>
+        <form onsubmit="event.preventDefault(); loginUser();">
+            <input 
+                type="text" 
+                id="username" 
+                placeholder="Brukernavn" 
+                required 
+                autocomplete="username"
+            >
+            <input 
+                type="password" 
+                id="password" 
+                placeholder="Passord" 
+                required 
+                autocomplete="current-password"
+                onkeypress="if(event.key === 'Enter') loginUser();"
+            >
+            <button type="submit">Logg inn</button>
+        </form>
+
+        <p id="message" style="margin-top: 10px;"></p>
+
         <button onclick="window.location.href='register.html'">Opprett en konto</button>
     </div>
 

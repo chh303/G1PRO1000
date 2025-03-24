@@ -23,8 +23,11 @@
         <div id="comment-list"></div>
 
         <h4>Legg igjen en kommentar</h4>
-        <textarea id="comment-text" rows="4" cols="50"></textarea><br>
-        <button onclick="submitComment()">Kommenter</button>
+    <form id="comment-form" onsubmit="event.preventDefault(); submitComment();">
+    <textarea id="comment-text" rows="4" cols="50" required placeholder="Skriv en kommentar..."></textarea><br>
+    <button type="submit">Kommenter</button>
+</form>
+
     </div>
 
     <script>
@@ -84,34 +87,42 @@
         }
 
         async function submitComment() {
-            const text = document.getElementById("comment-text").value.trim();
+    const text = document.getElementById("comment-text").value.trim();
 
-            if (!text) {
-                alert("Kommentaren kan ikke være tom.");
-                return;
-            }
+    if (!text) {
+        alert("Kommentaren kan ikke være tom.");
+        return;
+    }
 
-            const response = await fetch(`/api/comments/add/${postId}`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify(text)
-            });
+    const response = await fetch(`/api/comments/add/${postId}`, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" }, // 🟢 Bruk riktig Content-Type
+        credentials: "include",
+        body: text // ikke JSON.stringify
+    });
 
-            if (response.ok) {
-                document.getElementById("comment-text").value = "";
-                loadComments();
-            } else {
-                alert("Du må være logget inn for å kommentere.");
-                window.location.href = "/login.html";
-            }
-        }
+    if (response.ok) {
+        document.getElementById("comment-text").value = "";
+        loadComments();
+    } else {
+        alert("Du må være logget inn for å kommentere.");
+        window.location.href = "/login.html";
+    }
+}
+
 
         // Først: sjekk innlogging → deretter last data
         checkLoginStatus().then(() => {
             loadPost();
             loadComments();
         });
+       
+    document.getElementById("comment-text").addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault(); // Hindrer linjeskift
+        submitComment();   // Sender kommentaren
+    }
+    });
     </script>
 </body>
 </html>

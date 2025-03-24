@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="no">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registrering</title>
-        <link rel="stylesheet" href="css/registrer.css"> 
-        <link rel="stylesheet" href="css/header.css"> 
-        <link rel="stylesheet" href="css/footer.css"> 
-        <script src="/script/header.js" defer></script>
-        <script src="/script/footer.js" defer></script>
-        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrering</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/registrer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+    <!-- JS -->
+    <script src="/script/header.js" defer></script>
+    <script src="/script/footer.js" defer></script>
+</head>
 <body>
     <div class="a">
         <h2>Opprett en konto</h2>
-        <input type="text" id="username" placeholder="Brukernavn" required>
-        <input type="password" id="password" placeholder="Passord" required>
-        <input type="email" id="email" placeholder="E-post" required>
-        <input type="text" id="phone" placeholder="Telefonnummer" required>
-        <button onclick="registerUser()">Registrer</button>
+
+        <form id="registerForm" onsubmit="event.preventDefault(); registerUser();">
+            <input type="text" id="username" placeholder="Brukernavn" required autocomplete="username">
+            <input type="password" id="password" placeholder="Passord" required autocomplete="new-password">
+            <input type="email" id="email" placeholder="E-post" required autocomplete="email">
+            <input type="tel" id="phone" placeholder="Telefonnummer" required autocomplete="tel">
+
+            <button type="submit">Registrer</button>
+        </form>
+
         <p id="message"></p>
+
         <button onclick="window.location.href='login.html'">Har allerede en konto? Logg inn</button>
     </div>
 
     <script>
-    function registerUser() {
+    async function registerUser() {
         const userData = {
-            username: document.getElementById("username").value,
-            password: document.getElementById("password").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value
+            username: document.getElementById("username").value.trim(),
+            password: document.getElementById("password").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            phone: document.getElementById("phone").value.trim()
         };
 
-        fetch("http://localhost:9090/api/users/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(userData)
-        })
-        .then(response => response.text())
-        .then(data => {
-            if (data.includes("registrert")) {
+        try {
+            const response = await fetch("/api/users/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData),
+                credentials: "include"
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.message === "Bruker registrert!") {
                 document.getElementById("message").style.color = "green";
+                document.getElementById("message").innerText = "Bruker registrert. Logger inn ...";
+                await autoLogin(userData.username, userData.password);
             } else {
                 document.getElementById("message").style.color = "red";
+                document.getElementById("message").innerText = result.error || "Registrering feilet.";
             }
-            document.getElementById("message").innerText = data;
-        })
-        .catch(error => {
+        } catch (err) {
+            console.error("❌ Feil ved registrering:", err);
             document.getElementById("message").style.color = "red";
-            document.getElementById("message").innerText = "Feil ved registrering!";
-            console.error("Feil ved registrering:", error);
+            document.getElementById("message").innerText = "Noe gikk galt under registreringen.";
+        }
+    }
+
+    async function autoLogin(username, password) {
+        const loginData = { username, password };
+
+        const response = await fetch("/api/users/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginData),
+            credentials: "include"
         });
+
+        const loginResult = await response.json();
+
+        if (response.ok) {
+            sessionStorage.setItem("userId", loginResult.userId);
+            sessionStorage.setItem("username", loginResult.username);
+            window.location.href = "index.html";
+        } else {
+            document.getElementById("message").innerText = "Bruker registrert, men innlogging feilet.";
+        }
     }
     </script>
 </body>

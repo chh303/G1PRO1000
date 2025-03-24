@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Chatbot container -->
+    <!-- Chatbot floating icon -->
     <div id="chatbot-container" onclick="toggleChat()">
         <img src="images/garry.jpg" alt="Chatbot" id="chatbot-icon">
     </div>
@@ -20,10 +20,16 @@
             <button onclick="closeChat()">X</button>
         </div>
         <div id="chat-body">
-            <div id="messages"></div>
+            <div id="messages">
+                <!-- Meldinger vises her -->
+            </div>
         </div>
         <div id="chat-footer">
-            <input type="text" id="user-message" placeholder="Skriv en melding...">
+            <input 
+                type="text" 
+                id="user-message" 
+                placeholder="Skriv en melding..."
+            >
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>

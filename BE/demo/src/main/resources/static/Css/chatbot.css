@@ -1,4 +1,4 @@
-/* Chatbot Styles */
+/* Chatbot container */
 #chatbot-container {
     position: fixed;
     bottom: 20px;
@@ -35,25 +35,31 @@
     align-items: center;
 }
 
+/* Chat body */
 #chat-body {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
 }
 
+/* Chat footer */
 #chat-footer {
     display: flex;
     padding: 10px;
     background-color: #f1f1f1;
 }
 
-#user-message {
+/* Input field inside chat */
+#chat-footer input[type="text"] {
     width: 80%;
     padding: 8px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: inherit;
 }
 
-button {
+/* Buttons inside chat only */
+#chat-window button {
     padding: 8px 12px;
     border-radius: 5px;
     margin-left: 10px;
@@ -61,12 +67,14 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    font-family: inherit;
 }
 
-button:hover {
+#chat-window button:hover {
     background-color: #0056b3;
 }
 
+/* Messages in chat window */
 .message {
     background-color: #e0e0e0;
     padding: 8px;
