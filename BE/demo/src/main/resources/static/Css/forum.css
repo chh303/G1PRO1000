@@ -1,6 +1,6 @@
 /* 🔹 Forum container med plass til innleggene */
 .forum-posts-container {
-    margin-top: 100px; /* Tar høyde for fixed header */
+    margin-top: 0px; /* Tar høyde for fixed header */
     padding: 20px;
 }
 
@@ -53,3 +53,9 @@
 #newPostBtn:hover {
     background-color: #218838;
 }
+/* 🔹 Knapp for nytt innlegg – flyttet øverst til høyre */
+.post-button-container {
+    text-align: right;
+    margin: 100px 30px 20px 0; /* top margin for header, right spacing */
+}
+
