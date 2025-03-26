@@ -1,13 +1,86 @@
 /* Generelle stiler */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    background: 
+      radial-gradient(circle at 25% 60%, #a1b89c 0%, transparent 50%),
+      radial-gradient(circle at 75% 40%, #b1c7a8 0%, transparent 75%),
+      radial-gradient(circle at 50% 90%, #8fa88c 0%, transparent 90%),
+      linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+p {
+    padding:2.5%;
 }
 
-/* Hovedinnhold - flexbox for layout */
-.content-container {
+/* 🌄 Bakgrunnsbilde og filter (kun for intro) */
+.index-hero-section {
+    background-image: url('../images/bakgrunn.jpg'); /* <-- Tilpass bildet ditt */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 100px;  /* plass til header */
+    padding-bottom: 120px;
+    text-align: left;
+    overflow: hidden;
+    color: white;
+}
+/* 🌫️ Smooth blur/fade nederst på hero-bildet */
+.index-hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(22, 32, 20, 0.9) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+/* 🌿 Tilpass knapper i headeren kun på index.html */
+.index-page #global-header .buttons .nav-btn {
+    background-color: rgba(255, 255, 255, 0.15); /* lett transparent hvit */
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease;
+}
+
+.index-page #global-header .buttons .nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* nesten helhvit ved hover */
+    color: #222;
+}
+
+
+.index-hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 0;
+}
+
+/* 🌿 Intro-tekst oppå bildet */
+.index-intro-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.index-title {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.index-intro-text {
+    font-size: 1.1em;
+    color: white;
+    position: relative;
+}
+
+/* 🌿 Hovedinnhold (etter intro) */
+#index-main {
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -27,6 +100,7 @@ body {
 
 .leaderboard h2 {
     text-align: center;
+    color: #28a745;
 }
 
 table {
@@ -49,8 +123,37 @@ table tr:hover {
     background: #f1f1f1;
 }
 
-/* Informasjonsposter */
-.info-section {
+/* styling til quiz leaderbord knapp*/
+/* 🎯 Quiz-reklameboks under leaderboard */
+.quiz-reklame {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eaf5ec; /* lys grønn bakgrunn */
+    border: 1px solid #c5e6c9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* 🚀 Knapp inni reklamen */
+.reklame-btn {
+    background-color: #4caf50; /* mild grønn */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reklame-btn:hover {
+    background-color: #45a045; /* mørkere grønn ved hover */
+}
+
+
+/* 🌿 Informasjonsboks-seksjon */
+.index-info-section {
     width: 65%;
     display: flex;
     flex-direction: column;
