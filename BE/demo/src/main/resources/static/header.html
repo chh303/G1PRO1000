@@ -1,19 +1,21 @@
 <!-- header.html -->
 <header id="global-header">
-    <button class="logo" onclick="window.location.href='index.html'">
-        <img src="images/HAHAHA.png" alt="Logo">
-    </button>
-    <nav>
+    <div class="logo-container">
+        <button class="logo" onclick="window.location.href='index.html'">
+            <img src="images/HAHAHA.png" alt="Logo">
+        </button>
+    </div>
+    <nav class="main-nav">
         <ul>
-            <li><button class="nav-btn" onclick="window.location.href='case.html'">Case</button></li>
-            <li><button class="nav-btn" onclick="window.location.href='tutorial.html'">Verktøy</button></li>
-            <li><button class="nav-btn" onclick="window.location.href='forum.html'">Forum</button></li>
-            <li><button class="nav-btn" onclick="window.location.href='quiz.html'">Quiz</button></li>
-            <li><button class="nav-btn" onclick="window.location.href='oss.html'">Oss</button></li>
+            <li><a href="case.html">Case</a></li>
+            <li><a href="tutorial.html">Verktøy</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="oss.html">Oss</a></li>
         </ul>
     </nav>
-    <div class="buttons">
-        <button class="nav-btn" onclick="window.location.href='login.html'">Sign in</button>
-        <button class="nav-btn" onclick="window.location.href='register.html'">Registrer deg</button>
+    <div class="user-actions buttons">
+        <button class="nav-btn" onclick="window.location.href='login.html'">Logg inn</button>
+        <button class="nav-btn" onclick="window.location.href='register.html'">Registrer</button>
     </div>
 </header>
