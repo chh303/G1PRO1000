@@ -120,6 +120,33 @@ p {
     background: #28a745;
     color: white;
 }
+/* 🎯 Quiz-reklameboks under leaderboard */
+.quiz-reklame {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eaf5ec; /* lys grønn bakgrunn */
+    border: 1px solid #c5e6c9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* 🚀 Knapp inni reklamen */
+.reklame-btn {
+    background-color: #4caf50; /* mild grønn */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reklame-btn:hover {
+    background-color: #45a045; /* mørkere grønn ved hover */
+}
+
 
 .index-table tr:hover {
     background: #f1f1f1;
