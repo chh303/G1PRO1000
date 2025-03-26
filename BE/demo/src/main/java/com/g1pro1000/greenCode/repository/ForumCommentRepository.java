@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface ForumCommentRepository extends JpaRepository<ForumComment, Long> {
     List<ForumComment> findByPostId(Long postId);
+    void deleteByAuthor(String author);
+    void deleteByPostId(Long postId);
+
 }
+

@@ -3,6 +3,8 @@ package com.g1pro1000.greenCode.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class ForumComment {
 
@@ -12,6 +14,7 @@ public class ForumComment {
 
     @ManyToOne
     @JoinColumn(name = "post_id")
+    @JsonBackReference
     private ForumPost post;
 
     private String content;

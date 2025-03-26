@@ -1,0 +1,39 @@
+.profile-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.profile-container h2 {
+    color: #28a745;
+}
+
+.profile-container p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.danger-btn {
+    background-color: #c0392b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.danger-btn:hover {
+    background-color: #e74c3c;
+}
+
+.status-msg {
+    margin-top: 15px;
+    font-weight: bold;
+    color: red;
+}

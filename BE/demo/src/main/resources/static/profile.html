@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Min Profil</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="/script/header.js" defer></script>
+    <script src="/script/footer.js" defer></script>
+    <script src="/script/chatbot.js" defer></script>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Min Profil</h2>
+        <div id="profile-details">
+            <p><strong>Brukernavn:</strong> <span id="profile-username"></span></p>
+            <p><strong>E-post:</strong> <span id="profile-email"></span></p>
+            <p><strong>Telefon:</strong> <span id="profile-phone"></span></p>
+        </div>
+        <button class="danger-btn" onclick="deleteAccount()">Slett konto og all data</button>
+        <p id="message" class="status-msg"></p>
+    </div>
+
+    <div id="chatbot-placeholder"></div>
+
+    <script>
+        async function fetchProfile() {
+            try {
+                const res = await fetch("/api/users/session", { credentials: "include" });
+                if (!res.ok) throw new Error("Ikke innlogget");
+                const user = await res.json();
+
+                document.getElementById("profile-username").innerText = user.username;
+                document.getElementById("profile-email").innerText = user.email || "Ikke tilgjengelig";
+                document.getElementById("profile-phone").innerText = user.phone || "Ikke tilgjengelig";
+            } catch (err) {
+                alert("Du må være logget inn for å se profilen.");
+                window.location.href = "/login.html";
+            }
+        }
+
+        async function deleteAccount() {
+            if (!confirm("Er du sikker på at du vil slette kontoen og all data permanent?")) return;
+
+            try {
+                const response = await fetch("/api/users/delete", {
+                    method: "DELETE",
+                    credentials: "include"
+                });
+
+                if (response.ok) {
+                    alert("Kontoen er slettet.");
+                    window.location.href = "/register.html";
+                } else {
+                    document.getElementById("message").innerText = "Kunne ikke slette kontoen.";
+                }
+            } catch (err) {
+                console.error("❌ Feil ved sletting:", err);
+                document.getElementById("message").innerText = "Teknisk feil ved sletting.";
+            }
+        }
+
+        fetchProfile();
+    </script>
+</body>
+</html>
