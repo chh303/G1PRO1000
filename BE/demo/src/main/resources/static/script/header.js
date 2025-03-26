@@ -7,12 +7,24 @@ document.addEventListener("DOMContentLoaded", async function () {
         const headerContainer = document.createElement("div");
         headerContainer.innerHTML = headerHTML;
         document.body.insertAdjacentElement("afterbegin", headerContainer);
-        
+
+        // Merk aktiv side
+        const currentPage = document.body.getAttribute("data-page");
+        const navLinks = headerContainer.querySelectorAll(".main-nav a");
+
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute("href");
+            if (linkPage === currentPage) {
+                link.classList.add("active");
+            }
+        });
+
         await updateHeaderForUser();
     } catch (error) {
         console.error("❌ Feil ved innlasting av header:", error);
     }
 });
+
 
 async function updateHeaderForUser() {
     try {
