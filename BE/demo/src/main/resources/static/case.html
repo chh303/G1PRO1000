@@ -70,6 +70,13 @@
       iframe.src = "";
       overlay.style.display = "none";
     }
+    // Lukk ved klikk utenfor PDF-vinduet
+    document.getElementById("pdf-overlay").addEventListener("click", function (event) {
+      const content = document.querySelector(".pdf-overlay-content");
+      if (!content.contains(event.target)) {
+        lukkPdf();
+      }
+    });
   </script>
 </body>
 </html>
