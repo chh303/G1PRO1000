@@ -105,19 +105,13 @@ public ResponseEntity<String> deleteUser(HttpSession session) {
         List<ForumPost> posts = forumPostRepository.findByAuthor(user.getUsername());
         for (ForumPost post : posts) {
             forumCommentRepository.deleteByPostId(post.getId());
-            System.out.println("🔹 Sletter kommentarer til brukerens foruminnlegg");
-
         }
 
         // 2. Slett brukerens egne kommentarer
         forumCommentRepository.deleteByAuthor(user.getUsername());
-        System.out.println("🔹 Sletter egne kommentarer");
-
 
         // 3. Slett brukerens foruminnlegg
         forumPostRepository.deleteByAuthor(user.getUsername());
-        System.out.println("🔹 Sletter foruminnlegg");
-
 
         // 4. Slett poeng (manuelt hent objekt og slett det)
         userScoreRepository.findByUserId(user.getId()).ifPresent(score -> {
@@ -126,8 +120,6 @@ public ResponseEntity<String> deleteUser(HttpSession session) {
 
         // 5. Slett brukeren
         userRepository.deleteById(user.getId());
-        System.out.println("🔹 Sletter bruker");
-
 
         // 6. Avslutt session
         session.invalidate();
