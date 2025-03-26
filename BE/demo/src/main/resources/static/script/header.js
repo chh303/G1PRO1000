@@ -48,3 +48,19 @@ async function updateHeaderForUser() {
         console.log("❌ Bruker ikke logget inn.");
     }
 }
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("global-header").innerHTML = data;
+
+    // ✅ Når headeren er lastet, hent aktiv side fra body-attributt
+    const currentPage = document.body.getAttribute("data-page");
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  });

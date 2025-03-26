@@ -50,8 +50,9 @@ body {
     transition: border-bottom 0.2s;
 }
 
+.main-nav ul li a.active,
 .main-nav ul li a:hover {
-    border-bottom: 2px solid #28a745;
+  border-bottom: 2px solid #28a745;
 }
 
 /* 🔹 Brukerhandlinger */

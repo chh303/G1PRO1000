@@ -20,7 +20,9 @@ body {
 /* 🔹 Forum-post visning */
 .forum-post {
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background:
+    radial-gradient(circle at 40% 70%, #f4f4f4 0%, transparent 99%),
+    radial-gradient(circle at 40% 10%, #f4f4f4 0%, transparent 99%);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 6px;
