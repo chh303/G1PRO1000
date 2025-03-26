@@ -1,4 +1,12 @@
 /* 🔹 Stil for quiz-alternativer */
+body {
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 50px;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
 .quiz-option-btn {
     padding: 12px;
     border: none;

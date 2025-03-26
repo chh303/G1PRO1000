@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
 .forum-form-container {
     max-width: 600px;
     margin: 30px auto;

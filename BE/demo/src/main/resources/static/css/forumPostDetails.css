@@ -2,9 +2,10 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding-top: 80px; /* Justeres etter høyden på header */
+    padding-top: 50px; /* Justeres etter høyden på header */
     background-color: #f5f5f5;
     color: #333;
+    box-sizing: border-box;
 }
 
 /* 🔹 Container for innlegg og kommentarer */

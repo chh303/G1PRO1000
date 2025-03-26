@@ -1,4 +1,11 @@
 /* 📦 Ytre container */
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
 .pdf-container {
   padding: 100px 2rem 2rem 2rem;
   font-family: Arial, sans-serif;

@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
 /* 🔹 Forum container med plass til innleggene */
 .forum-posts-container {
     margin-top: 0px; /* Tar høyde for fixed header */
