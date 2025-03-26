@@ -30,7 +30,10 @@
 
     <script>
         async function loadPosts() {
+            console.log("🔍 Henter foruminnlegg...");
             const res = await fetch("/api/forum/all");
+
+            
             const posts = await res.json();
             const container = document.getElementById("forumPosts");
 

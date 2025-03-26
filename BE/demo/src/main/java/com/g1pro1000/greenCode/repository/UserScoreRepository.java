@@ -6,9 +6,8 @@ import java.util.Optional;
 import java.util.List;
 
 public interface UserScoreRepository extends JpaRepository<UserScore, Long> {
-
     Optional<UserScore> findByUserId(Long userId);
-
-    // 🔹 Henter alle brukere sortert etter score (høyest først)
     List<UserScore> findAllByOrderByScoreDesc();
+    void deleteByUserId(Long userId);
 }
+

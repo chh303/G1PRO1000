@@ -12,9 +12,10 @@ public class UserScore {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false, unique = true) // Knytter til users-tabellen
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
+    
 
     @Column(nullable = false)
     private int score = 0; // Standardverdi 0 hvis brukeren ikke har deltatt
