@@ -9,7 +9,7 @@ body {
     padding: 8px 24px;
     background-color:#f4f4f4;
     color: #000;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -17,9 +17,6 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-.index-intro-text{
-    color: rgba(255, 255, 255);
 }
 
 /* 🔹 Logo */
@@ -30,7 +27,6 @@ body {
     margin: 0;
     cursor: pointer;
 }
-
 .logo-container img {
     height: 40px;
     width: auto;

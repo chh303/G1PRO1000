@@ -1,43 +1,68 @@
 /* 🌿 Grunnstil for index.html */
 body {
     margin: 0;
-    padding: 80px 0 0 0; /* 🔹 Gir plass til headeren øverst */
-    background-color: #f4f4f4;
     box-sizing: border-box;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
-/* 🌿 Hovedinnhold */
+/* 🌄 Bakgrunnsbilde og filter (kun for intro) */
+.index-hero-section {
+    background-image: url('../images/bakgrunn.jpg'); /* <-- Tilpass bildet ditt */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 150px;  /* plass til header */
+    padding-bottom: 120px;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+.index-hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 0;
+}
+
+/* 🌿 Intro-tekst oppå bildet */
+.index-intro-container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.index-title {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.index-intro-text {
+    font-size: 1.1em;
+    color: white;
+}
+
+/* 🌿 Hovedinnhold (etter intro) */
 #index-main {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     max-width: 1200px;
-    margin: 80px auto 0 auto; /* gir plass til headeren */
+    margin: 80px auto 0 auto; /* plass over main etter header */
 }
 
-/* 🌿 Intro */
-.index-intro-container {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 20px;
-}
-
-.index-title {
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.index-intro-text {
-    font-size: 1.1em;
-}
-
-/* 🌿 Leaderboard */
+/* 🌿 Leaderboard-boks */
 .index-leaderboard {
     width: 35%;
     background: white;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: -5%;
 }
 
@@ -45,7 +70,7 @@ body {
     text-align: center;
 }
 
-/* 🌿 Tabell kun for index */
+/* 🌿 Tabell-styling */
 .index-table {
     width: 100%;
     border-collapse: collapse;
@@ -67,7 +92,7 @@ body {
     background: #f1f1f1;
 }
 
-/* 🌿 Informasjonsposter */
+/* 🌿 Informasjonsboks-seksjon */
 .index-info-section {
     width: 65%;
     display: flex;
@@ -85,4 +110,21 @@ body {
 .index-post h2 {
     margin: 0;
     color: #28a745;
+}
+
+/* 🌿 Tilpasning av header på index.html */
+.index-page #global-header {
+    background: transparent;
+    color: white;
+    box-shadow: none;
+}
+
+.index-page #global-header .nav-btn {
+    border-color: white;
+    color: white;
+}
+
+.index-page #global-header .nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #222;
 }
