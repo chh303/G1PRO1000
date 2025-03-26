@@ -13,7 +13,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    padding-top: 150px;  /* plass til header */
+    padding-top: 100px;  /* plass til header */
     padding-bottom: 120px;
     text-align: center;
     overflow: hidden;
