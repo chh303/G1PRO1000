@@ -19,6 +19,18 @@ body {
     overflow: hidden;
     color: white;
 }
+/* 🌿 Tilpass knapper i headeren kun på index.html */
+.index-page #global-header .buttons .nav-btn {
+    background-color: rgba(255, 255, 255, 0.15); /* lett transparent hvit */
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease;
+}
+
+.index-page #global-header .buttons .nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* nesten helhvit ved hover */
+    color: #222;
+}
+
 
 .index-hero-section::before {
     content: "";
