@@ -1,17 +1,5 @@
 /* 🔹 Stil for quiz-alternativer */
-body {
-    margin: 0;
-    box-sizing: border-box;
-    padding-top: 50px;
-    background: 
-      radial-gradient(circle at 25% 60%, #a1b89c 0%, transparent 50%),
-      radial-gradient(circle at 75% 40%, #b1c7a8 0%, transparent 75%),
-      radial-gradient(circle at 50% 90%, #8fa88c 0%, transparent 90%),
-      linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #ffffff 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-}
+
 
 .quiz-option-btn {
     padding: 12px;
@@ -64,7 +52,9 @@ body {
 }
 /* 🔹 Sikrer at quiz-innholdet er sentrert og i riktig boks */
 #quiz-container {
-    background-color: white;
+    background:
+    radial-gradient(circle at 20% 70%, #f4f4f4 0%, transparent 99%),
+    radial-gradient(circle at 99% 10%, #f4f4f4 0%, transparent 99%);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

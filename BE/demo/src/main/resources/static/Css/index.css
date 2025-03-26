@@ -1,15 +1,4 @@
 /* 🌿 Grunnstil for index.html */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: 
-      radial-gradient(circle at 25% 60%, #a1b89c 0%, transparent 50%),
-      radial-gradient(circle at 75% 40%, #b1c7a8 0%, transparent 75%),
-      radial-gradient(circle at 50% 90%, #8fa88c 0%, transparent 90%),
-      linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #ffffff 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 p {
     padding:2.5%;
 }
@@ -92,7 +81,9 @@ p {
 /* 🌿 Leaderboard-boks */
 .index-leaderboard {
     width: 35%;
-    background: white;
+    background:
+    radial-gradient(circle at 20% 70%, #f4f4f4 20%, transparent 99%),
+    radial-gradient(circle at 99% 10%, #f4f4f4 20%, transparent 99%);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -161,7 +152,9 @@ p {
 }
 
 .index-post {
-    background: white;
+    background:
+    radial-gradient(circle at 20% 70%, #f4f4f4 20%, transparent 99%),
+    radial-gradient(circle at 99% 10%, #f4f4f4 20%, transparent 99%);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
