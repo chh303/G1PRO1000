@@ -20,29 +20,29 @@
 <body data-page="login.html">
 
     <div class="container">
-        <h2>Logg inn</h2>
+        <h2>Sign in</h2>
         <form onsubmit="event.preventDefault(); loginUser();">
             <input 
                 type="text" 
                 id="username" 
-                placeholder="Brukernavn" 
+                placeholder="Username" 
                 required 
                 autocomplete="username"
             >
             <input 
                 type="password" 
                 id="password" 
-                placeholder="Passord" 
+                placeholder="Password" 
                 required 
                 autocomplete="current-password"
                 onkeypress="if(event.key === 'Enter') loginUser();"
             >
-            <button type="submit">Logg inn</button>
+            <button type="submit">Sign in</button>
         </form>
 
         <p id="message" style="margin-top: 10px;"></p>
 
-        <button onclick="window.location.href='register.html'">Opprett en konto</button>
+        <button onclick="window.location.href='register.html'">Create Account</button>
     </div>
 
 </body>

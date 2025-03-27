@@ -1,5 +1,10 @@
  /* NY CSS */ 
 
+ h2 {
+    border-bottom: 2px solid #28a745;
+
+ }
+
  .møtteam {
     display: flex;
     justify-content: center;       /* Sentrerer innholdet horisontalt */

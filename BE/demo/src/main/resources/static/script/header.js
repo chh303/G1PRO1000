@@ -47,7 +47,7 @@ async function updateHeaderForUser() {
 
         buttonsContainer.innerHTML = `
         <button class="nav-btn user-btn" onclick="window.location.href='profile.html'">${userData.username}</button>
-        <button class="nav-btn logout-btn">Logg ut</button>
+        <button class="nav-btn logout-btn">Log out</button>
     `;
     
     

@@ -1,7 +1,7 @@
 
 /* 📦 Ytre container */
 .pdf-container {
-  padding: 100px 2rem 2rem 2rem;
+  padding: 10px 2rem 2rem 2rem;
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
@@ -59,6 +59,7 @@
 .pdf-tittel {
   margin-top: 0;
   font-size: 1.3rem;
+  border-bottom: 2px solid #28a745;
 }
 
 .pdf-beskrivelse {
@@ -138,5 +139,13 @@ h1 {
   display: flex;
   justify-content: center;       /* Sentrerer innholdet horisontalt */
   text-align: center;
-  color: #28a745;
+  font-size: 1.5em;
+
+
+}
+
+.intro {
+  margin: 30px;
+  font-size: 1.1em;
+  text-align: left;
 }

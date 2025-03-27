@@ -17,20 +17,20 @@
 </head>
 <body>
     <div class="a">
-        <h2>Opprett en konto</h2>
+        <h2>Create an Account</h2>
 
         <form id="registerForm" onsubmit="event.preventDefault(); registerUser();">
-            <input type="text" id="username" placeholder="Brukernavn" required autocomplete="username">
-            <input type="password" id="password" placeholder="Passord" required autocomplete="new-password">
-            <input type="email" id="email" placeholder="E-post" required autocomplete="email">
-            <input type="tel" id="phone" placeholder="Telefonnummer" required autocomplete="tel">
+            <input type="text" id="username" placeholder="Username" required autocomplete="username">
+            <input type="password" id="password" placeholder="Password" required autocomplete="new-password">
+            <input type="email" id="email" placeholder="E-mail" required autocomplete="email">
+            <input type="tel" id="phone" placeholder="Mobile" required autocomplete="tel">
 
-            <button type="submit">Registrer</button>
+            <button type="submit">Create Account</button>
         </form>
 
         <p id="message"></p>
 
-        <button onclick="window.location.href='login.html'">Har allerede en konto? Logg inn</button>
+        <button onclick="window.location.href='login.html'">Already have an account? Sign in</button>
     </div>
 
     <script>

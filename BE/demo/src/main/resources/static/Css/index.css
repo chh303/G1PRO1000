@@ -1,6 +1,7 @@
 /* 🌿 Grunnstil for index.html */
 p {
     padding:2.5%;
+
 }
 
 /* 🌄 Bakgrunnsbilde og filter (kun for intro) */
@@ -162,7 +163,7 @@ p {
 
 .index-post h2 {
     margin: 0;
-    color: #28a745;
+    border-bottom: 2px solid #28a745;
 }
 
 /* 🌿 Tilpasning av header på index.html */
