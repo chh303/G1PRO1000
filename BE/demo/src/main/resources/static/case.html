@@ -26,7 +26,14 @@
       <!-- Boks 1 -->
       <section class="pdf-info-boks">
         <h2 class="pdf-tittel">Grønn Koding</h2>
-        <p class="pdf-beskrivelse">En innføring i miljøvennlige praksiser for utviklere.</p>
+        <p class="pdf-beskrivelse">
+          Studien Green Prompting fra Lancaster University undersøker hvordan ulike egenskaper ved prompt og respons påvirker energiforbruket ved bruk av store språkmodeller (LLMs) under inferens. Forfatterne gjennomførte eksperimenter med tre åpne LLM-er – Mistral 7B, Gemma 7B og Vicuna 7B – på tre ulike oppgaver: spørsmålsbesvarelse, sentimentanalyse og tekstgenerering. Gjennom hele 891 000 eksperimentelle kjøringer ble energibruk, latenstid og responslengde målt og analysert. Studien viser at den semantiske betydningen av prompten – altså hva prompten ber modellen om å gjøre – har større innvirkning på energiforbruk enn promptens lengde. Lengre og mer komplekse svar (ofte utløst av åpne oppgaver som “forklar”, “analyser” osv.) øker energiforbruket betydelig, og dette ble funnet å være sterkere korrelert med energikostnad enn antall ord i prompten.
+          <br><br>
+          Resultatene fremhever også at selv mellom modeller med lik arkitektur, varierer energiforbruket betydelig, både på grunn av forskjeller i responslengde og “per-token”-kostnad. Gemma genererte de lengste svarene, og dermed det høyeste totale energiforbruket, selv om den brukte minst energi per token. Studien viser også at enkelte nøkkelord i promptene, som “forklar” eller “analyser”, ofte fører til mer energikrevende svar – et viktig funn for fremtidig arbeid med “grønn” promptutforming. Et interessant tillegg var hvordan Vicuna ofte bruker emotikoner, noe som i noen tilfeller økte energiforbruket. Studien konkluderer med at smart promptdesign – spesielt med tanke på semantikk og oppgavetype – kan bli et viktig verktøy i arbeidet med mer bærekraftig AI-bruk.
+        </p>
+        <div class="image-crop">
+          <img src="/images/stock1.jpg">
+        </div>
         <button class="pdf-knapp" onclick="visPdf('https://arxiv.org/pdf/2503.10666')">Les PDF</button>
       </section>
 
@@ -38,14 +45,27 @@
           <br><br>
           Resultatene viser at selv om AI-modellene kan produsere korrekt og delvis optimalisert kode, er de generelt mindre effektive enn den beste menneskeskrevne koden. Spesielt ChatGPT og Copilot viste høyere Green Capacity i flere tilfeller, men de mangler fortsatt konsistent forståelse for bærekraftsmål som energiforbruk og minneoptimalisering. Studien konkluderer med at det er behov for videreutvikling og trening av slike verktøy med eksplisitte bærekraftsmål for å virkelig kunne redusere karbonavtrykket i programvareutvikling. Dette blir stadig viktigere i takt med økt etterspørsel etter data og beregningstunge løsninger i moderne IT.
         </p>
+        <div class="image-crop">
+          <img src="/images/stock2.jpg" style="width: 460px; height: auto;">
+        </div>
         <button class="pdf-knapp" onclick="visPdf('https://arxiv.org/pdf/2403.03344')">Les PDF</button>
       </section>
 
       <!-- Boks 3 -->
       <section class="pdf-info-boks">
-        <h2 class="pdf-tittel">Grønn Infrastruktur</h2>
-        <p class="pdf-beskrivelse">Hvordan bygge bærekraftige IT-systemer.</p>
-        <button class="pdf-knapp" onclick="visPdf('dokument3.pdf')">Les PDF</button>
+        <h2 class="pdf-tittel">Less is More:<br> Towards Green Code Large Language Models via
+          Unified Structural Pruning</h2>
+        <p class="pdf-beskrivelse">
+          I denne studien introduseres Flab-Pruner, en strukturert pruning-metode som reduserer størrelsen på store språkmodeller (LLMs) brukt til generativ kode, uten å gå på bekostning av ytelse. Flab-Pruner kombinerer tre nivåer av pruning: vokabular, lag og feed-forward-nettverk (FFN), og benytter KL-divergens som målfunksjon for å bevare modellens genereringsevne. For å forbedre ytelsen etter pruning, introduseres en spesialtilpasset code instruction tuning-strategi.
+          <br><br>
+          Metoden evalueres på modeller som CodeQwen, NxCode og CodeSlerp, og oppnår opptil 97 % av original ytelse etter å ha fjernet 22 % av parametrene. Samtidig gir den betydelige gevinster i lagring, GPU-bruk, beregningskostnad og CO₂-utslipp. Studien viser også at modellen bevarer robusthet under ulike typer perturbasjoner, og at post-trening (f.eks. med LoRA) ytterligere forbedrer både ytelse og robusthet.
+          <br><br>
+          Dette arbeidet bidrar til grønnere programvareutvikling og gir en effektiv vei videre for bruk av LLM-er i kodeintelligensoppgaver med lavere miljøavtrykk.
+        </p>
+        <div class="image-crop">
+          <img src="/images/stock3.jpg" style="width: 460px; height: auto;">
+        </div>
+        <button class="pdf-knapp" onclick="visPdf('https://arxiv.org/pdf/2412.15921')">Les PDF</button>
       </section>
     </div>
   </main>

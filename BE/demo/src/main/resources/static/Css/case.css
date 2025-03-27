@@ -9,9 +9,11 @@
 
 /* 🧱 Grid-oppsett */
 .pdf-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
 }
 
 @media (max-width: 1024px) {
@@ -37,10 +39,21 @@
   background:
   radial-gradient(circle at 20% 70%, #f4f4f4 0%, transparent 99%),
   radial-gradient(circle at 99% 10%, #f4f4f4 0%, transparent 99%);
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
 
+}
+
+.pdf-info-boks img {
+  width: auto; height: 22.5rem; position: absolute;
+  margin-top:60px;
+  border-radius: 10px;
+}
+.image-crop {
+  left:60%;
+  position: absolute;
+  width: 453px;
+  height: 900px;
+  overflow: hidden;
 }
 
 .pdf-tittel {
@@ -49,11 +62,13 @@
 }
 
 .pdf-beskrivelse {
+
   color: #444;
   margin-bottom: 1rem;
   flex-grow: 1;
-  width: 100%;
+  width: 60%;
 }
+
 
 .pdf-knapp {
   background-color: #98eb94;
