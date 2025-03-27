@@ -1,7 +1,90 @@
-/* 🔹 Stil for quiz-alternativer */
-
-
-.quiz-option-btn {
+/* === Grunnstruktur === */
+body.quiz-body {
+    display: block;
+    position: relative;
+  }
+  /* === Sidebar === */
+  .quiz-sidebar {
+    position: absolute;
+    width: 220px;
+    height: 100%;
+    background-color: #2e8b57;
+    padding: 120px 15px 30px;
+    box-sizing: border-box;
+  }
+  
+  .quiz-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .quiz-sidebar li {
+    margin-bottom: 20px;
+  }
+  
+  .quiz-sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+  }
+  
+  .quiz-sidebar a:hover {
+    color: #cceedd;
+  }
+  
+  /* === Innhold === */
+  .quiz-content {
+    margin-left: 240px;
+    padding: 50px 20px 60px;
+    max-width: 900px;
+  }
+  
+  /* === Introtekst === */
+  .quiz-intro {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .quiz-intro h1 {
+    font-size: 2.5rem;
+    color: #2e8b57;
+  }
+  
+  /* === Quiz Seksjoner === */
+  .quiz-article {
+    display: none;
+    background-color: #ffffff;
+    border-left: 6px solid #2e8b57;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+  }
+  
+  .quiz-article:target {
+    display: block;
+  }
+  
+  body:not(:has(:target)) #gronnkode {
+    display: block;
+  }
+  
+  .quiz-article h2 {
+    color: #2e8b57;
+  }
+  
+  /* === Quiz-komponent === */
+  #quiz-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-option-btn {
     padding: 12px;
     border: none;
     background-color: #28a745;
@@ -10,32 +93,28 @@
     cursor: pointer;
     transition: background 0.3s;
     border-radius: 5px;
-    width: 100%; /* 🔹 Sørger for at knappene fyller containeren */
-    max-width: 400px; /* 🔹 Begrenset bredde for bedre layout */
-    margin: 5px auto; /* 🔹 Legger til litt avstand mellom knappene */
-    display: block; /* 🔹 Sørger for at knappene plasseres pent under hverandre */
-}
-
-/* 🔹 Hover-effekt for quiz-knappene */
-.quiz-option-btn:hover {
+    width: 100%;
+    max-width: 400px;
+    margin: 5px auto;
+    display: block;
+  }
+  
+  .quiz-option-btn:hover {
     background-color: #218838;
-}
-
-/* 🔹 Når et alternativ er valgt, blir de andre deaktivert */
-.quiz-option-btn:disabled {
+  }
+  
+  .quiz-option-btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-}
-
-/* 🔹 Tilbakemelding på riktig eller feil svar */
-#quiz-feedback {
+  }
+  
+  #quiz-feedback {
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
-}
-
-/* 🔹 Stil for "Next"-knappen */
-#quiz-nextBtn {
+  }
+  
+  #quiz-nextBtn {
     padding: 12px;
     border: none;
     background-color: #007bff;
@@ -45,47 +124,13 @@
     transition: background 0.3s;
     border-radius: 5px;
     margin-top: 15px;
-}
-
-#quiz-nextBtn:hover {
+  }
+  
+  #quiz-nextBtn:hover {
     background-color: #0056b3;
-}
-/* 🔹 Sikrer at quiz-innholdet er sentrert og i riktig boks */
-#quiz-container {
-    background:
-    radial-gradient(circle at 20% 70%, #f4f4f4 0%, transparent 99%),
-    radial-gradient(circle at 99% 10%, #f4f4f4 0%, transparent 99%);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
-    margin: 100px auto 20px auto; /* Justerer margin for å unngå overlapping */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* 🔹 Stil for quiz-spørsmålet */
-#quiz-question {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 20px;
-    text-align: center;
-    width: 100%; /* Sørger for at spørsmålet justerer seg riktig */
-}
-
-/* 🔹 Stil for quiz-alternativer */
-#quiz-options {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-.score-popup {
+  }
+  
+  .score-popup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -97,12 +142,9 @@
     transition: opacity 0.3s ease;
     z-index: 1000;
     pointer-events: none;
-}
-
-.score-popup.show {
+  }
+  
+  .score-popup.show {
     opacity: 1;
-}
-
-
-
-
+  }
+  

@@ -13,8 +13,7 @@
   <script src="/script/chatbot.js" defer></script>
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 </head>
-<body class="tutorial-body">
-
+<body class="tutorial-body" data-page="tutorial.html">
   <div class="tutorial-layout">
     <nav class="tutorial-sidebar">
       <ul>
@@ -99,6 +98,24 @@ String result = sb.toString();</code></pre>
     function revealAnswer() {
       document.getElementById("answer").classList.remove("hidden");
     }
+    document.addEventListener("DOMContentLoaded", () => {
+    const sidebarLinks = document.querySelectorAll(".tutorial-sidebar a");
+
+    sidebarLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        history.replaceState(null, "", `#${targetId}`);
+        document.querySelectorAll(".tutorial-article").forEach(section => {
+          section.style.display = "none";
+        });
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.style.display = "block";
+        }
+      });
+    });
+  });
   </script>
 </body>
 </html>
