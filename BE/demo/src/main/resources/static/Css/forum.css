@@ -62,4 +62,25 @@
     text-align: right;
     margin: 100px 30px 20px 0; /* top margin for header, right spacing */
 }
+.delete-post-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.forum-post {
+    position: relative;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 12px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
 

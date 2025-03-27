@@ -6,9 +6,11 @@ import com.g1pro1000.greenCode.repository.ForumCommentRepository;
 import com.g1pro1000.greenCode.repository.ForumPostRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/comments")
@@ -39,4 +41,17 @@ public class ForumCommentController {
     public List<ForumComment> getComments(@PathVariable Long postId) {
         return commentRepo.findByPostId(postId);
     }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteComment(@PathVariable Long id, HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        if (username == null) return ResponseEntity.status(401).build();
+
+        Optional<ForumComment> comment = commentRepo.findById(id);
+        if (comment.isEmpty()) return ResponseEntity.notFound().build();
+        if (!comment.get().getAuthor().equals(username)) return ResponseEntity.status(403).build();
+
+        commentRepo.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+
 }
