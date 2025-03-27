@@ -1,60 +1,158 @@
-/* 📦 Ytre struktur */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+
+/* Layout for å unngå konflikt med header/footer */
+body.tutorial-body {
+  display: block;
+  position: relative;
+}
+
+/* ===== Venstremarg for navigasjon (under header) ===== */
+.tutorial-sidebar {
+  position: absolute;
+  width: 220px;
+  height: 100%;
+  background-color: #2e8b57;
+  padding: 120px 15px 30px;
+  box-sizing: border-box;
+
+}
+
+.tutorial-sidebar ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-.tut-container {
-  flex: 1;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
+.tutorial-sidebar li {
+  margin-bottom: 20px;
 }
 
-/* 🧱 2x2 grid for innlegg */
-.tut-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolonner */
-  gap: 2rem;
+.tutorial-sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.tutorial-sidebar a:hover {
+  color: #cceedd;
+}
+
+/* ===== Hovedinnhold ===== */
+.tutorial-content {
+  margin-left: 240px;
+  padding: 50px 20px 60px;
   max-width: 900px;
-  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .tut-grid {
-      grid-template-columns: 1fr; /* Mobil: 1 kolonne */
-  }
-}
-
-/* 🔹 Kort med innhold */
-.post {
-  background:
-  radial-gradient(circle at 20% 70%, #f4f4f4 0%, transparent 99%),
-  radial-gradient(circle at 99% 10%, #f4f4f4 0%, transparent 99%);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 🔹 Overskrifter */
-h1 {
-  margin: 90px auto 20px auto;
+/* Introtekst */
+.tutorial-intro {
   text-align: center;
-  color: #28a745;
-  font-size: 2em;
+  margin-bottom: 50px;
 }
 
-h2 {
+.tutorial-intro h1 {
+  font-size: 2.5rem;
+  color: #2e8b57;
+}
+
+/* Artikler */
+.tutorial-article {
+  display: none;
+  background-color: #ffffff;
+  border-left: 6px solid #2e8b57;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+.tutorial-article:target {
+  display: block;
+}
+
+body:not(:has(:target)) #algoritmer {
+  display: block;
+}
+
+.tutorial-article h2 {
+  color: #2e8b57;
+}
+
+.tutorial-article .article-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+/* Kodeeksempel */
+.tutorial-code-example {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-left: 4px solid #444;
+  margin: 20px 0;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+.tutorial-code-example h3 {
+  margin-top: 0;
   color: #333;
-  font-size: 1.5em;
 }
 
-/* 🔹 Paragraftekst */
-p {
-  color: #555;
-  font-size: 1em;
-  line-height: 1.6;
+pre {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Quiz-boks */
+.tutorial-quiz {
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-left: 4px solid #4caf50;
+  margin-top: 30px;
+  border-radius: 4px;
+}
+
+.tutorial-quiz button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  background-color: #2e8b57;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tutorial-quiz button:hover {
+  background-color: #276e46;
+}
+
+.hidden {
+  display: none;
+}
+
+#answer {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Navigasjon mellom seksjoner */
+.tutorial-nav-btn {
+  display: inline-block;
+  margin-top: 30px;
+  margin-right: 10px;
+  padding: 10px 16px;
+  background-color: #2e8b57;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.tutorial-nav-btn:hover {
+  background-color: #276e46;
 }

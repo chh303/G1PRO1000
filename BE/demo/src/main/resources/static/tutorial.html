@@ -1,41 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verktøy til grønn kode</title>
-    <link rel="stylesheet" href="css/tutorial.css"> 
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css"> 
-    <link rel="stylesheet" href="css/chatbot.css"> 
-    <script src="/script/header.js" defer></script>
-    <script src="/script/footer.js" defer></script>
-    <script src="/script/chatbot.js" defer></script>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verktøy til grønn kode</title>
+  <link rel="stylesheet" href="css/tutorial.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/chatbot.css" />
+  <script src="/script/header.js" defer></script>
+  <script src="/script/footer.js" defer></script>
+  <script src="/script/chatbot.js" defer></script>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 </head>
-<body data-page="tutorial.html">
-    <h1>Verktøy til grønn kode</h1>
-        <!-- MAIN CONTENT -->
-        <main class="tut-container">
-            <div class="tut-grid">
-                <div class="post">
-                    <h2>1. Effektiv Koding</h2>
-                    <p>Skriv ren og effektiv kode for å redusere ressursbruk. Bruk kortere og optimaliserte algoritmer.</p>
-                </div>
-                <div class="post">
-                    <h2>2. Bærekraftige Servere</h2>
-                    <p>Velg hostingtjenester som bruker fornybar energi. Cloud-leverandører som AWS og Google Cloud har grønne alternativer.</p>
-                </div>
-                <div class="post">
-                    <h2>3. Optimalisert Frontend</h2>
-                    <p>Reduser bilde- og filstørrelser, bruk lazy loading og minimer CSS/JS for raskere lastetid.</p>
-                </div>
-                <div class="post">
-                    <h2>4. Energieffektiv Backend</h2>
-                    <p>Bruk caching og optimaliser databaseforespørsler for å minimere CPU-bruk og strømkonsum.</p>
-                </div>
-            </div>
-        </main>
-    <div id="chatbot-placeholder"></div>
+<body class="tutorial-body">
+
+  <div class="tutorial-layout">
+    <nav class="tutorial-sidebar">
+      <ul>
+        <li><a href="#algoritmer">Effektive algoritmer</a></li>
+        <li><a href="#optimalisering">Optimalisert kode</a></li>
+        <li><a href="#webdesign">Bærekraftig webdesign</a></li>
+      </ul>
+    </nav>
+
+    <main class="tutorial-content">
+      <section class="tutorial-intro">
+        <h1>Utdanning: Grønn Programmering</h1>
+        <p>Utforsk pedagogiske ressurser som hjelper deg med å skrive mer effektiv, bærekraftig og ansvarlig kode.</p>
+      </section>
+
+      <section class="tutorial-article" id="algoritmer">
+        <h2>Effektive algoritmer</h2>
+        <img src="efficient-algorithms.jpg" alt="Illustrasjon av effektiv algoritme" class="article-img" />
+        <p>Effektive algoritmer reduserer kjøretid og strømforbruk. En god algoritme kan være forskjellen på millisekunder og minutter.</p>
+        <div class="tutorial-code-example">
+          <h3>Sammenligning av to algoritmer:</h3>
+<pre><code>// Dårlig løsning:
+for (int i = 0; i < n; i++) {
+  for (int j = 0; j < n; j++) {
+    if (data[i] == data[j]) {}
+  }
+}
+
+// Bedre løsning med HashSet:
+Set&lt;Integer&gt; set = new HashSet&lt;&gt;();
+for (int val : data) {
+  if (set.contains(val)) {}
+  else set.add(val);
+}</code></pre>
+        </div>
+        <div class="tutorial-quiz">
+          <p><strong>Quiz:</strong> Hva er fordelen med å bruke en HashSet i eksempelet over?</p>
+          <button onclick="revealAnswer()">Vis svar</button>
+          <p id="answer" class="hidden">Den reduserer kompleksiteten fra O(n²) til O(n), og bruker mindre CPU.</p>
+        </div>
+        <a href="#optimalisering" class="tutorial-nav-btn">Neste: Optimalisert kode →</a>
+      </section>
+
+      <section class="tutorial-article" id="optimalisering">
+        <h2>Optimalisert kode</h2>
+        <img src="optimized-code.jpg" alt="Eksempel på optimalisert kode" class="article-img" />
+        <p>Optimalisering handler om mer enn hastighet. Det handler også om å bruke færre ressurser og redusere miljøpåvirkningen.</p>
+        <div class="tutorial-code-example">
+          <h3>Eksempel på unødvendig kompleks kode:</h3>
+<pre><code>// Ikke optimalisert:
+String result = "";
+for (String s : list) {
+  result += s;
+}
+
+// Bedre løsning med StringBuilder:
+StringBuilder sb = new StringBuilder();
+for (String s : list) {
+  sb.append(s);
+}
+String result = sb.toString();</code></pre>
+        </div>
+        <a href="#algoritmer" class="tutorial-nav-btn">← Forrige</a>
+        <a href="#webdesign" class="tutorial-nav-btn">Neste: Webdesign →</a>
+      </section>
+
+      <section class="tutorial-article" id="webdesign">
+        <h2>Bærekraftig webdesign</h2>
+        <img src="sustainable-webdesign.jpg" alt="Bærekraftig webdesign illustrasjon" class="article-img" />
+        <p>Bærekraftig webdesign handler om å redusere datalast og strømbruk. Bruk optimal bildekomprimering, lazy loading, og et enkelt design.</p>
+        <ul>
+          <li>Unngå store videoer på forsiden.</li>
+          <li>Bruk systemfonter fremfor å laste inn nye.</li>
+          <li>Bruk mørk modus der det passer.</li>
+        </ul>
+        <a href="#optimalisering" class="tutorial-nav-btn">← Forrige</a>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function revealAnswer() {
+      document.getElementById("answer").classList.remove("hidden");
+    }
+  </script>
 </body>
 </html>
