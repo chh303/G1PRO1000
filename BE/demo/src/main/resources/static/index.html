@@ -27,10 +27,83 @@
         </div>
     </section>
 
+    <div class="meny">
+        <h1 onclick="scrollToSection('mission')">♻️</h1>
+        <h1 onclick="scrollToSection('importance')">🌍</h1>
+        <h1 onclick="scrollToSection('action')">🧠</h1>
+        <h1 onclick="scrollToSection('about')">🚀</h1>
+        <h1 onclick="scrollToSection('leaderboard')">👑</h1>
+    </div>
+
     <main id="index-main">
+    <section class="index-vision">
+        <div class="bilde-høyre">
+            <div id="mission">
+            <h2 class="gronn-tittel">♻️ Our Mission</h2>
+            <div class="tekst-og-bilde">
+            <p>
+                We are committed to promoting sustainable programming practices that help reduce the environmental impact of digital technologies. As technology continues to evolve, so does its energy footprint — and developers have a key role in making the software industry more climate-conscious.
+                <br><br>
+                Every line of code matters. Inefficient systems can waste significant energy over time, while well-structured and optimized solutions lead to better performance and lower emissions. By raising awareness and sharing tools, insights, and real-world examples, we aim to make green coding both accessible and actionable.
+                <br><br>
+                Through collaboration and education, we empower developers and organizations to build cleaner, more efficient software. Greener code means faster apps, lower costs, and a healthier planet — one efficient line at a time.
+            </p>
+            <img src="/images/stock4.jpg">
+            </div>
+        </div>
+        </div>
+        <div class="bilde-venstre">
+            <div id="importance">
+            <h2>🌍 Why It Matters</h2>
+            <div class="tekst-og-bilde">
+            <img src="/images/stock5.jpg"style="width: 350px; height: auto;">
+            <p>
+                Software may be virtual, but it depends entirely on physical infrastructure — real machines that consume real energy. Every inefficient loop, redundant task, or unnecessary request increases power usage and contributes to carbon emissions.
+                <br><br>
+                What often feels like a small inefficiency in code can scale massively in production environments. Multiply that across millions of users, and the environmental impact becomes significant. 
+                <br><br>
+                Sustainable programming tackles this hidden cost by improving efficiency, reducing hardware strain, and lowering energy demands. It supports a cleaner, faster, and more responsible future for technology.
+            </p>
+            </div>
+        </div>
+        </div>
+        <div class="bilde-høyre">
+            <div id="action">
+            <h2>🧠 What You Can Do</h2>
+            <div class="tekst-og-bilde">
+            <p>
+                Developers have the power to shape more sustainable digital systems. Writing efficient, well-structured code is a simple but impactful way to cut down on unnecessary energy use.
+                <br><br>
+                Choosing eco-friendly infrastructure and optimizing backend logic — such as minimizing server calls, reducing memory waste, or refining loops — can make a measurable difference in performance and power consumption.
+                <br><br>
+                Embracing green coding isn’t just about helping the planet. It also leads to faster applications, lower operational costs, and codebases that are easier to maintain and scale.
+            </p>
+            <img src="/images/stock6.jpg"style="width: 500px; height: auto;">
+            </div>
+            </div>
+        </div>
+        <div class="bilde-venstre">
+            <div id="about">
+            <h2>🚀 Our Project</h2>
+            <div class="tekst-og-bilde">
+            <img src="/images/stock7.jpg"style="width: 400px; height: auto;">
+            <p>
+                As IT students, we’ve taken on a project dedicated to exploring and promoting green coding practices in the tech industry. Our goal is to raise awareness about how software can be both effective and environmentally responsible.
+                <br><br>
+                We’re building a platform that shares knowledge, practical tools, and case studies focused on sustainable software development. It’s a space for learning, inspiration, and real-world application.
+                <br><br>
+                Through hands-on coding, research, and collaboration, we aim to support a more energy-conscious future in tech — and encourage others to join the movement toward greener code.
+            </p>
+            </div>
+        </div>
+        </div>
+</section>
+    <div class="index-content-wrapper">
+
         <!-- Leaderboard -->
         <div class="index-leaderboard">
-            <h2>Leaderboard</h2>
+            <div id="leaderboard"></div>
+            <h2>👑 Leaderboard</h2>
             <table class="index-table">
                 <thead>
                     <tr>
@@ -73,6 +146,7 @@
                 </p>
             </div>
         </div>
+    </div>
     </main>
 
     <div id="chatbot-placeholder"></div>
@@ -103,4 +177,12 @@
         fetchLeaderboard();
     </script>
 </body>
+<script>
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    </script>
 </html>
