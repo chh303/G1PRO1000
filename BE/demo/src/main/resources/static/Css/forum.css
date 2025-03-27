@@ -2,7 +2,7 @@
 
 /* 🔹 Forum container med plass til innleggene */
 .forum-posts-container {
-    margin-top: 0px; /* Tar høyde for fixed header */
+    margin-top: -40px; /* Tar høyde for fixed header */
     padding: 20px;
 }
 
@@ -39,7 +39,7 @@
 /* 🔹 Knapp for nytt innlegg */
 .post-button-container {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 #newPostBtn {
@@ -60,7 +60,7 @@
 /* 🔹 Knapp for nytt innlegg – flyttet øverst til høyre */
 .post-button-container {
     text-align: right;
-    margin: 100px 30px 20px 0; /* top margin for header, right spacing */
+    margin: 70px 30px 20px 0; /* top margin for header, right spacing */
 }
 .delete-post-btn {
     position: absolute;
