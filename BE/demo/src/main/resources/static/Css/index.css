@@ -1,7 +1,6 @@
 /* 🌿 Grunnstil for index.html */
-p {
-    padding:2.5%;
-
+#index-main p {
+    padding: 2.5%;
 }
 
 /* 🌄 Bakgrunnsbilde og filter (kun for intro) */
