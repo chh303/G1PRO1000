@@ -46,21 +46,25 @@
 
       <section class="quiz-article" id="energibruk">
         <h2>Energibruk</h2>
-        <div class="quiz-container" id="energibruk-quiz-container"></div>
-          <div class="score-popup" id="energibruk-popup">+50</div>
+        <div class="quiz-container" id="energibruk-quiz-container">
+          <div class="score-popup">+50</div>
+          <div id="energibruk-quiz-content"></div>
+        </div>
       </section>
       
       <section class="quiz-article" id="effektivitet">
         <h2>Kodeeffektivitet</h2>
         <div class="quiz-container" id="effektivitet-quiz-container">
-          <div class="score-popup" id="effektivitet-popup">+50</div>
+          <div class="score-popup">+50</div>
+          <div id="effektivitet-quiz-content"></div>
         </div>
       </section>
       
       <section class="quiz-article" id="designvalg">
         <h2>Designvalg</h2>
         <div class="quiz-container" id="designvalg-quiz-container">
-          <div class="score-popup" id="designvalg-popup">+50</div>
+          <div class="score-popup">+50</div>
+          <div id="designvalg-quiz-content"></div>
         </div>
       </section>
       
@@ -318,22 +322,21 @@
     
     /* ----------------------------- ENERGIBRUK QUIZ ----------------------------- */
     function loadEnergibrukQuestion() {
-      const container = document.getElementById("energibruk-quiz-container");
-      const q = energibrukData[energibrukIndex];
-    
-      container.innerHTML = `
-        <div class="quiz-container">
-          <h3>${q.question}</h3>
-          <div class="quiz-options">
-            ${q.options.map(option =>
-              `<button class="quiz-option-btn" onclick="checkEnergibrukAnswer(this, '${q.correct.replace(/'/g, "\\'")}')">${option}</button>`
-            ).join("")}
-          </div>
-          <p id="energibruk-feedback" class="quiz-feedback"></p>
-          <button id="energibruk-nextBtn" style="display:none;" onclick="nextEnergibrukQuestion()">Neste</button>
-        </div>
-      `;
-    }
+  const container = document.getElementById("energibruk-quiz-content");
+  const q = energibrukData[energibrukIndex];
+
+  container.innerHTML = `
+    <h3>${q.question}</h3>
+    <div class="quiz-options">
+      ${q.options.map(option =>
+        `<button class="quiz-option-btn" onclick="checkEnergibrukAnswer(this, '${q.correct.replace(/'/g, "\\'")}')">${option}</button>`
+      ).join("")}
+    </div>
+    <p id="energibruk-feedback" class="quiz-feedback"></p>
+    <button id="energibruk-nextBtn" class="neste-knapp" style="display:none;" onclick="nextEnergibrukQuestion()">Neste</button>
+  `;
+}
+
     
     async function checkEnergibrukAnswer(button, correctAnswer) {
       const buttons = document.querySelectorAll("#energibruk-quiz-container .quiz-option-btn");
@@ -364,22 +367,21 @@
     
     /* ----------------------------- EFFEKTIVITET QUIZ ----------------------------- */
     function loadEffektivitetQuestion() {
-      const container = document.getElementById("effektivitet-quiz-container");
-      const q = effektivitetData[effektivitetIndex];
-    
-      container.innerHTML = `
-        <div class="quiz-container">
-          <h3>${q.question}</h3>
-          <div class="quiz-options">
-            ${q.options.map(option =>
-              `<button class="quiz-option-btn" onclick="checkEffektivitetAnswer(this, '${q.correct.replace(/'/g, "\\'")}')">${option}</button>`
-            ).join("")}
-          </div>
-          <p id="effektivitet-feedback" class="quiz-feedback"></p>
-          <button id="effektivitet-nextBtn" style="display:none;" onclick="nextEffektivitetQuestion()">Neste</button>
-        </div>
-      `;
-    }
+  const container = document.getElementById("effektivitet-quiz-content");
+  const q = effektivitetData[effektivitetIndex];
+
+  container.innerHTML = `
+    <h3>${q.question}</h3>
+    <div class="quiz-options">
+      ${q.options.map(option =>
+        `<button class="quiz-option-btn" onclick="checkEffektivitetAnswer(this, '${q.correct.replace(/'/g, "\\'")}')">${option}</button>`
+      ).join("")}
+    </div>
+    <p id="effektivitet-feedback" class="quiz-feedback"></p>
+    <button id="effektivitet-nextBtn" class="neste-knapp" style="display:none;" onclick="nextEffektivitetQuestion()">Neste</button>
+  `;
+}
+
     
     async function checkEffektivitetAnswer(button, correctAnswer) {
       const buttons = document.querySelectorAll("#effektivitet-quiz-container .quiz-option-btn");
@@ -409,23 +411,22 @@
     }
     
     /* ----------------------------- DESIGNVALG QUIZ ----------------------------- */
-    function loadDesignvalgQuestion() {
-      const container = document.getElementById("designvalg-quiz-container");
-      const q = designvalgData[designvalgIndex];
-    
-      container.innerHTML = `
-        <div class="quiz-container">
-          <h3>${q.question}</h3>
-          <div class="quiz-options">
-            ${q.options.map(option =>
-              `<button class="quiz-option-btn" onclick="checkDesignvalgAnswer(this, '${q.correct.replace(/'/g, "\\'")}')">${option}</button>`
-            ).join("")}
-          </div>
-          <p id="designvalg-feedback" class="quiz-feedback"></p>
-          <button id="designvalg-nextBtn" style="display:none;" onclick="nextDesignvalgQuestion()">Neste</button>
-        </div>
-      `;
-    }
+function loadDesignvalgQuestion() {
+  const container = document.getElementById("designvalg-quiz-content");
+  const q = designvalgData[designvalgIndex];
+
+  container.innerHTML = `
+    <h3>${q.question}</h3>
+    <div class="quiz-options">
+      ${q.options.map(option =>
+        `<button class="quiz-option-btn" onclick="checkDesignvalgAnswer(this, '${q.correct.replace(/'/g, "\\'")}')">${option}</button>`
+      ).join("")}
+    </div>
+    <p id="designvalg-feedback" class="quiz-feedback"></p>
+    <button id="designvalg-nextBtn" class="neste-knapp" style="display:none;" onclick="nextDesignvalgQuestion()">Neste</button>
+  `;
+}
+
     
     async function checkDesignvalgAnswer(button, correctAnswer) {
       const buttons = document.querySelectorAll("#designvalg-quiz-container .quiz-option-btn");
