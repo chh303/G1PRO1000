@@ -278,7 +278,7 @@
     
       feedbackEl.textContent = "";
       nextBtn.style.display = "none";
-      questionEl.textContent = questionData.question;
+      questionEl.innerHTML = `<span class="question-counter">Spørsmål ${currentQuestionIndex + 1} / ${quizData.length}</span><br>${questionData.question}`;
       optionsEl.innerHTML = "";
     
       questionData.options.forEach(option => {
@@ -326,6 +326,7 @@
   const q = energibrukData[energibrukIndex];
 
   container.innerHTML = `
+    <p class="question-counter">Spørsmål ${energibrukIndex + 1} / ${energibrukData.length}</p>
     <h3>${q.question}</h3>
     <div class="quiz-options">
       ${q.options.map(option =>
@@ -336,7 +337,6 @@
     <button id="energibruk-nextBtn" class="neste-knapp" style="display:none;" onclick="nextEnergibrukQuestion()">Neste</button>
   `;
 }
-
     
     async function checkEnergibrukAnswer(button, correctAnswer) {
       const buttons = document.querySelectorAll("#energibruk-quiz-container .quiz-option-btn");
@@ -371,6 +371,7 @@
   const q = effektivitetData[effektivitetIndex];
 
   container.innerHTML = `
+    <p class="question-counter">Spørsmål ${effektivitetIndex + 1} / ${effektivitetData.length}</p>
     <h3>${q.question}</h3>
     <div class="quiz-options">
       ${q.options.map(option =>
@@ -411,11 +412,12 @@
     }
     
     /* ----------------------------- DESIGNVALG QUIZ ----------------------------- */
-function loadDesignvalgQuestion() {
+    function loadDesignvalgQuestion() {
   const container = document.getElementById("designvalg-quiz-content");
   const q = designvalgData[designvalgIndex];
 
   container.innerHTML = `
+    <p class="question-counter">Spørsmål ${designvalgIndex + 1} / ${designvalgData.length}</p>
     <h3>${q.question}</h3>
     <div class="quiz-options">
       ${q.options.map(option =>
@@ -426,8 +428,6 @@ function loadDesignvalgQuestion() {
     <button id="designvalg-nextBtn" class="neste-knapp" style="display:none;" onclick="nextDesignvalgQuestion()">Neste</button>
   `;
 }
-
-    
     async function checkDesignvalgAnswer(button, correctAnswer) {
       const buttons = document.querySelectorAll("#designvalg-quiz-container .quiz-option-btn");
       const feedback = document.getElementById("designvalg-feedback");

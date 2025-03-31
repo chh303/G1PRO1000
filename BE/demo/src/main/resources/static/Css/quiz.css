@@ -146,6 +146,12 @@ body.quiz-body {
     background-color: #0056b3;
   }
 
+  .question-counter {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+
   .score-popup {
     position: fixed;
     top: 50%;
