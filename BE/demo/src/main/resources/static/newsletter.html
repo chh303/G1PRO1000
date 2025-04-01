@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<<<<<<< Updated upstream
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyhetsbrev</title>
+
+  <style>
+    .newsletter-popup {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      background: white;
+      padding: 20px;
+      border: 2px solid #2ecc71;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      display: none;
+    }
+    .newsletter-content p {
+      margin-bottom: 10px;
+    }
+    .newsletter-popup input,
+    .newsletter-popup button {
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <div id="newsletter-popup" class="newsletter-popup">
+    <div class="newsletter-content">
+      <p id="newsletter-message"></p>
+      <input type="email" id="newsletter-email" placeholder="Din e-post" />
+      <button id="newsletter-submit">Meld meg på</button>
+      <button id="newsletter-cancel">Avbryt</button>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById("newsletter-popup");
+    const message = document.getElementById("newsletter-message");
+    const emailInput = document.getElementById("newsletter-email");
+    const submitBtn = document.getElementById("newsletter-submit");
+    const cancelBtn = document.getElementById("newsletter-cancel");
+
+    let loggedInEmail = null;
+
+    async function showNewsletterPopup() {
+      popup.style.display = "block";
+      emailInput.value = "";
+      emailInput.style.display = "block"; // alltid vis først
+
+      try {
+        const res = await fetch("/api/users/session", {
+          method: "GET",
+          credentials: "include"
+        });
+
+        const user = await res.json();
+
+        if (res.ok && user && user.email) {
+          loggedInEmail = user.email;
+          message.textContent = `Vil du bruke e-postadressen ${loggedInEmail} for å melde deg på nyhetsbrevet?`;
+          emailInput.style.display = "none"; // skjul hvis vi har e-post
+        } else {
+          throw new Error("Bruker ikke innlogget eller e-post mangler");
+        }
+      } catch (e) {
+        loggedInEmail = null;
+        message.textContent = "Skriv inn e-postadressen din for å melde deg på nyhetsbrevet:";
+        emailInput.style.display = "block";
+      }
+    }
+
+    submitBtn.onclick = async () => {
+      const email = loggedInEmail || emailInput.value.trim();
+      if (!email || !validateEmail(email)) {
+        alert("Vennligst skriv inn en gyldig e-postadresse.");
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/newsletter/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
+
+        if (res.ok) {
+          alert("Du er nå påmeldt nyhetsbrevet!");
+        } else if (res.status === 409) {
+          alert("Denne e-posten er allerede påmeldt.");
+        } else {
+          alert("Noe gikk galt ved påmelding.");
+        }
+      } catch (err) {
+        alert("Kunne ikke kontakte serveren.");
+        console.error(err);
+      }
+
+      popup.style.display = "none";
+    };
+
+    cancelBtn.onclick = () => {
+      popup.style.display = "none";
+    };
+
+    function validateEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+  </script>
+
+</body>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Code Tutorial</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+
+    <script src="/script/header.js" defer></script>
+    <script src="/script/footer.js" defer></script>
+    <script src="/script/chatbot.js" defer></script>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <style>
+        .newsletter-popup {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        background: white;
+        padding: 20px;
+        border: 2px solid #2ecc71;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        z-index: 9999;
+        display: none;
+        }
+        .newsletter-content p {
+        margin-bottom: 10px;
+        }
+        .newsletter-popup input, .newsletter-popup button {
+        margin-top: 5px;
+        display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="newsletter-box" class="newsletter-popup">
+        <div class="newsletter-content">
+          <p id="newsletter-message"></p>
+          <input type="email" id="newsletter-email" placeholder="Din e-post" style="display:none;" />
+          <button id="newsletter-submit">Meld meg på</button>
+          <button id="newsletter-cancel">Avbryt</button>
+          <button onclick="showNewsletterSignup()">Meld deg på nyhetsbrevet</button>
+
+        </div>
+      </div>
+      
+</body>
+<script>
+async function showNewsletterSignup() {
+  const popup = document.getElementById("newsletter-box");
+  const message = document.getElementById("newsletter-message");
+  const emailInput = document.getElementById("newsletter-email");
+  const submitBtn = document.getElementById("newsletter-submit");
+  const cancelBtn = document.getElementById("newsletter-cancel");
+
+  let userEmail = null;
+
+  try {
+    const response = await fetch("/api/users/session", {
+      method: "GET",
+      credentials: "include"
+    });
+
+    if (response.ok) {
+      const user = await response.json();
+      userEmail = user.email;
+      message.textContent = `Vil du bruke e-postadressen ${userEmail} for å melde deg på nyhetsbrevet?`;
+      emailInput.style.display = "none";
+    } else {
+      throw new Error("Ikke innlogget");
+    }
+  } catch {
+    message.textContent = "Skriv inn e-postadressen din for å melde deg på nyhetsbrevet:";
+    emailInput.style.display = "block";
+  }
+
+  popup.style.display = "block";
+
+  submitBtn.onclick = async () => {
+    const email = userEmail || emailInput.value.trim();
+    if (!email) {
+      alert("Vennligst skriv inn en gyldig e-postadresse.");
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+
+      if (res.ok) {
+        alert("Du er nå påmeldt nyhetsbrevet!");
+      } else {
+        alert("Noe gikk galt ved påmelding.");
+      }
+    } catch (err) {
+      console.error("Feil:", err);
+      alert("Kunne ikke kontakte serveren.");
+    }
+
+    popup.style.display = "none";
+  };
+
+  cancelBtn.onclick = () => {
+    popup.style.display = "none";
+  };
+}
+
+</script>
+>>>>>>> Stashed changes
+</html>
