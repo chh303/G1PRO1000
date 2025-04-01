@@ -33,6 +33,7 @@
         <h1 onclick="scrollToSection('action')">🧠</h1>
         <h1 onclick="scrollToSection('about')">🚀</h1>
         <h1 onclick="scrollToSection('leaderboard')">👑</h1>
+        <h1 onclick="scrollToSection('newsletter')">🗞️</h1>
     </div>
 
     <main id="index-main">
@@ -147,6 +148,19 @@
             </div>
         </div>
     </div>
+    <div class="bilde-høyre">
+        <div id="newsletter">
+        <h2 class="gronn-tittel">🗞️ Newsletter</h2>
+        <div class="tekst-og-bilde">
+        <p>
+            By subscribing to our newsletter, you’ll gain early access to curated articles, practical guides, and insights into how green coding is transforming the tech industry. Whether you’re a developer, designer, or tech enthusiast, our content is crafted to help you stay informed and inspired to build digital solutions that are both efficient and environmentally conscious.
+            <br><br>
+            We highlight innovations, spotlight projects making a real difference, and share tips for reducing digital carbon footprints in your everyday work. From low-energy web design to sustainable backend practices, our goal is to make green tech approachable and actionable—directly to your inbox.
+            <button class="newsletter" onclick="location.href='newsletter.html'">Sign up</button>
+        </p>
+        <img src="/images/stock8.jpg">
+        </div>
+    </div>
     </main>
 
     <div id="chatbot-placeholder"></div>
@@ -181,7 +195,14 @@
     function scrollToSection(id) {
         const section = document.getElementById(id);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            const rect = section.getBoundingClientRect();
+            const offsetTop = window.scrollY + rect.top;
+            const centerOffset = offsetTop - (window.innerHeight / 2) + (rect.height / 2);
+    
+            window.scrollTo({
+                top: centerOffset,
+                behavior: 'smooth'
+            });
         }
     }
     </script>

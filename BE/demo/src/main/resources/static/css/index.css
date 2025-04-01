@@ -104,6 +104,21 @@
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
+.tekst-og-bilde button {
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    margin: 20px;
+    background-color: #4caf50; /* mild grønn */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 .bilde-høyre {
     
     max-width: 1240px;
