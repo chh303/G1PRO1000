@@ -6,7 +6,10 @@ import com.g1pro1000.greenCode.repository.NewsletterSubscriberRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< Updated upstream
 import java.util.List;
+=======
+>>>>>>> Stashed changes
 import java.util.Map;
 
 @RestController
@@ -35,9 +38,12 @@ public class NewsletterController {
         repository.save(new NewsletterSubscriber(email));
         return ResponseEntity.ok("Påmelding fullført");
     }
+<<<<<<< Updated upstream
     
     @GetMapping("/all")
     public List<NewsletterSubscriber> getAllSubscribers() {
         return repository.findAll();
     }
+=======
+>>>>>>> Stashed changes
 }
