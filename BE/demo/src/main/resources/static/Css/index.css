@@ -105,7 +105,6 @@
 
 .tekst-og-bilde {
     display: flex;
-
     justify-content: space-between;
     gap: 20px;
 }
@@ -137,8 +136,7 @@
     transition: background-color 0.3s ease;
 }
 .bilde-høyre {
-    
-    max-width: 1250px;
+    width: 1230px;
     margin: 40px;
     background:
     radial-gradient(circle at 20% 70%, #f4f4f4 20%, transparent 99%),
@@ -157,7 +155,7 @@
 }
 
 .bilde-venstre {
-    max-width: 1240px;
+    width: 1230px;
     margin: 40px;
     background:
     radial-gradient(circle at 20% 70%, #f4f4f4 20%, transparent 99%),
