@@ -1,21 +1,72 @@
+/* Grunnoppsett for siden */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+}
+
+/* Sørg for at footeren havner nederst */
+.footer-wrapper {
+  margin-top: auto;
+}
+
+/* Nyhetsbrev-popup */
 .newsletter-popup {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    background: white;
-    padding: 20px;
-    border: 2px solid #2ecc71;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-    display: none;
-  }
-  .newsletter-content p {
-    margin-bottom: 10px;
-  }
-  .newsletter-popup input,
-  .newsletter-popup button {
-    margin-top: 10px;
-    display: block;
-  }
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border: 2px solid #2ecc71;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  display: none;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Tekst i popup */
+.newsletter-content p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Input-felt for e-post */
+.newsletter-popup input[type="email"] {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.newsletter-popup input[type="email"]:focus {
+  border-color: #2ecc71;
+  outline: none;
+}
+
+/* Meld meg på-knapp */
+.newsletter-popup button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #2ecc71;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-popup button:hover {
+  background-color: #27ae60;
+}
