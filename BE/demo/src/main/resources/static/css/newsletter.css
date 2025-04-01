@@ -1,0 +1,21 @@
+.newsletter-popup {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background: white;
+    padding: 20px;
+    border: 2px solid #2ecc71;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: none;
+  }
+  .newsletter-content p {
+    margin-bottom: 10px;
+  }
+  .newsletter-popup input,
+  .newsletter-popup button {
+    margin-top: 10px;
+    display: block;
+  }

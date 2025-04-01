@@ -24,7 +24,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/index.html", "/poengtest.html", "/static/**", "/css/**", "/script/**", "/**.html").permitAll() // Tillat HTML-filer
                 .requestMatchers("/api/users/register", "/api/users/login", "/api/users/logout", "/api/users/session", "/h2-console/**").permitAll() // Tillat registrering og login API-er
-                .requestMatchers("/api/score/update", "/api/score/**", "/api/forum/**", "/api/comments/**", "/api/users/delete/**", "/api/users/**").permitAll() // Tillat score API-er
+                .requestMatchers("/api/score/update", "/api/score/**", "/api/forum/**", "/api/comments/**", "/api/users/delete/**", "/api/users/**", "/api/newsletter/**", "api/newsletter/subscribe").permitAll() // Tillat score API-er
                 .requestMatchers("/js/**", "/images/**").permitAll() // Tillat CSS, JS og bilder
                 .anyRequest().authenticated()
             )

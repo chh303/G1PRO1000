@@ -6,6 +6,7 @@ import com.g1pro1000.greenCode.repository.NewsletterSubscriberRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -33,5 +34,10 @@ public class NewsletterController {
 
         repository.save(new NewsletterSubscriber(email));
         return ResponseEntity.ok("Påmelding fullført");
+    }
+    
+    @GetMapping("/all")
+    public List<NewsletterSubscriber> getAllSubscribers() {
+        return repository.findAll();
     }
 }
