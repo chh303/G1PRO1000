@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz: Grønn Koding</title>
+  <title>Quiz!</title>
 
   <link rel="stylesheet" href="css/quiz.css" />
   <link rel="stylesheet" href="css/header.css" />
@@ -18,34 +18,33 @@
   <div class="quiz-layout">
     <nav class="quiz-sidebar">
       <ul>
-        <li><a href="#gronnkode">Grønn kode</a></li>
-        <li><a href="#energibruk">Energibruk</a></li>
-        <li><a href="#effektivitet">Effektivitet</a></li>
-        <li><a href="#designvalg">Designvalg</a></li>
+        <li><a href="#gronnkode">Green Code</a></li>
+        <li><a href="#energibruk">Energy Use</a></li>
+        <li><a href="#effektivitet">Efficiency</a></li>
+        <li><a href="#designvalg">Design Choices</a></li>
       </ul>
     </nav>
 
     <main class="quiz-content">
-
       <div class="intro">
         <p>
-          Test kunnskapen din innen bærekraftig programmering og grønn teknologi.
+          Test your knowledge in sustainable programming and green technology.
         </p>
-        </div>
+      </div>
 
       <section class="quiz-article" id="gronnkode">
-        <h2>Grønn kode</h2>
+        <h2>Green Code</h2>
         <div id="quiz-container">
           <div id="score-popup" class="score-popup">+50</div>
           <p id="quiz-question"></p>
           <div id="quiz-options"></div>
           <p id="quiz-feedback"></p>
-          <button id="quiz-nextBtn" style="display:none;" onclick="nextQuestion()">Neste</button>
+          <button id="quiz-nextBtn" style="display:none;" onclick="nextQuestion()">Next</button>
         </div>
       </section>
 
       <section class="quiz-article" id="energibruk">
-        <h2>Energibruk</h2>
+        <h2>Energy Use</h2>
         <div class="quiz-container" id="energibruk-quiz-container">
           <div class="score-popup">+50</div>
           <div id="energibruk-quiz-content"></div>
@@ -53,7 +52,7 @@
       </section>
       
       <section class="quiz-article" id="effektivitet">
-        <h2>Kodeeffektivitet</h2>
+        <h2>Code Efficiency</h2>
         <div class="quiz-container" id="effektivitet-quiz-container">
           <div class="score-popup">+50</div>
           <div id="effektivitet-quiz-content"></div>
@@ -61,14 +60,12 @@
       </section>
       
       <section class="quiz-article" id="designvalg">
-        <h2>Designvalg</h2>
+        <h2>Design Choices</h2>
         <div class="quiz-container" id="designvalg-quiz-container">
           <div class="score-popup">+50</div>
           <div id="designvalg-quiz-content"></div>
         </div>
       </section>
-      
-      
     </main>
   </div>
 
@@ -79,138 +76,114 @@
       /*GRØNN KODE QUIZ SPØRSMÅL*/
     const quizData = [
       {
-        question: "Hva handler grønn kode hovedsakelig om?",
-        options: [
-          "Å bruke mange farger i design",
-          "Å skrive kode med mindre strømforbruk",
-          "Å bruke nyeste teknologi",
-          "Å kode kun for grønne bedrifter"
-        ],
-        correct: "Å skrive kode med mindre strømforbruk"
+        question: "What is green coding primarily about?",
+        options: ["Using lots of colors in design", "Writing code that consumes less power", "Using the latest technology","Coding only for green companies"],
+        correct: "Writing code that consumes less power"
       },
       {
-        question: "Hvilket tiltak bidrar mest til energieffektiv frontend?",
-        options: [
-          "Bruk av store bakgrunnsbilder",
-          "Animasjoner i høy oppløsning",
-          "Lazy loading av bilder og innhold",
-          "Autoplay av videoer"
-        ],
-        correct: "Lazy loading av bilder og innhold"
+        question: "Which action contributes most to energy-efficient frontend?",
+        options: ["Use of large background images", "High-resolution animations", "Lazy loading of images and content", "Autoplaying videos"],
+        correct: "Lazy loading of images and content"
       },
       {
-        question: "Hva kan du gjøre i backend for å redusere miljøavtrykket?",
-        options: [
-          "Øke antall serverkall",
-          "Bruke polling i stedet for events",
-          "Cache ofte brukte data",
-          "Bruke større databaser"
-        ],
-        correct: "Cache ofte brukte data"
+        question: "What can you do in the backend to reduce environmental impact?",
+        options: ["Increase number of server calls", "Use polling instead of events", "Cache frequently used data", "Use larger databases"],
+        correct: "Cache frequently used data"
       },
       {
-        question: "Hvilken teknologi er kjent for å bruke fornybar energi i sine datasentre?",
-        options: [
-          "AWS",
-          "Google Cloud",
-          "DigitalOcean",
-          "GitHub"
-        ],
+        question: "Which technology is known for using renewable energy in their data centers?",
+        options: ["AWS", "Google Cloud", "DigitalOcean", "GitHub"],
         correct: "Google Cloud"
       },
       {
-        question: "Hvilket av disse prinsippene er IKKE en del av grønn koding?",
-        options: [
-          "Redusere dataoverføring",
-          "Optimalisere algoritmer",
-          "Bruke så mye RAM som mulig",
-          "Minimere lastetid"
-        ],
-        correct: "Bruke så mye RAM som mulig"
+        question: "Which of these principles is NOT part of green coding?",
+        options: ["Reducing data transfer", "Optimizing algorithms", "Using as much RAM as possible","Minimizing load time"],
+        correct: "Using as much RAM as possible"
       }
     ];
 
     /*SPØRSMÅL TIL ENERGIBRUK*/
   const energibrukData = [  
   {
-    question: "Hva bruker mest energi i en nettside?",
-    options: ["Store bilder og videoer", "Enkel tekst", "Fargerike knapper", "Responsiv design"],
-    correct: "Store bilder og videoer"
+    question: "What consumes the most energy on a website?",
+    options: ["Large images and videos", "Simple text", "Colorful buttons", "Responsive design"],
+    correct: "Large images and videos"
   },
   {
-    question: "Hva kan redusere strømforbruket i UI?",
-    options: ["Bruk av mørk modus", "Flere fonter", "GIF-animasjoner", "Video i bakgrunnen"],
-    correct: "Bruk av mørk modus"
+    question: "What can reduce power consumption in UI?",
+    options: ["Use of dark mode", "More fonts", "GIF animations", "Video in the background"],
+    correct: "Use of dark mode"
   },
   {
-    question: "Hva er energibesparende?",
-    options: ["Komprimere bilder", "Bruke store JavaScript-bibliotek", "Autoplay av video", "Lysmodus alltid"],
-    correct: "Komprimere bilder"
+    question: "What is energy-saving?",
+    options: ["Compressing images", "Using large JavaScript libraries", "Autoplaying video", "Always light mode"],
+    correct: "Compressing images"
   },
   {
-    question: "Hva fører til unødvendig strømforbruk?",
-    options: ["Tung animasjon", "Systemfonter", "Minifisert CSS", "SVG-ikoner"],
-    correct: "Tung animasjon"
+    question: "What causes unnecessary power consumption?",
+    options: ["Heavy animation", "System fonts", "Minified CSS", "SVG icons"],
+    correct: "Heavy animation"
   },
   {
-    question: "Hva reduserer overføring og strømforbruk?",
-    options: ["Lazy loading", "Inline CSS", "Store logoer", "Store skrifttyper"],
+    question: "What reduces transfer and power consumption?",
+    options: ["Lazy loading", "Inline CSS", "Large logos", "Large fonts"],
     correct: "Lazy loading"
   }
 ];
           /* SPØRSMÅL TIL EFFEKTIVITET */
   const effektivitetData = [
-    {
-    question: "Hva er en god praksis for effektiv looping?",
-    options: ["Bruke nested loops alltid", "Foretrekke while fremfor for", "Unngå unødvendige gjentakelser", "Iterere med rekursjon uansett"],
-    correct: "Unngå unødvendige gjentakelser"
+  {
+    question: "What is good practice for efficient looping?",
+    options: ["Always use nested loops", "Prefer while over for", "Avoid unnecessary repetitions", "Always iterate with recursion"],
+    correct: "Avoid unnecessary repetitions"
   },
   {
-    question: "Hva bidrar til bedre ytelse i datastrukturer?",
-    options: ["Bruke ArrayList for alt", "Velge struktur basert på bruk", "Alltid bruke HashMap", "Unngå datastrukturer"],
-    correct: "Velge struktur basert på bruk"
+    question: "What contributes to better performance in data structures?",
+    options: ["Use ArrayList for everything", "Choose structure based on usage", "Always use HashMap", "Avoid data structures"],
+    correct: "Choose structure based on usage"
   },
   {
-    question: "Hvordan bør man behandle store datamengder?",
-    options: ["Bruke én stor løkke", "Lagre alt i minnet", "Batch-prosessere", "Gjenta spørringer konstant"],
-    correct: "Batch-prosessere"
+    question: "How should large data sets be handled?",
+    options: ["Use one big loop", "Store everything in memory", "Batch process", "Repeat queries constantly"],
+    correct: "Batch process"
   },
   {
-    question: "Hva er best for ytelse?",
-    options: ["Å logge alt", "Korte funksjoner", "Tung logging i produksjon", "Unngå refaktorering"],
-    correct: "Korte funksjoner"
+    question: "What is best for performance?",
+    options: ["Logging everything", "Short functions", "Heavy logging in production", "Avoid refactoring"],
+    correct: "Short functions"
   },
   {
-    question: "Hva er et tegn på ineffektiv kode?",
-    options: ["Kode med kommentarer", "Gjentatt logikk", "Enkle funksjoner", "Gjenbrukbar kode"],
-    correct: "Gjentatt logikk"
+    question: "What is a sign of inefficient code?",
+    options: ["Code with comments", "Repeated logic", "Simple functions", "Reusable code"],
+    correct: "Repeated logic"
   }
 ];
       /*SPØRSMÅL TIL DESIGNVALG*/
-    const designvalgData = [   {
-    question: "Hva er viktig i bærekraftig design?",
-    options: ["Bruk av mange fonter", "Minimalistisk layout", "Store bilder", "Animerte bakgrunner"],
-    correct: "Minimalistisk layout"
+    const designvalgData = [   
+  {
+    question: "What is important in sustainable design?",
+    options: ["Use of many fonts", "Minimalist layout", "Large images", "Animated backgrounds"],
+    correct: "Minimalist layout"
   },
   {
-    question: "Hva reduserer energibruk i UI-design?",
-    options: ["Video i bakgrunnen", "Dynamisk lastet innhold", "Flash-elementer", "Ukomprimert grafikk"],
-    correct: "Dynamisk lastet innhold"
+    question: "What reduces energy use in UI design?",
+    options: ["Video in background", "Dynamically loaded content", "Flash elements", "Uncompressed graphics"],
+    correct: "Dynamically loaded content"
   },
   {
-    question: "Hvordan påvirker farger strømforbruk?",
-    options: ["Lyse farger bruker mindre", "Mørk modus kan spare strøm", "Farger påvirker ikke", "Flerfarget bakgrunn er best"],
-    correct: "Mørk modus kan spare strøm"
+    question: "How do colors affect power consumption?",
+    options: ["Bright colors use less", "Dark mode can save power", "Colors don’t affect it", "Multicolored background is best"],
+    correct: "Dark mode can save power"
   },
   {
-    question: "Hva er best praksis for bruk av media?",
-    options: ["HD-videoer automatisk", "Kompakte bilder og SVG", "GIF-er som bakgrunn", "Fullskjerm-animasjoner"],
-    correct: "Kompakte bilder og SVG"
+    question: "What is best practice for media usage?",
+    options: ["HD videos by default", "Compact images and SVG", "GIFs as background", "Fullscreen animations"],
+    correct: "Compact images and SVG"
   },
   {
-    question: "Hva er en ulempe med overkomplisert UI?",
-    options: ["Det bruker mindre båndbredde", "Det er raskere å utvikle", "Det krever mer energi", "Det er enklere å forstå"],
-    correct: "Det krever mer energi"
+    question: "What is a disadvantage of overcomplicated UI?",
+    options: ["It uses less bandwidth", "It’s faster to develop", "It requires more energy", "It’s easier to understand"],
+    correct: "It requires more energy"
   }
 ];
     
@@ -278,7 +251,7 @@
     
       feedbackEl.textContent = "";
       nextBtn.style.display = "none";
-      questionEl.innerHTML = `<span class="question-counter">Spørsmål ${currentQuestionIndex + 1} / ${quizData.length}</span><br>${questionData.question}`;
+      questionEl.innerHTML = `<span class="question-counter">Question ${currentQuestionIndex + 1} / ${quizData.length}</span><br>${questionData.question}`;
       optionsEl.innerHTML = "";
     
       questionData.options.forEach(option => {
@@ -316,7 +289,7 @@
       if (currentQuestionIndex < quizData.length) {
         loadQuestion();
       } else {
-        document.getElementById("quiz-container").innerHTML = "<h2>Gratulerer, du har fullført quizen! 🎉</h2>";
+        document.getElementById("quiz-container").innerHTML = "<h2>Congratulations, you have completed the quiz! 🎉</h2>";
       }
     }
     
@@ -326,7 +299,7 @@
   const q = energibrukData[energibrukIndex];
 
   container.innerHTML = `
-    <p class="question-counter">Spørsmål ${energibrukIndex + 1} / ${energibrukData.length}</p>
+    <p class="question-counter">Question ${energibrukIndex + 1} / ${energibrukData.length}</p>
     <h3>${q.question}</h3>
     <div class="quiz-options">
       ${q.options.map(option =>
@@ -361,7 +334,7 @@
       if (energibrukIndex < energibrukData.length) {
         loadEnergibrukQuestion();
       } else {
-        document.getElementById("energibruk-quiz-container").innerHTML = "<h3>Du har fullført Energibruk-quizen! 🎉</h3>";
+        document.getElementById("energibruk-quiz-container").innerHTML = "<h3>Congratulations, you have completed the quiz! 🎉</h3>";
       }
     }
     
@@ -371,7 +344,7 @@
   const q = effektivitetData[effektivitetIndex];
 
   container.innerHTML = `
-    <p class="question-counter">Spørsmål ${effektivitetIndex + 1} / ${effektivitetData.length}</p>
+    <p class="question-counter">Question ${effektivitetIndex + 1} / ${effektivitetData.length}</p>
     <h3>${q.question}</h3>
     <div class="quiz-options">
       ${q.options.map(option =>
@@ -407,7 +380,7 @@
       if (effektivitetIndex < effektivitetData.length) {
         loadEffektivitetQuestion();
       } else {
-        document.getElementById("effektivitet-quiz-container").innerHTML = "<h3>Du har fullført Effektivitets-quizen! 🎉</h3>";
+        document.getElementById("effektivitet-quiz-container").innerHTML = "<h3>Congratulations, you have completed the quiz! 🎉</h3>";
       }
     }
     
@@ -417,7 +390,7 @@
   const q = designvalgData[designvalgIndex];
 
   container.innerHTML = `
-    <p class="question-counter">Spørsmål ${designvalgIndex + 1} / ${designvalgData.length}</p>
+    <p class="question-counter">Question ${designvalgIndex + 1} / ${designvalgData.length}</p>
     <h3>${q.question}</h3>
     <div class="quiz-options">
       ${q.options.map(option =>
@@ -451,7 +424,7 @@
       if (designvalgIndex < designvalgData.length) {
         loadDesignvalgQuestion();
       } else {
-        document.getElementById("designvalg-quiz-container").innerHTML = "<h3>Du har fullført Designvalg-quizen! 🎉</h3>";
+        document.getElementById("designvalg-quiz-container").innerHTML = "<h3>Congratulations, you have completed the quiz! 🎉</h3>";
       }
     }
     

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verktøy til grønn kode</title>
+  <title>Tools</title>
   <link rel="stylesheet" href="css/tutorial.css" />
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
@@ -17,34 +17,33 @@
   <div class="tutorial-layout">
     <nav class="tutorial-sidebar">
       <ul>
-        <li><a href="#algoritmer">Effektive algoritmer</a></li>
-        <li><a href="#optimalisering">Optimalisert kode</a></li>
-        <li><a href="#webdesign">Bærekraftig webdesign</a></li>
+        <li><a href="#algoritmer">Efficient Algorithms</a></li>
+        <li><a href="#optimalisering">Optimized Code</a></li>
+        <li><a href="#webdesign">Sustainable Web Design</a></li>
       </ul>
     </nav>
 
     <main class="tutorial-content">
       <div class="intro">
         <p>
-          Utforsk pedagogiske ressurser som hjelper deg med å skrive mer effektiv, bærekraftig og ansvarlig kode.
+          Explore educational resources that help you write more efficient, sustainable, and responsible code.
         </p>
-        </div>
-
+      </div>
 
       <section class="tutorial-article" id="algoritmer">
-        <h2>Effektive algoritmer</h2>
-        <img src="efficient-algorithms.jpg" alt="Illustrasjon av effektiv algoritme" class="article-img" />
-        <p>Effektive algoritmer reduserer kjøretid og strømforbruk. En god algoritme kan være forskjellen på millisekunder og minutter.</p>
+        <h2>Efficient Algorithms</h2>
+        <img src="efficient-algorithms.jpg" alt="Illustration of efficient algorithm" class="article-img" />
+        <p>Efficient algorithms reduce runtime and power consumption. A good algorithm can be the difference between milliseconds and minutes.</p>
         <div class="tutorial-code-example">
-          <h3>Sammenligning av to algoritmer:</h3>
-<pre><code>// Dårlig løsning:
+          <h3>Comparison of two algorithms:</h3>
+<pre><code>// Poor solution:
 for (int i = 0; i < n; i++) {
   for (int j = 0; j < n; j++) {
     if (data[i] == data[j]) {}
   }
 }
 
-// Bedre løsning med HashSet:
+// Better solution using HashSet:
 Set&lt;Integer&gt; set = new HashSet&lt;&gt;();
 for (int val : data) {
   if (set.contains(val)) {}
@@ -52,46 +51,46 @@ for (int val : data) {
 }</code></pre>
         </div>
         <div class="tutorial-quiz">
-          <p><strong>Quiz:</strong> Hva er fordelen med å bruke en HashSet i eksempelet over?</p>
-          <button onclick="revealAnswer()">Vis svar</button>
-          <p id="answer" class="hidden">Den reduserer kompleksiteten fra O(n²) til O(n), og bruker mindre CPU.</p>
+          <p><strong>Quiz:</strong> What is the advantage of using a HashSet in the example above?</p>
+          <button onclick="revealAnswer()">Show answer</button>
+          <p id="answer" class="hidden">It reduces complexity from O(n²) to O(n), and uses less CPU.</p>
         </div>
-        <a href="#optimalisering" class="tutorial-nav-btn">Neste: Optimalisert kode →</a>
+        <a href="#optimalisering" class="tutorial-nav-btn">Next: Optimized Code →</a>
       </section>
 
       <section class="tutorial-article" id="optimalisering">
-        <h2>Optimalisert kode</h2>
-        <img src="optimized-code.jpg" alt="Eksempel på optimalisert kode" class="article-img" />
-        <p>Optimalisering handler om mer enn hastighet. Det handler også om å bruke færre ressurser og redusere miljøpåvirkningen.</p>
+        <h2>Optimized Code</h2>
+        <img src="optimized-code.jpg" alt="Example of optimized code" class="article-img" />
+        <p>Optimization is about more than speed. It's also about using fewer resources and reducing environmental impact.</p>
         <div class="tutorial-code-example">
-          <h3>Eksempel på unødvendig kompleks kode:</h3>
-<pre><code>// Ikke optimalisert:
+          <h3>Example of unnecessarily complex code:</h3>
+<pre><code>// Not optimized:
 String result = "";
 for (String s : list) {
   result += s;
 }
 
-// Bedre løsning med StringBuilder:
+// Better solution using StringBuilder:
 StringBuilder sb = new StringBuilder();
 for (String s : list) {
   sb.append(s);
 }
 String result = sb.toString();</code></pre>
         </div>
-        <a href="#algoritmer" class="tutorial-nav-btn">← Forrige</a>
-        <a href="#webdesign" class="tutorial-nav-btn">Neste: Webdesign →</a>
+        <a href="#algoritmer" class="tutorial-nav-btn">← Previous</a>
+        <a href="#webdesign" class="tutorial-nav-btn">Next: Web Design →</a>
       </section>
 
       <section class="tutorial-article" id="webdesign">
-        <h2>Bærekraftig webdesign</h2>
-        <img src="sustainable-webdesign.jpg" alt="Bærekraftig webdesign illustrasjon" class="article-img" />
-        <p>Bærekraftig webdesign handler om å redusere datalast og strømbruk. Bruk optimal bildekomprimering, lazy loading, og et enkelt design.</p>
+        <h2>Sustainable Web Design</h2>
+        <img src="sustainable-webdesign.jpg" alt="Sustainable web design illustration" class="article-img" />
+        <p>Sustainable web design is about reducing data load and power usage. Use optimal image compression, lazy loading, and a simple layout.</p>
         <ul>
-          <li>Unngå store videoer på forsiden.</li>
-          <li>Bruk systemfonter fremfor å laste inn nye.</li>
-          <li>Bruk mørk modus der det passer.</li>
+          <li>Avoid large videos on the front page.</li>
+          <li>Use system fonts instead of loading new ones.</li>
+          <li>Use dark mode where appropriate.</li>
         </ul>
-        <a href="#optimalisering" class="tutorial-nav-btn">← Forrige</a>
+        <a href="#optimalisering" class="tutorial-nav-btn">← Previous</a>
       </section>
     </main>
   </div>
@@ -101,23 +100,23 @@ String result = sb.toString();</code></pre>
       document.getElementById("answer").classList.remove("hidden");
     }
     document.addEventListener("DOMContentLoaded", () => {
-    const sidebarLinks = document.querySelectorAll(".tutorial-sidebar a");
+      const sidebarLinks = document.querySelectorAll(".tutorial-sidebar a");
 
-    sidebarLinks.forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href").substring(1);
-        history.replaceState(null, "", `#${targetId}`);
-        document.querySelectorAll(".tutorial-article").forEach(section => {
-          section.style.display = "none";
+      sidebarLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          history.replaceState(null, "", `#${targetId}`);
+          document.querySelectorAll(".tutorial-article").forEach(section => {
+            section.style.display = "none";
+          });
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.style.display = "block";
+          }
         });
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.style.display = "block";
-        }
       });
     });
-  });
   </script>
 </body>
 </html>
