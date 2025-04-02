@@ -26,6 +26,14 @@
             </div>
         </div>
     </section>
+
+    <div class="audio">
+        <button onclick="toggleLyd()" title="Read the whole page">🔊</button>
+        <audio id="minLyd" preload="auto">
+            <source src="indextts.mp3" type="audio/mpeg">
+            Nettleseren din støtter ikke lyd.
+        </audio>
+    </div>
     <div class="meny-wrapper">
         <div class="tab-handle"></div>
         <div class="meny">
@@ -161,12 +169,14 @@
             <button class="newsletter" onclick="location.href='newsletter.html'">Sign up</button>
         </p>
         <img src="/images/stock8.jpg">
-        </div>
     </div>
-    </main>
+</div>
 
-    <div id="chatbot-placeholder"></div>
+</main>
 
+<div id="chatbot-placeholder"></div>
+
+</body>
     <script>
         async function fetchLeaderboard() {
             try {
@@ -192,20 +202,31 @@
 
         fetchLeaderboard();
     </script>
-</body>
 <script>
-    function scrollToSection(id) {
-        const section = document.getElementById(id);
-        if (section) {
-            const rect = section.getBoundingClientRect();
-            const offsetTop = window.scrollY + rect.top;
-            const centerOffset = offsetTop - (window.innerHeight / 2) + (rect.height / 2);
-    
-            window.scrollTo({
-                top: centerOffset,
-                behavior: 'smooth'
-            });
+function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+        // Hvis seksjonen er "leaderboard", juster med ekstra scroll-margin
+        if (id === "leaderboard") {
+            const offset = 100; // justér etter behov
+            const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        } else {
+            // Standard scroll
+            section.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
+}
+function toggleLyd() {
+    const lyd = document.getElementById("minLyd");
+    if (lyd.paused) {
+        lyd.play()
+            .then(() => console.log("Spiller lyd 🎵"))
+            .catch(e => console.error("🚫 Klarte ikke å spille lyd:", e));
+    } else {
+        lyd.pause();
+        console.log("Lyd pauset ⏸️");
+    }
+}
     </script>
 </html>
