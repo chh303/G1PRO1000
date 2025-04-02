@@ -27,12 +27,6 @@
         </div>
     </section>
 
-    <div class="audio">
-        <button onclick="toggleLyd()" title="Read the whole page">🔊</button>
-        <audio id="minLyd" preload="auto">
-            <source src="indextts.mp3" type="audio/mpeg">
-            Nettleseren din støtter ikke lyd.
-        </audio>
     </div>
     <div class="meny-wrapper">
         <div class="tab-handle"></div>
@@ -46,11 +40,22 @@
         </div>
     </div>
 
+    <div class="audio">
+        <audio id="minLyd" preload="auto">
+        <source src="indextts.mp3" type="audio/mpeg">
+        Nettleseren din støtter ikke lyd.
+    </audio>
     <main id="index-main">
     <section class="index-vision">
         <div class="bilde-høyre">
             <div id="mission">
-            <h2 class="gronn-tittel">♻️ Our Mission</h2>
+                <div class="section-header">
+                    <h2 class="gronn-tittel">♻️ Our Mission</h2>
+                    <div class="section-buttons">
+                        <button class="darkmode-btn" onclick="toggleSectionDarkmode('mission', this)">🌙</button>
+                        <button class="audioknapp" onclick="toggleLyd()" title="Read the whole page">🔊</button>
+                    </div>
+                </div>         
             <div class="tekst-og-bilde">
             <p>
                 We are committed to promoting sustainable programming practices that help reduce the environmental impact of digital technologies. As technology continues to evolve, so does its energy footprint — and developers have a key role in making the software industry more climate-conscious.
@@ -65,7 +70,13 @@
         </div>
         <div class="bilde-venstre">
             <div id="importance">
-            <h2>🌍 Why It Matters</h2>
+                <div class="section-header">
+                    <h2>🌍 Why It Matters</h2>
+                    <div class="section-buttons">
+                        <button class="darkmode-btn" onclick="toggleSectionDarkmode('importance', this)">🌙</button>
+                        <button class="audioknapp" onclick="toggleLyd()" title="Read the whole page">🔊</button>
+                    </div>
+                </div>   
             <div class="tekst-og-bilde">
             <img src="/images/stock5.jpg"style="width: 350px; height: auto;">
             <p>
@@ -80,7 +91,13 @@
         </div>
         <div class="bilde-høyre">
             <div id="action">
-            <h2>🧠 What You Can Do</h2>
+                <div class="section-header">
+                    <h2>🧠 What You Can Do</h2>
+                    <div class="section-buttons">
+                        <button class="darkmode-btn" onclick="toggleSectionDarkmode('action', this)">🌙</button>
+                        <button class="audioknapp" onclick="toggleLyd()" title="Read the whole page">🔊</button>
+                    </div>
+                </div>
             <div class="tekst-og-bilde">
             <p>
                 Developers have the power to shape more sustainable digital systems. Writing efficient, well-structured code is a simple but impactful way to cut down on unnecessary energy use.
@@ -95,7 +112,13 @@
         </div>
         <div class="bilde-venstre">
             <div id="about">
-            <h2>🚀 Our Project</h2>
+                <div class="section-header">
+                    <h2>🚀 Our Project</h2>
+                    <div class="section-buttons">
+                        <button class="darkmode-btn" onclick="toggleSectionDarkmode('about', this)">🌙</button>
+                        <button class="audioknapp" onclick="toggleLyd()" title="Read the whole page">🔊</button>
+                    </div>
+                </div>
             <div class="tekst-og-bilde">
             <img src="/images/stock7.jpg"style="width: 400px; height: auto;">
             <p>
@@ -199,34 +222,54 @@
                 console.error("Feil ved henting av leaderboard:", error);
             }
         }
-
         fetchLeaderboard();
-    </script>
-<script>
-function scrollToSection(id) {
-    const section = document.getElementById(id);
-    if (section) {
-        // Hvis seksjonen er "leaderboard", juster med ekstra scroll-margin
-        if (id === "leaderboard") {
-            const offset = 100; // justér etter behov
-            const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        } else {
-            // Standard scroll
-            section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // Hvis seksjonen er "leaderboard", juster med ekstra scroll-margin
+            if (id === "leaderboard") {
+                const offset = 100; // justér etter behov
+                const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            } else {
+                // Standard scroll
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
     }
-}
-function toggleLyd() {
-    const lyd = document.getElementById("minLyd");
-    if (lyd.paused) {
-        lyd.play()
-            .then(() => console.log("Spiller lyd 🎵"))
-            .catch(e => console.error("🚫 Klarte ikke å spille lyd:", e));
+    function toggleLyd() {
+        const lyd = document.getElementById("minLyd");
+        if (lyd.paused) {
+            lyd.play()
+                .then(() => console.log("Spiller lyd 🎵"))
+                .catch(e => console.error("🚫 Klarte ikke å spille lyd:", e));
+        } else {
+            lyd.pause();
+            console.log("Lyd pauset ⏸️");
+        }
+    }
+    function toggleSectionDarkmode(id, btn) {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    // Finn containeren (bilde-høyre eller bilde-venstre)
+    const container = section.closest(".bilde-høyre, .bilde-venstre");
+    if (!container) return;
+
+    // Toggle darkmode på containeren
+    container.classList.toggle("darkmode-container");
+
+    // Toggle mørk tekst inni seksjonen (valgfritt hvis du vil ha separat stil)
+    section.classList.toggle("section-darkmode");
+
+    // Oppdater emoji
+    if (container.classList.contains("darkmode-container")) {
+        btn.textContent = "🔆"; // Light mode
     } else {
-        lyd.pause();
-        console.log("Lyd pauset ⏸️");
+        btn.textContent = "🌙"; // Dark mode
     }
 }
+
     </script>
 </html>
