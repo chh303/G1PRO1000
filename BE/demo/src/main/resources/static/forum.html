@@ -21,7 +21,7 @@
 <body data-page="forum.html">
     <!-- 🔹 Publiser innlegg-knapp -->
     <div class="post-button-container">
-        <button id="newPostBtn" onclick="window.location.href='forumPost.html'">+ Nytt innlegg</button>
+        <button id="newPostBtn" onclick="window.location.href='forumPost.html'">+ New post</button>
     </div>
 
     <div class="forum-posts-container" id="forumPosts"></div>
@@ -52,7 +52,7 @@ async function loadPosts() {
 
         // Lag HTML for innlegg
         let html = `
-            <p><strong>Forfatter:</strong> ${post.author}</p>
+            <p><strong>Written by:</strong> ${post.author}</p>
             <h3>${post.title}</h3>
             <p>${post.content.length > 150 ? post.content.slice(0, 150) + "..." : post.content}</p>
             <small><em>${new Date(post.timestamp).toLocaleString()}</em></small>

@@ -131,5 +131,68 @@ public ResponseEntity<String> deleteUser(HttpSession session) {
     }
 }
 
+@PutMapping("/update-email")
+public ResponseEntity<String> updateEmail(@RequestBody Map<String, String> request, HttpSession session) {
+    User user = (User) session.getAttribute("user");
+
+    if (user == null) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ingen bruker innlogget");
+    }
+
+    String newEmail = request.get("email");
+    if (newEmail == null || newEmail.isBlank()) {
+        return ResponseEntity.badRequest().body("Ugyldig e-postadresse");
+    }
+
+    // Sjekk at e-posten ikke allerede er i bruk av en annen
+    Optional<User> existingEmailUser = userRepository.findByEmail(newEmail);
+    if (existingEmailUser.isPresent() && !existingEmailUser.get().getId().equals(user.getId())) {
+        return ResponseEntity.badRequest().body("E-post er allerede i bruk");
+    }
+
+    // Oppdater og lagre
+    user.setEmail(newEmail);
+    userRepository.save(user);
+    session.setAttribute("user", user); // Oppdaterer sesjonen også
+
+    return ResponseEntity.ok("E-post oppdatert");
+}
+@PutMapping("/update-username")
+public ResponseEntity<String> updateUsername(@RequestBody Map<String, String> request, HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if (user == null) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ingen bruker innlogget");
+
+    String newUsername = request.get("username");
+    if (newUsername == null || newUsername.isBlank()) return ResponseEntity.badRequest().body("Ugyldig brukernavn");
+
+    Optional<User> existing = userRepository.findByUsername(newUsername);
+    if (existing.isPresent() && !existing.get().getId().equals(user.getId())) {
+        return ResponseEntity.badRequest().body("Brukernavn er allerede i bruk");
+    }
+
+    user.setUsername(newUsername);
+    userRepository.save(user);
+    session.setAttribute("user", user);
+    return ResponseEntity.ok("Brukernavn oppdatert");
+}
+@PutMapping("/update-phone")
+public ResponseEntity<String> updatePhone(@RequestBody Map<String, String> request, HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if (user == null) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ingen bruker innlogget");
+
+    String newPhone = request.get("phone");
+    if (newPhone == null || newPhone.isBlank()) return ResponseEntity.badRequest().body("Ugyldig telefonnummer");
+
+    Optional<User> existing = userRepository.findByPhone(newPhone);
+    if (existing.isPresent() && !existing.get().getId().equals(user.getId())) {
+        return ResponseEntity.badRequest().body("Telefonnummer er allerede i bruk");
+    }
+
+    user.setPhone(newPhone);
+    userRepository.save(user);
+    session.setAttribute("user", user);
+    return ResponseEntity.ok("Telefonnummer oppdatert");
+}
+
     
 }

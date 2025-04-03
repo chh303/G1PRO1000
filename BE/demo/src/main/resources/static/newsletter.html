@@ -22,12 +22,12 @@
 
 <body>
   <body>
-    <!-- Dette er selve innholdet -->
+    <!-- This is the main content -->
     <div id="newsletter-popup" class="newsletter-popup">
       <div class="newsletter-content">
         <p id="newsletter-message"></p>
-        <input type="email" id="newsletter-email" placeholder="Din e-post" />
-        <button id="newsletter-submit">Meld meg på</button>
+        <input type="email" id="newsletter-email" placeholder="Your email" />
+        <button id="newsletter-submit">Subscribe</button>
       </div>
     </div>
     
@@ -42,7 +42,7 @@
     async function showNewsletterPopup() {
       popup.style.display = "block";
       emailInput.value = "";
-      emailInput.style.display = "block"; // alltid vis først
+      emailInput.style.display = "block"; // always show first
 
       try {
         const res = await fetch("/api/users/session", {
@@ -54,14 +54,14 @@
 
         if (res.ok && user && user.email) {
           loggedInEmail = user.email;
-          message.textContent = `Vil du bruke e-postadressen ${loggedInEmail} for å melde deg på nyhetsbrevet?`;
-          emailInput.style.display = "none"; // skjul hvis vi har e-post
+          message.textContent = `Would you like to use the email address ${loggedInEmail} to subscribe to the newsletter?`;
+          emailInput.style.display = "none"; // hide if email is available
         } else {
-          throw new Error("Bruker ikke innlogget eller e-post mangler");
+          throw new Error("User not logged in or email missing");
         }
       } catch (e) {
         loggedInEmail = null;
-        message.textContent = "Skriv inn e-postadressen din for å melde deg på nyhetsbrevet:";
+        message.textContent = "Enter your email address to subscribe to the newsletter:";
         emailInput.style.display = "block";
       }
     }
@@ -69,7 +69,7 @@
     submitBtn.onclick = async () => {
       const email = loggedInEmail || emailInput.value.trim();
       if (!email || !validateEmail(email)) {
-        alert("Vennligst skriv inn en gyldig e-postadresse.");
+        alert("Please enter a valid email address.");
         return;
       }
 
@@ -81,14 +81,14 @@
         });
 
         if (res.ok) {
-          alert("Du er nå påmeldt nyhetsbrevet!");
+          alert("You are now subscribed to the newsletter!");
         } else if (res.status === 409) {
-          alert("Denne e-posten er allerede påmeldt.");
+          alert("This email is already subscribed.");
         } else {
-          alert("Noe gikk galt ved påmelding.");
+          alert("Something went wrong while subscribing.");
         }
       } catch (err) {
-        alert("Kunne ikke kontakte serveren.");
+        alert("Could not contact the server.");
         console.error(err);
       }
 

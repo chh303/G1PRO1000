@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Min Profil</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/chatbot.css">
@@ -14,14 +14,44 @@
 </head>
 <body>
     <div class="profile-container">
-        <h2>Min Profil</h2>
-        <div id="profile-details">
-            <p><strong>Brukernavn:</strong> <span id="profile-username"></span></p>
-            <p><strong>E-post:</strong> <span id="profile-email"></span></p>
-            <p><strong>Telefon:</strong> <span id="profile-phone"></span></p>
+    <h2>My Profile</h2>
+    <div id="profile-details">
+        <p>
+            <strong>Username:</strong>
+            <span id="profile-username"></span>
+            <button id="edit-username-btn" class="edit-btn" onclick="showEdit('username')">Edit</button>
+        </p>
+        <div id="username-edit-container" style="display: none;">
+            <input type="text" id="new-username" placeholder="Enter new username">
+            <button onclick="updateUsername()">Save</button>
+            <button onclick="cancelEdit('username')">Cancel</button>
         </div>
-        <button class="danger-btn" onclick="deleteAccount()">Slett konto og all data</button>
-        <p id="message" class="status-msg"></p>
+    
+        <p>
+            <strong>Email:</strong>
+            <span id="profile-email"></span>
+            <button id="edit-email-btn" class="edit-btn" onclick="showEdit('email')">Edit</button>
+        </p>
+        <div id="email-edit-container" style="display: none;">
+            <input type="email" id="new-email" placeholder="Enter new email">
+            <button onclick="updateEmail()">Save</button>
+            <button onclick="cancelEdit('email')">Cancel</button>
+        </div>
+    
+        <p>
+            <strong>Phone:</strong>
+            <span id="profile-phone"></span>
+            <button id="edit-phone-btn" class="edit-btn" onclick="showEdit('phone')">Edit</button>
+        </p>
+        <div id="phone-edit-container" style="display: none;">
+            <input type="text" id="new-phone" placeholder="Enter new phone number">
+            <button onclick="updatePhone()">Save</button>
+            <button onclick="cancelEdit('phone')">Cancel</button>
+        </div>
+    </div>
+    
+    <button class="danger-btn" onclick="deleteAccount()">Delete account and all data</button>
+    <p id="message" class="status-msg"></p>
     </div>
 
     <div id="chatbot-placeholder"></div>
@@ -30,20 +60,20 @@
         async function fetchProfile() {
             try {
                 const res = await fetch("/api/users/session", { credentials: "include" });
-                if (!res.ok) throw new Error("Ikke innlogget");
+                if (!res.ok) throw new Error("Not logged in");
                 const user = await res.json();
 
                 document.getElementById("profile-username").innerText = user.username;
-                document.getElementById("profile-email").innerText = user.email || "Ikke tilgjengelig";
-                document.getElementById("profile-phone").innerText = user.phone || "Ikke tilgjengelig";
+                document.getElementById("profile-email").innerText = user.email || "Not available";
+                document.getElementById("profile-phone").innerText = user.phone || "Not available";
             } catch (err) {
-                alert("Du må være logget inn for å se profilen.");
+                alert("You must be logged in to view your profile.");
                 window.location.href = "/login.html";
             }
         }
 
         async function deleteAccount() {
-            if (!confirm("Er du sikker på at du vil slette kontoen og all data permanent?")) return;
+            if (!confirm("Are you sure you want to permanently delete your account and all data?")) return;
 
             try {
                 const response = await fetch("/api/users/delete", {
@@ -52,18 +82,122 @@
                 });
 
                 if (response.ok) {
-                    alert("Kontoen er slettet.");
+                    alert("Your account has been deleted.");
                     window.location.href = "/register.html";
                 } else {
-                    document.getElementById("message").innerText = "Kunne ikke slette kontoen.";
+                    document.getElementById("message").innerText = "Could not delete the account.";
                 }
             } catch (err) {
-                console.error("❌ Feil ved sletting:", err);
-                document.getElementById("message").innerText = "Teknisk feil ved sletting.";
+                console.error("❌ Error deleting account:", err);
+                document.getElementById("message").innerText = "Technical error during deletion.";
             }
         }
 
         fetchProfile();
+        async function updateEmail() {
+    const newEmail = document.getElementById("new-email").value;
+
+    if (!newEmail || !newEmail.includes("@")) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    try {
+        const response = await fetch("/api/users/update-email", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify({ email: newEmail })
+        });
+
+        if (response.ok) {
+            alert("Email updated successfully!");
+            document.getElementById("profile-email").innerText = newEmail;
+        } else {
+            const errorData = await response.text();
+            alert("Failed to update email: " + errorData);
+        }
+    } catch (error) {
+        console.error("❌ Error updating email:", error);
+        alert("Technical error while updating email.");
+    }
+}
+function showEmailEdit() {
+    document.getElementById("email-edit-container").style.display = "block";
+    document.getElementById("edit-email-btn").style.display = "none";
+}
+
+function cancelEmailEdit() {
+    document.getElementById("email-edit-container").style.display = "none";
+    document.getElementById("edit-email-btn").style.display = "inline";
+    document.getElementById("new-email").value = ""; // Tømmer feltet
+}
+function showEdit(field) {
+    document.getElementById(`${field}-edit-container`).style.display = "block";
+    document.getElementById(`edit-${field}-btn`).style.display = "none";
+}
+
+function cancelEdit(field) {
+    document.getElementById(`${field}-edit-container`).style.display = "none";
+    document.getElementById(`edit-${field}-btn`).style.display = "inline";
+    document.getElementById(`new-${field}`).value = "";
+}
+
+async function updateUsername() {
+    const newUsername = document.getElementById("new-username").value;
+    if (!newUsername) return alert("Please enter a valid username.");
+
+    try {
+        const res = await fetch("/api/users/update-username", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ username: newUsername })
+        });
+
+        if (res.ok) {
+            document.getElementById("profile-username").innerText = newUsername;
+            cancelEdit("username");
+            alert("Username updated!");
+        } else {
+            const err = await res.text();
+            alert("Failed: " + err);
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Error updating username.");
+    }
+}
+
+async function updatePhone() {
+    const newPhone = document.getElementById("new-phone").value;
+    if (!newPhone) return alert("Please enter a valid phone number.");
+
+    try {
+        const res = await fetch("/api/users/update-phone", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ phone: newPhone })
+        });
+
+        if (res.ok) {
+            document.getElementById("profile-phone").innerText = newPhone;
+            cancelEdit("phone");
+            alert("Phone number updated!");
+        } else {
+            const err = await res.text();
+            alert("Failed: " + err);
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Error updating phone number.");
+    }
+}
+
+
     </script>
 </body>
 </html>

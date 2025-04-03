@@ -37,3 +37,10 @@
     font-weight: bold;
     color: red;
 }
+.edit-btn {
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 0.6em;
+    cursor: pointer;
+}
+
