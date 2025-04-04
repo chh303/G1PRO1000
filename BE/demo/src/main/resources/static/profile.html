@@ -191,13 +191,11 @@ async function updatePhone() {
             const err = await res.text();
             alert("Failed: " + err);
         }
-    } catch (err) {
-        console.error(err);
-        alert("Error updating phone number.");
+        } catch (err) {
+            console.error(err);
+            alert("Error updating phone number.");
+        }
     }
-}
-
-
     </script>
 </body>
 </html>
