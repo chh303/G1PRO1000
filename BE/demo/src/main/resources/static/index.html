@@ -21,6 +21,29 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "qzyy0mjou3");
     </script>  
+
+<script>
+    (function (m, a, z, e) {
+      var s, t;
+      try {
+        t = m.sessionStorage.getItem('maze-us');
+      } catch (err) {}
+    
+      if (!t) {
+        t = new Date().getTime();
+        try {
+          m.sessionStorage.setItem('maze-us', t);
+        } catch (err) {}
+      }
+    
+      s = a.createElement('script');
+      s.src = z + '?apiKey=' + e;
+      s.async = true;
+      a.getElementsByTagName('head')[0].appendChild(s);
+      m.mazeUniversalSnippetApiKey = e;
+    })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '38fba7f6-ff32-40c8-93c9-90d2dc176406');
+    </script>
+    
 </head>
 <body class="index-page" data-page="index.html"> <!-- Merk: klasse for spesifikk styling -->
 
@@ -210,7 +233,7 @@
     <script>
         async function fetchLeaderboard() {
             try {
-                const response = await fetch("http://localhost:9090/api/score/leaderboard");
+                const response = await fetch("/api/score/leaderboard");
                 if (!response.ok) throw new Error("Kunne ikke hente leaderboard.");
                 
                 const data = await response.json();
