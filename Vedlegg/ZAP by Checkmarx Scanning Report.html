@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAP by Checkmarx Scanning Report</title>
+<link href="ZAP%20by%20Checkmarx%20Scanning%20Report_files/normalize.css" rel="stylesheet">
+<link href="ZAP%20by%20Checkmarx%20Scanning%20Report_files/main.css" rel="stylesheet">
+<link href="ZAP%20by%20Checkmarx%20Scanning%20Report_files/colors.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>ZAP by Checkmarx Scanning Report</h1>
+		<p>
+			<span>Generated with</span> <a href="https://zaproxy.org/"><img src="ZAP%20by%20Checkmarx%20Scanning%20Report_files/zap32x32.png" alt="The ZAP logo" class="zap-logo">ZAP</a>
+			<span>on man. 7 apr. 2025, at 15:48:41</span>
+		</p>
+		<p>ZAP Version: 2.16.1</p>
+		<p>
+			ZAP by <a href="https://checkmarx.com/">Checkmarx</a>
+		</p>
+	</header>
+
+	<main>
+
+		<section id="contents" class="contents">
+			<h2>Contents</h2>
+			<nav>
+				<ol>
+					<li><a href="#about-this-report">About this report</a>
+						<ol>
+							
+							<li><a href="#report-parameters">Report parameters</a></li>
+						</ol></li>
+					<data-th-block>
+					<li><a href="#summaries">Summaries</a>
+						<ol>
+							<li><a href="#risk-confidence-counts">Alert counts by risk and confidence</a></li>
+							<li><a href="#site-risk-counts">Alert counts by site and risk</a></li>
+							<li><a href="#alert-type-counts">Alert counts by alert type</a></li>
+						</ol></li>
+					<li><a href="#alerts">Alerts</a>
+						<ol>
+							
+							 
+							
+							
+							
+							
+							<li><a href="#alerts--risk-2-confidence-3"><span>Risk</span>=<span class="risk-level">Medium</span>, <span>Confidence</span>=<span class="confidence-level">High</span> <span>(1)</span></a></li>
+							
+							<li><a href="#alerts--risk-2-confidence-2"><span>Risk</span>=<span class="risk-level">Medium</span>, <span>Confidence</span>=<span class="confidence-level">Medium</span> <span>(1)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							
+							
+							<li><a href="#alerts--risk-1-confidence-2"><span>Risk</span>=<span class="risk-level">Low</span>, <span>Confidence</span>=<span class="confidence-level">Medium</span> <span>(1)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							
+							
+							<li><a href="#alerts--risk-0-confidence-2"><span>Risk</span>=<span class="risk-level">Informational</span>, <span>Confidence</span>=<span class="confidence-level">Medium</span> <span>(2)</span></a></li>
+							
+							
+							  
+						</ol></li>
+					<li><a href="#appendix">Appendix</a>
+						<ol>
+							<li><a href="#alert-types">Alert types</a></li>
+						</ol></li>
+					</data-th-block>
+				</ol>
+			</nav>
+		</section>
+
+		<section id="about-this-report" class="about-this-report">
+			<h2>About this report</h2>
+
+			
+
+			<section id="report-parameters">
+				<h3>Report parameters</h3>
+				<div class="report-parameters--container">
+					<h4>Contexts</h4>
+					
+					
+					<p>No contexts were selected, so all contexts were included by default.</p>
+					  
+
+					<h4>Sites</h4>
+					
+					<p>The following sites were included:</p>
+					<ul class="sites-list">
+						<li><span class="site">http://localhost:9090</span></li>
+					</ul>
+					
+					<p>(If no sites were selected, all sites were included by default.)</p>
+					<p>An included site must also be within one of the included contexts for its data to be included in the report.</p>
+
+					<h4>Risk levels</h4>
+					<p>
+						<span>Included</span>:
+						 
+						<span class="included-risk-codes"><span class="risk-level">High</span>, <span class="risk-level">Medium</span>, <span class="risk-level">Low</span>, <span class="risk-level">Informational</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						 <span>None</span>
+						
+					</p>
+
+					<h4>Confidence levels</h4>
+					<p>
+						<span>Included</span>:
+						
+						
+						<span class="included-confidence-codes"><span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						
+						
+						<span class="included-confidence-codes"> <span class="confidence-level">User Confirmed</span>, <span class="confidence-level">High</span>, <span class="confidence-level">Medium</span>, <span class="confidence-level">Low</span>, <span class="confidence-level">Falske Positive</span></span>
+					</p>
+				</div>
+			</section>
+		</section>
+
+		
+		<section>
+			
+		</section>
+		
+		<section id="summaries" class="summaries">
+			<h2>Summaries</h2>
+
+			<section id="risk-confidence-counts">
+				<h3>Alert counts by risk and confidence</h3>
+				<table class="risk-confidence-counts-table">
+					<caption>
+						<p>This table shows the number of alerts for each level of risk and confidence included in the report.</p>
+						<p>(The percentages in brackets represent the count as a 
+percentage of the total number of alerts included in the report, rounded
+ to one decimal place.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col style="width: 14.0%"><col style="width: 14.0%"><col style="width: 14.0%"><col style="width: 14.0%">
+						<col style="width: 14.0%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="5">Confidence</th>
+						</tr>
+						<tr>
+							<th scope="col">User Confirmed</th>
+							<th scope="col">High</th>
+							<th scope="col">Medium</th>
+							<th scope="col">Low</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup" rowspan="5">Risk</th>
+							<th scope="row">High</th>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Medium</th>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(40,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Low</th>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Informational</th>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(40,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(40,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Total</th>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+							<td><span>4</span><br> <span class="additional-info-percentages">(80,0&nbsp;%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0&nbsp;%)</span></td>
+							<td><span>5</span><br> <span class="additional-info-percentages">(100%)</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="site-risk-counts">
+				<h3>Alert counts by site and risk</h3>
+				<table class="site-risk-counts-table">
+					<caption>
+						<p>This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.</p>
+						<p>Alerts with a confidence level of "False Positive" have been excluded from these counts.</p>
+						<p>(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col style="width: 16.25%"><col style="width: 16.25%"><col style="width: 16.25%"><col style="width: 16.25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="4">Risk</th>
+						</tr>
+						<tr>
+							<th scope="col">
+								<span>High</span><br>  <span class="additional-info-percentages">(= High)</span>  
+							</th>
+							<th scope="col">
+								<span>Medium</span><br>   <span class="additional-info-percentages">(&gt;= Medium)</span> 
+							</th>
+							<th scope="col">
+								<span>Low</span><br>   <span class="additional-info-percentages">(&gt;= Low)</span> 
+							</th>
+							<th scope="col">
+								<span>Informational</span><br>   <span class="additional-info-percentages">(&gt;= Informational)</span> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup" rowspan="1">Site</th>
+							<th scope="row">http://localhost:9090</th>
+							
+							<td><span>0</span><br> <span class="additional-info-percentages">(0)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(2)</span></td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(3)</span></td>
+							<td><span>2</span><br> <span class="additional-info-percentages">(5)</span></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="alert-type-counts">
+				<h3>Alert counts by alert type</h3>
+				<table class="alert-type-counts-table">
+					<caption>
+						<p>This table shows the number of alerts of each alert type, together with the alert type's risk level.</p>
+						<p>(The percentages in brackets represent each count as a 
+percentage, rounded to one decimal place, of the total number of alerts 
+included in this report.)</p>
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">Alert type</th>
+							<th scope="col">Risk</th>
+							<th scope="col">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"><a href="#alert-type-0">Content Security Policy (CSP) Header Not Set</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a href="#alert-type-1">Missing Anti-clickjacking Header</a></th>
+							<td class="risk-level">Medium</td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a href="#alert-type-2">Cookie without SameSite Attribute</a></th>
+							<td class="risk-level">Low</td>
+							<td><span>5</span><br> <span class="additional-info-percentages">(100,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a href="#alert-type-3">Modern Web Application</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>1</span><br> <span class="additional-info-percentages">(20,0&nbsp;%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a href="#alert-type-4">Session Management Response Identified</a></th>
+							<td class="risk-level">Informational</td>
+							<td><span>9</span><br> <span class="additional-info-percentages">(180,0&nbsp;%)</span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Total</th>
+							<td></td>
+							<td>5</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+		</section>
+
+		<section id="alerts" class="alerts">
+			<h2>Alerts</h2>
+			<ol>
+				
+				 
+				 
+				
+				
+				<li id="alerts--risk-2-confidence-3">
+					<h3>
+						<span>Risk</span>=<span class="risk-level">Medium</span>, <span>Confidence</span>=<span class="confidence-level">High</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:9090</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a href="#alert-type-0">Content Security Policy (CSP) Header Not Set</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:9090</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tbody><tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Content Security Policy (CSP) is an added layer of security that 
+helps to detect and mitigate certain types of attacks, including Cross 
+Site Scripting (XSS) and data injection attacks. These attacks are used 
+for everything from data theft to site defacement or distribution of 
+malware. CSP provides a set of standard HTTP headers that allow website 
+owners to declare approved sources of content that browsers should be 
+allowed to load on that page — covered types are JavaScript, CSS, HTML 
+frames, fonts, images and embeddable objects such as Java applets, 
+ActiveX, audio and video files.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (228 bytes)</summary>
+				
+				<pre><code>GET http://localhost:9090 HTTP/1.1
+host: localhost:9090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (430 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Last-Modified: Mon, 07 Apr 2025 10:15:59 GMT
+Accept-Ranges: bytes
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Type: text/html
+Content-Language: nb-NO
+Content-Length: 14735
+Date: Mon, 07 Apr 2025 13:37:15 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (14735 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="no"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Green Code Tutorial&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="css/index.css"&gt;
+    &lt;link rel="stylesheet" href="css/header.css"&gt;
+    &lt;link rel="stylesheet" href="css/footer.css"&gt;
+    &lt;link rel="stylesheet" href="css/chatbot.css"&gt;
+
+    &lt;script src="/script/header.js" defer&gt;&lt;/script&gt;
+    &lt;script src="/script/footer.js" defer&gt;&lt;/script&gt;
+    &lt;script src="/script/chatbot.js" defer&gt;&lt;/script&gt;
+    &lt;link rel="icon" href="/images/favicon.ico" type="image/x-icon"&gt;
+    &lt;script type="text/javascript"&gt;
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qzyy0mjou3");
+    &lt;/script&gt;  
+&lt;/head&gt;
+&lt;body class="index-page" data-page="index.html"&gt; &lt;!-- Merk: klasse for spesifikk styling --&gt;
+
+    &lt;!-- Hero-del med bakgrunnsbilde og tekst --&gt;
+    &lt;section class="index-hero-section"&gt;
+        &lt;div class="index-intro-container"&gt;
+            &lt;h1 class="index-title"&gt;Green Coding&lt;/h1&gt;
+            &lt;div class="index-intro-text"&gt;
+                The GreenCode Initiative works to promote sustainable and energy-efficient development practices within the software industry. Our goal is to raise awareness about green coding and inspire developers to create solutions that reduce environmental impact.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;/div&gt;
+    &lt;div class="meny-wrapper"&gt;
+        &lt;div class="tab-handle"&gt;&lt;/div&gt;
+        &lt;div class="meny"&gt;
+            &lt;h1 onclick="scrollToSection('mission')"&gt;♻️&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('importance')"&gt;🌍&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('action')"&gt;🧠&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('about')"&gt;🚀&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('leaderboard')"&gt;👑&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('newsletter')"&gt;🗞️&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="audio"&gt;
+        &lt;audio id="minLyd" preload="auto"&gt;
+        &lt;source src="indextts.mp3" type="audio/mpeg"&gt;
+        Nettleseren din støtter ikke lyd.
+    &lt;/audio&gt;
+    &lt;main id="index-main"&gt;
+    &lt;section class="index-vision"&gt;
+        &lt;div class="bilde-høyre"&gt;
+            &lt;div id="mission"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2 class="gronn-tittel"&gt;♻️ Our Mission&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('mission', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;         
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;p&gt;
+                We are committed to promoting sustainable programming practices that help reduce the environmental impact of digital technologies. As technology continues to evolve, so does its energy footprint — and developers have a key role in making the software industry more climate-conscious.
+                &lt;br&gt;&lt;br&gt;
+                Every line of code matters. Inefficient systems can waste significant energy over time, while well-structured and optimized solutions lead to better performance and lower emissions. By raising awareness and sharing tools, insights, and real-world examples, we aim to make green coding both accessible and actionable.
+                &lt;br&gt;&lt;br&gt;
+                Through collaboration and education, we empower developers and organizations to build cleaner, more efficient software. Greener code means faster apps, lower costs, and a healthier planet — one efficient line at a time.
+            &lt;/p&gt;
+            &lt;img src="/images/stock4.jpg"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-venstre"&gt;
+            &lt;div id="importance"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🌍 Why It Matters&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('importance', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;   
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;img src="/images/stock5.jpg"style="width: 350px; height: auto;"&gt;
+            &lt;p&gt;
+                Software may be virtual, but it depends entirely on physical infrastructure — real machines that consume real energy. Every inefficient loop, redundant task, or unnecessary request increases power usage and contributes to carbon emissions.
+                &lt;br&gt;&lt;br&gt;
+                What often feels like a small inefficiency in code can scale massively in production environments. Multiply that across millions of users, and the environmental impact becomes significant. 
+                &lt;br&gt;&lt;br&gt;
+                Sustainable programming tackles this hidden cost by improving efficiency, reducing hardware strain, and lowering energy demands. It supports a cleaner, faster, and more responsible future for technology.
+            &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-høyre"&gt;
+            &lt;div id="action"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🧠 What You Can Do&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('action', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;p&gt;
+                Developers have the power to shape more sustainable digital systems. Writing efficient, well-structured code is a simple but impactful way to cut down on unnecessary energy use.
+                &lt;br&gt;&lt;br&gt;
+                Choosing eco-friendly infrastructure and optimizing backend logic — such as minimizing server calls, reducing memory waste, or refining loops — can make a measurable difference in performance and power consumption.
+                &lt;br&gt;&lt;br&gt;
+                Embracing green coding isn’t just about helping the planet. It also leads to faster applications, lower operational costs, and codebases that are easier to maintain and scale.
+            &lt;/p&gt;
+            &lt;img src="/images/stock6.jpg"style="width: 500px; height: auto;"&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-venstre"&gt;
+            &lt;div id="about"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🚀 Our Project&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('about', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;img src="/images/stock7.jpg"style="width: 400px; height: auto;"&gt;
+            &lt;p&gt;
+                As IT students, we’ve taken on a project dedicated to exploring and promoting green coding practices in the tech industry. Our goal is to raise awareness about how software can be both effective and environmentally responsible.
+                &lt;br&gt;&lt;br&gt;
+                We’re building a platform that shares knowledge, practical tools, and case studies focused on sustainable software development. It’s a space for learning, inspiration, and real-world application.
+                &lt;br&gt;&lt;br&gt;
+                Through hands-on coding, research, and collaboration, we aim to support a more energy-conscious future in tech — and encourage others to join the movement toward greener code.
+            &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/section&gt;
+    &lt;div class="index-content-wrapper"&gt;
+
+        &lt;!-- Leaderboard --&gt;
+        &lt;div class="index-leaderboard"&gt;
+            &lt;div id="leaderboard"&gt;&lt;/div&gt;
+            &lt;h2 style="margin-left:-25px;"&gt;👑 Leaderboard&lt;/h2&gt;
+            &lt;table class="index-table"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Username&lt;/th&gt;
+                        &lt;th&gt;Score&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody id="index-leaderboard-body"&gt;
+                    &lt;!-- Fylles inn dynamisk --&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h2&gt;Take the quiz and earn points &lt;/h2&gt;
+            &lt;div class="quiz-reklame"&gt;
+                &lt;button class="reklame-btn" onclick="window.location.href='quiz.html'"&gt;Take the quiz here!&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Informasjonsposter --&gt;
+        &lt;div class="index-info-section"&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Efficient Coding&lt;/h2&gt;
+                &lt;p&gt;
+                    Write clean, readable, and efficient code to reduce unnecessary resource usage. Simple and well-structured solutions make systems easier to maintain and develop further, while also requiring less processing power.
+                    &lt;br&gt;&lt;br&gt;
+                    Optimize loops, avoid redundant operations, and choose algorithms and data structures that fit the task. Smart use of caching and reduced I/O usage can contribute to lower energy consumption and more sustainable software development.                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Sustainable Servers&lt;/h2&gt;
+                &lt;p&gt;
+                    Choose hosting services and data centers powered by renewable energy sources. Many providers now offer greener alternatives that significantly reduce the carbon footprint.
+                    &lt;br&gt;&lt;br&gt;
+                    Services like AWS, Google Cloud, and Azure have their own sustainability initiatives and offer options to select climate-friendly regions. Making conscious infrastructure choices can have a major impact on overall energy consumption.                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Energy-Efficient Backend&lt;/h2&gt;
+                &lt;p&gt;
+                    Reduce server load by using caching and minimizing unnecessary requests. This leads to faster response times and lower energy consumption.
+                    &lt;br&gt;&lt;br&gt;
+                    Optimize your database with indexing and efficient queries, and avoid heavy processing on the server side. Smart choices in backend architecture support both performance and sustainability.
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="bilde-høyre"&gt;
+        &lt;div id="newsletter"&gt;
+        &lt;h2 class="gronn-tittel"&gt;🗞️ Newsletter&lt;/h2&gt;
+        &lt;div class="tekst-og-bilde"&gt;
+        &lt;p&gt;
+            By subscribing to our newsletter, you’ll gain early access to curated articles, practical guides, and insights into how green coding is transforming the tech industry. Whether you’re a developer, designer, or tech enthusiast, our content is crafted to help you stay informed and inspired to build digital solutions that are both efficient and environmentally conscious.
+            &lt;br&gt;&lt;br&gt;
+            We highlight innovations, spotlight projects making a real difference, and share tips for reducing digital carbon footprints in your everyday work. From low-energy web design to sustainable backend practices, our goal is to make green tech approachable and actionable—directly to your inbox.
+            &lt;button class="newsletter" onclick="location.href='newsletter.html'"&gt;Sign up&lt;/button&gt;
+        &lt;/p&gt;
+        &lt;img src="/images/stock8.jpg"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/main&gt;
+
+&lt;div id="chatbot-placeholder"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+    &lt;script&gt;
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch("http://localhost:9090/api/score/leaderboard");
+                if (!response.ok) throw new Error("Kunne ikke hente leaderboard.");
+                
+                const data = await response.json();
+                const tableBody = document.getElementById("index-leaderboard-body");
+                tableBody.innerHTML = "";
+
+                data.forEach(player =&gt; {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        &lt;td&gt;${player.username}&lt;/td&gt;
+                        &lt;td&gt;${player.score}&lt;/td&gt;
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Feil ved henting av leaderboard:", error);
+            }
+        }
+        fetchLeaderboard();
+
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // Hvis seksjonen er "leaderboard", juster med ekstra scroll-margin
+            if (id === "leaderboard") {
+                const offset = 100; // justér etter behov
+                const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            } else {
+                // Standard scroll
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
+    function toggleLyd() {
+        const lyd = document.getElementById("minLyd");
+        if (lyd.paused) {
+            lyd.play()
+                .then(() =&gt; console.log("Spiller lyd 🎵"))
+                .catch(e =&gt; console.error("🚫 Klarte ikke å spille lyd:", e));
+        } else {
+            lyd.pause();
+            console.log("Lyd pauset ⏸️");
+        }
+    }
+    function toggleSectionDarkmode(id, btn) {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    // Finn containeren (bilde-høyre eller bilde-venstre)
+    const container = section.closest(".bilde-høyre, .bilde-venstre");
+    if (!container) return;
+
+    // Toggle darkmode på containeren
+    container.classList.toggle("darkmode-container");
+
+    // Toggle mørk tekst inni seksjonen (valgfritt hvis du vil ha separat stil)
+    section.classList.toggle("section-darkmode");
+
+    // Oppdater emoji
+    if (container.classList.contains("darkmode-container")) {
+        btn.textContent = "🔆"; // Light mode
+    } else {
+        btn.textContent = "🌙"; // Dark mode
+    }
+}
+
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>
+ </td>
+	</tr>
+</tbody></table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-2-confidence-2">
+					<h3>
+						<span>Risk</span>=<span class="risk-level">Medium</span>, <span>Confidence</span>=<span class="confidence-level">Medium</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:9090</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a href="#alert-type-1">Missing Anti-clickjacking Header</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:9090</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tbody><tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking">WSTG-v42-CLNT-09</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1021.html">CWE-1021</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The response does not protect against 'ClickJacking' attacks. It 
+should include either Content-Security-Policy with 'frame-ancestors' 
+directive or X-Frame-Options.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (228 bytes)</summary>
+				
+				<pre><code>GET http://localhost:9090 HTTP/1.1
+host: localhost:9090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (430 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Last-Modified: Mon, 07 Apr 2025 10:15:59 GMT
+Accept-Ranges: bytes
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Type: text/html
+Content-Language: nb-NO
+Content-Length: 14735
+Date: Mon, 07 Apr 2025 13:37:15 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (14735 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="no"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Green Code Tutorial&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="css/index.css"&gt;
+    &lt;link rel="stylesheet" href="css/header.css"&gt;
+    &lt;link rel="stylesheet" href="css/footer.css"&gt;
+    &lt;link rel="stylesheet" href="css/chatbot.css"&gt;
+
+    &lt;script src="/script/header.js" defer&gt;&lt;/script&gt;
+    &lt;script src="/script/footer.js" defer&gt;&lt;/script&gt;
+    &lt;script src="/script/chatbot.js" defer&gt;&lt;/script&gt;
+    &lt;link rel="icon" href="/images/favicon.ico" type="image/x-icon"&gt;
+    &lt;script type="text/javascript"&gt;
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qzyy0mjou3");
+    &lt;/script&gt;  
+&lt;/head&gt;
+&lt;body class="index-page" data-page="index.html"&gt; &lt;!-- Merk: klasse for spesifikk styling --&gt;
+
+    &lt;!-- Hero-del med bakgrunnsbilde og tekst --&gt;
+    &lt;section class="index-hero-section"&gt;
+        &lt;div class="index-intro-container"&gt;
+            &lt;h1 class="index-title"&gt;Green Coding&lt;/h1&gt;
+            &lt;div class="index-intro-text"&gt;
+                The GreenCode Initiative works to promote sustainable and energy-efficient development practices within the software industry. Our goal is to raise awareness about green coding and inspire developers to create solutions that reduce environmental impact.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;/div&gt;
+    &lt;div class="meny-wrapper"&gt;
+        &lt;div class="tab-handle"&gt;&lt;/div&gt;
+        &lt;div class="meny"&gt;
+            &lt;h1 onclick="scrollToSection('mission')"&gt;♻️&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('importance')"&gt;🌍&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('action')"&gt;🧠&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('about')"&gt;🚀&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('leaderboard')"&gt;👑&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('newsletter')"&gt;🗞️&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="audio"&gt;
+        &lt;audio id="minLyd" preload="auto"&gt;
+        &lt;source src="indextts.mp3" type="audio/mpeg"&gt;
+        Nettleseren din støtter ikke lyd.
+    &lt;/audio&gt;
+    &lt;main id="index-main"&gt;
+    &lt;section class="index-vision"&gt;
+        &lt;div class="bilde-høyre"&gt;
+            &lt;div id="mission"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2 class="gronn-tittel"&gt;♻️ Our Mission&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('mission', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;         
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;p&gt;
+                We are committed to promoting sustainable programming practices that help reduce the environmental impact of digital technologies. As technology continues to evolve, so does its energy footprint — and developers have a key role in making the software industry more climate-conscious.
+                &lt;br&gt;&lt;br&gt;
+                Every line of code matters. Inefficient systems can waste significant energy over time, while well-structured and optimized solutions lead to better performance and lower emissions. By raising awareness and sharing tools, insights, and real-world examples, we aim to make green coding both accessible and actionable.
+                &lt;br&gt;&lt;br&gt;
+                Through collaboration and education, we empower developers and organizations to build cleaner, more efficient software. Greener code means faster apps, lower costs, and a healthier planet — one efficient line at a time.
+            &lt;/p&gt;
+            &lt;img src="/images/stock4.jpg"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-venstre"&gt;
+            &lt;div id="importance"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🌍 Why It Matters&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('importance', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;   
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;img src="/images/stock5.jpg"style="width: 350px; height: auto;"&gt;
+            &lt;p&gt;
+                Software may be virtual, but it depends entirely on physical infrastructure — real machines that consume real energy. Every inefficient loop, redundant task, or unnecessary request increases power usage and contributes to carbon emissions.
+                &lt;br&gt;&lt;br&gt;
+                What often feels like a small inefficiency in code can scale massively in production environments. Multiply that across millions of users, and the environmental impact becomes significant. 
+                &lt;br&gt;&lt;br&gt;
+                Sustainable programming tackles this hidden cost by improving efficiency, reducing hardware strain, and lowering energy demands. It supports a cleaner, faster, and more responsible future for technology.
+            &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-høyre"&gt;
+            &lt;div id="action"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🧠 What You Can Do&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('action', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;p&gt;
+                Developers have the power to shape more sustainable digital systems. Writing efficient, well-structured code is a simple but impactful way to cut down on unnecessary energy use.
+                &lt;br&gt;&lt;br&gt;
+                Choosing eco-friendly infrastructure and optimizing backend logic — such as minimizing server calls, reducing memory waste, or refining loops — can make a measurable difference in performance and power consumption.
+                &lt;br&gt;&lt;br&gt;
+                Embracing green coding isn’t just about helping the planet. It also leads to faster applications, lower operational costs, and codebases that are easier to maintain and scale.
+            &lt;/p&gt;
+            &lt;img src="/images/stock6.jpg"style="width: 500px; height: auto;"&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-venstre"&gt;
+            &lt;div id="about"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🚀 Our Project&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('about', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;img src="/images/stock7.jpg"style="width: 400px; height: auto;"&gt;
+            &lt;p&gt;
+                As IT students, we’ve taken on a project dedicated to exploring and promoting green coding practices in the tech industry. Our goal is to raise awareness about how software can be both effective and environmentally responsible.
+                &lt;br&gt;&lt;br&gt;
+                We’re building a platform that shares knowledge, practical tools, and case studies focused on sustainable software development. It’s a space for learning, inspiration, and real-world application.
+                &lt;br&gt;&lt;br&gt;
+                Through hands-on coding, research, and collaboration, we aim to support a more energy-conscious future in tech — and encourage others to join the movement toward greener code.
+            &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/section&gt;
+    &lt;div class="index-content-wrapper"&gt;
+
+        &lt;!-- Leaderboard --&gt;
+        &lt;div class="index-leaderboard"&gt;
+            &lt;div id="leaderboard"&gt;&lt;/div&gt;
+            &lt;h2 style="margin-left:-25px;"&gt;👑 Leaderboard&lt;/h2&gt;
+            &lt;table class="index-table"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Username&lt;/th&gt;
+                        &lt;th&gt;Score&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody id="index-leaderboard-body"&gt;
+                    &lt;!-- Fylles inn dynamisk --&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h2&gt;Take the quiz and earn points &lt;/h2&gt;
+            &lt;div class="quiz-reklame"&gt;
+                &lt;button class="reklame-btn" onclick="window.location.href='quiz.html'"&gt;Take the quiz here!&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Informasjonsposter --&gt;
+        &lt;div class="index-info-section"&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Efficient Coding&lt;/h2&gt;
+                &lt;p&gt;
+                    Write clean, readable, and efficient code to reduce unnecessary resource usage. Simple and well-structured solutions make systems easier to maintain and develop further, while also requiring less processing power.
+                    &lt;br&gt;&lt;br&gt;
+                    Optimize loops, avoid redundant operations, and choose algorithms and data structures that fit the task. Smart use of caching and reduced I/O usage can contribute to lower energy consumption and more sustainable software development.                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Sustainable Servers&lt;/h2&gt;
+                &lt;p&gt;
+                    Choose hosting services and data centers powered by renewable energy sources. Many providers now offer greener alternatives that significantly reduce the carbon footprint.
+                    &lt;br&gt;&lt;br&gt;
+                    Services like AWS, Google Cloud, and Azure have their own sustainability initiatives and offer options to select climate-friendly regions. Making conscious infrastructure choices can have a major impact on overall energy consumption.                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Energy-Efficient Backend&lt;/h2&gt;
+                &lt;p&gt;
+                    Reduce server load by using caching and minimizing unnecessary requests. This leads to faster response times and lower energy consumption.
+                    &lt;br&gt;&lt;br&gt;
+                    Optimize your database with indexing and efficient queries, and avoid heavy processing on the server side. Smart choices in backend architecture support both performance and sustainability.
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="bilde-høyre"&gt;
+        &lt;div id="newsletter"&gt;
+        &lt;h2 class="gronn-tittel"&gt;🗞️ Newsletter&lt;/h2&gt;
+        &lt;div class="tekst-og-bilde"&gt;
+        &lt;p&gt;
+            By subscribing to our newsletter, you’ll gain early access to curated articles, practical guides, and insights into how green coding is transforming the tech industry. Whether you’re a developer, designer, or tech enthusiast, our content is crafted to help you stay informed and inspired to build digital solutions that are both efficient and environmentally conscious.
+            &lt;br&gt;&lt;br&gt;
+            We highlight innovations, spotlight projects making a real difference, and share tips for reducing digital carbon footprints in your everyday work. From low-energy web design to sustainable backend practices, our goal is to make green tech approachable and actionable—directly to your inbox.
+            &lt;button class="newsletter" onclick="location.href='newsletter.html'"&gt;Sign up&lt;/button&gt;
+        &lt;/p&gt;
+        &lt;img src="/images/stock8.jpg"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/main&gt;
+
+&lt;div id="chatbot-placeholder"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+    &lt;script&gt;
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch("http://localhost:9090/api/score/leaderboard");
+                if (!response.ok) throw new Error("Kunne ikke hente leaderboard.");
+                
+                const data = await response.json();
+                const tableBody = document.getElementById("index-leaderboard-body");
+                tableBody.innerHTML = "";
+
+                data.forEach(player =&gt; {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        &lt;td&gt;${player.username}&lt;/td&gt;
+                        &lt;td&gt;${player.score}&lt;/td&gt;
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Feil ved henting av leaderboard:", error);
+            }
+        }
+        fetchLeaderboard();
+
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // Hvis seksjonen er "leaderboard", juster med ekstra scroll-margin
+            if (id === "leaderboard") {
+                const offset = 100; // justér etter behov
+                const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            } else {
+                // Standard scroll
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
+    function toggleLyd() {
+        const lyd = document.getElementById("minLyd");
+        if (lyd.paused) {
+            lyd.play()
+                .then(() =&gt; console.log("Spiller lyd 🎵"))
+                .catch(e =&gt; console.error("🚫 Klarte ikke å spille lyd:", e));
+        } else {
+            lyd.pause();
+            console.log("Lyd pauset ⏸️");
+        }
+    }
+    function toggleSectionDarkmode(id, btn) {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    // Finn containeren (bilde-høyre eller bilde-venstre)
+    const container = section.closest(".bilde-høyre, .bilde-venstre");
+    if (!container) return;
+
+    // Toggle darkmode på containeren
+    container.classList.toggle("darkmode-container");
+
+    // Toggle mørk tekst inni seksjonen (valgfritt hvis du vil ha separat stil)
+    section.classList.toggle("section-darkmode");
+
+    // Oppdater emoji
+    if (container.classList.contains("darkmode-container")) {
+        btn.textContent = "🔆"; // Light mode
+    } else {
+        btn.textContent = "🌙"; // Dark mode
+    }
+}
+
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>x-frame-options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Modern Web browsers support the Content-Security-Policy and 
+X-Frame-Options HTTP headers. Ensure one of them is set on all web pages
+ returned by your site/app.</p>
+
+<p>If you expect the page to be framed only by pages on your server 
+(e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, 
+otherwise if you never expect the page to be framed, you should use 
+DENY. Alternatively consider implementing Content Security Policy's 
+"frame-ancestors" directive.</p>
+ </td>
+	</tr>
+</tbody></table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-1-confidence-2">
+					<h3>
+						<span>Risk</span>=<span class="risk-level">Low</span>, <span>Confidence</span>=<span class="confidence-level">Medium</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:9090</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a href="#alert-type-2">Cookie without SameSite Attribute</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:9090/robots.txt</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tbody><tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1275.html">CWE-1275</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>A cookie has been set without the SameSite attribute, which means 
+that the cookie can be sent as a result of a 'cross-site' request. The 
+SameSite attribute is an effective counter measure to cross-site request
+ forgery, cross-site script inclusion, and timing attacks.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (239 bytes)</summary>
+				
+				<pre><code>GET http://localhost:9090/robots.txt HTTP/1.1
+host: localhost:9090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (294 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 403
+Set-Cookie: JSESSIONID=55312604F78DB72D0DE6FB93054D39E7; Path=/; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 0
+Date: Mon, 07 Apr 2025 13:37:15 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>JSESSIONID</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Set-Cookie: JSESSIONID</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>
+ </td>
+	</tr>
+</tbody></table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				
+				
+				<li id="alerts--risk-0-confidence-2">
+					<h3>
+						<span>Risk</span>=<span class="risk-level">Informational</span>, <span>Confidence</span>=<span class="confidence-level">Medium</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:9090</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a href="#alert-type-3">Modern Web Application</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:9090</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tbody><tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The application appears to be a modern web application. If you need 
+to explore it automatically then the Ajax Spider may well be more 
+effective than the standard one.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>No links have been found while there are scripts, which is an indication that this is a modern web application.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (228 bytes)</summary>
+				
+				<pre><code>GET http://localhost:9090 HTTP/1.1
+host: localhost:9090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (430 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Last-Modified: Mon, 07 Apr 2025 10:15:59 GMT
+Accept-Ranges: bytes
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Type: text/html
+Content-Language: nb-NO
+Content-Length: 14735
+Date: Mon, 07 Apr 2025 13:37:15 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (14735 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="no"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Green Code Tutorial&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="css/index.css"&gt;
+    &lt;link rel="stylesheet" href="css/header.css"&gt;
+    &lt;link rel="stylesheet" href="css/footer.css"&gt;
+    &lt;link rel="stylesheet" href="css/chatbot.css"&gt;
+
+    &lt;script src="/script/header.js" defer&gt;&lt;/script&gt;
+    &lt;script src="/script/footer.js" defer&gt;&lt;/script&gt;
+    &lt;script src="/script/chatbot.js" defer&gt;&lt;/script&gt;
+    &lt;link rel="icon" href="/images/favicon.ico" type="image/x-icon"&gt;
+    &lt;script type="text/javascript"&gt;
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "qzyy0mjou3");
+    &lt;/script&gt;  
+&lt;/head&gt;
+&lt;body class="index-page" data-page="index.html"&gt; &lt;!-- Merk: klasse for spesifikk styling --&gt;
+
+    &lt;!-- Hero-del med bakgrunnsbilde og tekst --&gt;
+    &lt;section class="index-hero-section"&gt;
+        &lt;div class="index-intro-container"&gt;
+            &lt;h1 class="index-title"&gt;Green Coding&lt;/h1&gt;
+            &lt;div class="index-intro-text"&gt;
+                The GreenCode Initiative works to promote sustainable and energy-efficient development practices within the software industry. Our goal is to raise awareness about green coding and inspire developers to create solutions that reduce environmental impact.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;/div&gt;
+    &lt;div class="meny-wrapper"&gt;
+        &lt;div class="tab-handle"&gt;&lt;/div&gt;
+        &lt;div class="meny"&gt;
+            &lt;h1 onclick="scrollToSection('mission')"&gt;♻️&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('importance')"&gt;🌍&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('action')"&gt;🧠&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('about')"&gt;🚀&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('leaderboard')"&gt;👑&lt;/h1&gt;
+            &lt;h1 onclick="scrollToSection('newsletter')"&gt;🗞️&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="audio"&gt;
+        &lt;audio id="minLyd" preload="auto"&gt;
+        &lt;source src="indextts.mp3" type="audio/mpeg"&gt;
+        Nettleseren din støtter ikke lyd.
+    &lt;/audio&gt;
+    &lt;main id="index-main"&gt;
+    &lt;section class="index-vision"&gt;
+        &lt;div class="bilde-høyre"&gt;
+            &lt;div id="mission"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2 class="gronn-tittel"&gt;♻️ Our Mission&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('mission', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;         
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;p&gt;
+                We are committed to promoting sustainable programming practices that help reduce the environmental impact of digital technologies. As technology continues to evolve, so does its energy footprint — and developers have a key role in making the software industry more climate-conscious.
+                &lt;br&gt;&lt;br&gt;
+                Every line of code matters. Inefficient systems can waste significant energy over time, while well-structured and optimized solutions lead to better performance and lower emissions. By raising awareness and sharing tools, insights, and real-world examples, we aim to make green coding both accessible and actionable.
+                &lt;br&gt;&lt;br&gt;
+                Through collaboration and education, we empower developers and organizations to build cleaner, more efficient software. Greener code means faster apps, lower costs, and a healthier planet — one efficient line at a time.
+            &lt;/p&gt;
+            &lt;img src="/images/stock4.jpg"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-venstre"&gt;
+            &lt;div id="importance"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🌍 Why It Matters&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('importance', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;   
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;img src="/images/stock5.jpg"style="width: 350px; height: auto;"&gt;
+            &lt;p&gt;
+                Software may be virtual, but it depends entirely on physical infrastructure — real machines that consume real energy. Every inefficient loop, redundant task, or unnecessary request increases power usage and contributes to carbon emissions.
+                &lt;br&gt;&lt;br&gt;
+                What often feels like a small inefficiency in code can scale massively in production environments. Multiply that across millions of users, and the environmental impact becomes significant. 
+                &lt;br&gt;&lt;br&gt;
+                Sustainable programming tackles this hidden cost by improving efficiency, reducing hardware strain, and lowering energy demands. It supports a cleaner, faster, and more responsible future for technology.
+            &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-høyre"&gt;
+            &lt;div id="action"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🧠 What You Can Do&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('action', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;p&gt;
+                Developers have the power to shape more sustainable digital systems. Writing efficient, well-structured code is a simple but impactful way to cut down on unnecessary energy use.
+                &lt;br&gt;&lt;br&gt;
+                Choosing eco-friendly infrastructure and optimizing backend logic — such as minimizing server calls, reducing memory waste, or refining loops — can make a measurable difference in performance and power consumption.
+                &lt;br&gt;&lt;br&gt;
+                Embracing green coding isn’t just about helping the planet. It also leads to faster applications, lower operational costs, and codebases that are easier to maintain and scale.
+            &lt;/p&gt;
+            &lt;img src="/images/stock6.jpg"style="width: 500px; height: auto;"&gt;
+            &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="bilde-venstre"&gt;
+            &lt;div id="about"&gt;
+                &lt;div class="section-header"&gt;
+                    &lt;h2&gt;🚀 Our Project&lt;/h2&gt;
+                    &lt;div class="section-buttons"&gt;
+                        &lt;button class="darkmode-btn" onclick="toggleSectionDarkmode('about', this)"&gt;🌙&lt;/button&gt;
+                        &lt;button class="audioknapp" onclick="toggleLyd()" title="Read the whole page"&gt;🔊&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;div class="tekst-og-bilde"&gt;
+            &lt;img src="/images/stock7.jpg"style="width: 400px; height: auto;"&gt;
+            &lt;p&gt;
+                As IT students, we’ve taken on a project dedicated to exploring and promoting green coding practices in the tech industry. Our goal is to raise awareness about how software can be both effective and environmentally responsible.
+                &lt;br&gt;&lt;br&gt;
+                We’re building a platform that shares knowledge, practical tools, and case studies focused on sustainable software development. It’s a space for learning, inspiration, and real-world application.
+                &lt;br&gt;&lt;br&gt;
+                Through hands-on coding, research, and collaboration, we aim to support a more energy-conscious future in tech — and encourage others to join the movement toward greener code.
+            &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/section&gt;
+    &lt;div class="index-content-wrapper"&gt;
+
+        &lt;!-- Leaderboard --&gt;
+        &lt;div class="index-leaderboard"&gt;
+            &lt;div id="leaderboard"&gt;&lt;/div&gt;
+            &lt;h2 style="margin-left:-25px;"&gt;👑 Leaderboard&lt;/h2&gt;
+            &lt;table class="index-table"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Username&lt;/th&gt;
+                        &lt;th&gt;Score&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody id="index-leaderboard-body"&gt;
+                    &lt;!-- Fylles inn dynamisk --&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;h2&gt;Take the quiz and earn points &lt;/h2&gt;
+            &lt;div class="quiz-reklame"&gt;
+                &lt;button class="reklame-btn" onclick="window.location.href='quiz.html'"&gt;Take the quiz here!&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Informasjonsposter --&gt;
+        &lt;div class="index-info-section"&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Efficient Coding&lt;/h2&gt;
+                &lt;p&gt;
+                    Write clean, readable, and efficient code to reduce unnecessary resource usage. Simple and well-structured solutions make systems easier to maintain and develop further, while also requiring less processing power.
+                    &lt;br&gt;&lt;br&gt;
+                    Optimize loops, avoid redundant operations, and choose algorithms and data structures that fit the task. Smart use of caching and reduced I/O usage can contribute to lower energy consumption and more sustainable software development.                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Sustainable Servers&lt;/h2&gt;
+                &lt;p&gt;
+                    Choose hosting services and data centers powered by renewable energy sources. Many providers now offer greener alternatives that significantly reduce the carbon footprint.
+                    &lt;br&gt;&lt;br&gt;
+                    Services like AWS, Google Cloud, and Azure have their own sustainability initiatives and offer options to select climate-friendly regions. Making conscious infrastructure choices can have a major impact on overall energy consumption.                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="index-post"&gt;
+                &lt;h2&gt;Energy-Efficient Backend&lt;/h2&gt;
+                &lt;p&gt;
+                    Reduce server load by using caching and minimizing unnecessary requests. This leads to faster response times and lower energy consumption.
+                    &lt;br&gt;&lt;br&gt;
+                    Optimize your database with indexing and efficient queries, and avoid heavy processing on the server side. Smart choices in backend architecture support both performance and sustainability.
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="bilde-høyre"&gt;
+        &lt;div id="newsletter"&gt;
+        &lt;h2 class="gronn-tittel"&gt;🗞️ Newsletter&lt;/h2&gt;
+        &lt;div class="tekst-og-bilde"&gt;
+        &lt;p&gt;
+            By subscribing to our newsletter, you’ll gain early access to curated articles, practical guides, and insights into how green coding is transforming the tech industry. Whether you’re a developer, designer, or tech enthusiast, our content is crafted to help you stay informed and inspired to build digital solutions that are both efficient and environmentally conscious.
+            &lt;br&gt;&lt;br&gt;
+            We highlight innovations, spotlight projects making a real difference, and share tips for reducing digital carbon footprints in your everyday work. From low-energy web design to sustainable backend practices, our goal is to make green tech approachable and actionable—directly to your inbox.
+            &lt;button class="newsletter" onclick="location.href='newsletter.html'"&gt;Sign up&lt;/button&gt;
+        &lt;/p&gt;
+        &lt;img src="/images/stock8.jpg"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/main&gt;
+
+&lt;div id="chatbot-placeholder"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+    &lt;script&gt;
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch("http://localhost:9090/api/score/leaderboard");
+                if (!response.ok) throw new Error("Kunne ikke hente leaderboard.");
+                
+                const data = await response.json();
+                const tableBody = document.getElementById("index-leaderboard-body");
+                tableBody.innerHTML = "";
+
+                data.forEach(player =&gt; {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        &lt;td&gt;${player.username}&lt;/td&gt;
+                        &lt;td&gt;${player.score}&lt;/td&gt;
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Feil ved henting av leaderboard:", error);
+            }
+        }
+        fetchLeaderboard();
+
+    function scrollToSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // Hvis seksjonen er "leaderboard", juster med ekstra scroll-margin
+            if (id === "leaderboard") {
+                const offset = 100; // justér etter behov
+                const y = section.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            } else {
+                // Standard scroll
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
+    function toggleLyd() {
+        const lyd = document.getElementById("minLyd");
+        if (lyd.paused) {
+            lyd.play()
+                .then(() =&gt; console.log("Spiller lyd 🎵"))
+                .catch(e =&gt; console.error("🚫 Klarte ikke å spille lyd:", e));
+        } else {
+            lyd.pause();
+            console.log("Lyd pauset ⏸️");
+        }
+    }
+    function toggleSectionDarkmode(id, btn) {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    // Finn containeren (bilde-høyre eller bilde-venstre)
+    const container = section.closest(".bilde-høyre, .bilde-venstre");
+    if (!container) return;
+
+    // Toggle darkmode på containeren
+    container.classList.toggle("darkmode-container");
+
+    // Toggle mørk tekst inni seksjonen (valgfritt hvis du vil ha separat stil)
+    section.classList.toggle("section-darkmode");
+
+    // Oppdater emoji
+    if (container.classList.contains("darkmode-container")) {
+        btn.textContent = "🔆"; // Light mode
+    } else {
+        btn.textContent = "🌙"; // Dark mode
+    }
+}
+
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>&lt;script src="/script/header.js" defer&gt;&lt;/script&gt;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>This is an informational alert and so no changes are required.</p>
+ </td>
+	</tr>
+</tbody></table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a href="#alert-type-4">Session Management Response Identified</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:9090/sitemap.xml</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tbody><tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The given response has been identified as containing a session 
+management token. The 'Other Info' field contains a set of header tokens
+ that can be used in the Header Based Session Management Method. If the 
+request is in a context which has a Session Management Method set to 
+"Auto-Detect" then this rule will change the session management to use 
+the tokens identified.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>cookie:JSESSIONID</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (240 bytes)</summary>
+				
+				<pre><code>GET http://localhost:9090/sitemap.xml HTTP/1.1
+host: localhost:9090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (294 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 403
+Set-Cookie: JSESSIONID=900570D0CB1F92554321C66BCADE1D4B; Path=/; HttpOnly
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Length: 0
+Date: Mon, 07 Apr 2025 13:37:15 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>JSESSIONID</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>900570D0CB1F92554321C66BCADE1D4B</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>
+ </td>
+	</tr>
+</tbody></table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				
+				  
+			</ol>
+		</section>
+
+		<section id="appendix" class="appendix">
+			<h2>Appendix</h2>
+
+			<section id="alert-types" class="alert-types">
+				<h3>Alert types</h3>
+				<p class="alert-types-intro">This section contains additional information on the types of alerts in the report.</p>
+				<ol>
+					<li id="alert-type-0">
+						<h4>Content Security Policy (CSP) Header Not Set</h4>
+						<table class="alert-types-table">
+							<tbody><tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a href="https://www.zaproxy.org/docs/alerts/10038/">Content Security Policy (CSP) Header Not Set</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</a></li>
+										<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a></li>
+										<li><a href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a></li>
+										<li><a href="https://web.dev/articles/csp">https://web.dev/articles/csp</a></li>
+										<li><a href="https://caniuse.com/#feat=contentsecuritypolicy">https://caniuse.com/#feat=contentsecuritypolicy</a></li>
+										<li><a href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</tbody></table>
+					</li>
+					<li id="alert-type-1">
+						<h4>Missing Anti-clickjacking Header</h4>
+						<table class="alert-types-table">
+							<tbody><tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a href="https://www.zaproxy.org/docs/alerts/10020/">Anti-clickjacking Header</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a></li>
+									</ol>
+								</td>
+							</tr>
+						</tbody></table>
+					</li>
+					<li id="alert-type-2">
+						<h4>Cookie without SameSite Attribute</h4>
+						<table class="alert-types-table">
+							<tbody><tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a href="https://www.zaproxy.org/docs/alerts/10054/">Cookie without SameSite Attribute</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a href="https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site">https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</a></li>
+									</ol>
+								</td>
+							</tr>
+						</tbody></table>
+					</li>
+					<li id="alert-type-3">
+						<h4>Modern Web Application</h4>
+						<table class="alert-types-table">
+							<tbody><tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a href="https://www.zaproxy.org/docs/alerts/10109/">Modern Web Application</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							
+						</tbody></table>
+					</li>
+					<li id="alert-type-4">
+						<h4>Session Management Response Identified</h4>
+						<table class="alert-types-table">
+							<tbody><tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a href="https://www.zaproxy.org/docs/alerts/10112/">Session Management Response Identified</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</a></li>
+									</ol>
+								</td>
+							</tr>
+						</tbody></table>
+					</li>
+				</ol>
+			</section>
+		</section>
+		 
+	</main>
+
+
+
+
+
+</body></html>
